@@ -28,8 +28,8 @@ namespace ProcessAutomation.Main
         {
             if (webToRun.IndexOf(Constant.CAYBANG) != -1) cbCayBang.Checked = true;
             if (webToRun.IndexOf(Constant.HANHLANG) != -1) cbHanhLang.Checked = true;
-            if (webToRun.IndexOf(Constant.GIADINHVN) != -1) cbGiaDinh.Checked = true;
-            if (webToRun.IndexOf(Constant.NT30s) != -1) cb30s.Checked = true;
+            //if (webToRun.IndexOf(Constant.GIADINHVN) != -1) cbGiaDinh.Checked = true;
+            //if (webToRun.IndexOf(Constant.NT30s) != -1) cb30s.Checked = true;
 
             GetSettingMinimumMoney();
         }
@@ -39,8 +39,8 @@ namespace ProcessAutomation.Main
             webToRun = new List<string>();
             if (cbCayBang.Checked) webToRun.Add(Constant.CAYBANG);
             if (cbHanhLang.Checked) webToRun.Add(Constant.HANHLANG);
-            if (cbGiaDinh.Checked) webToRun.Add(Constant.GIADINHVN);
-            if (cb30s.Checked) webToRun.Add(Constant.NT30s);
+            //if (cbGiaDinh.Checked) webToRun.Add(Constant.GIADINHVN);
+            //if (cb30s.Checked) webToRun.Add(Constant.NT30s);
 
             var text = txtMoney_CB.Text;
             MongoDatabase<AdminSetting> database = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
@@ -54,7 +54,7 @@ namespace ProcessAutomation.Main
             database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                 && x.Key == Constant.HANHLANG, updateOption);
 
-             updateOption = Builders<AdminSetting>.Update
+            /* updateOption = Builders<AdminSetting>.Update
             .Set(p => p.Value, txtMoney_GD.Text.Replace(",", ""));
             database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                 && x.Key == Constant.GIADINHVN, updateOption);
@@ -63,7 +63,7 @@ namespace ProcessAutomation.Main
              .Set(p => p.Value, txtMoney_30s.Text.Replace(",", ""));
              database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                 && x.Key == Constant.NT30s, updateOption);
-
+*/
         }
 
         private void GetSettingMinimumMoney()
@@ -72,19 +72,19 @@ namespace ProcessAutomation.Main
             var minimumMoney = setting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME).ToList();
             if(minimumMoney.Count > 0)
             {
-                txtMoney_30s.Text = minimumMoney.Where(x => x.Key == Constant.NT30s).FirstOrDefault().Value;
+                //txtMoney_30s.Text = minimumMoney.Where(x => x.Key == Constant.NT30s).FirstOrDefault().Value;
                 txtMoney_CB.Text = minimumMoney.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
-                txtMoney_GD.Text = minimumMoney.Where(x => x.Key == Constant.GIADINHVN).FirstOrDefault().Value;
+                //txtMoney_GD.Text = minimumMoney.Where(x => x.Key == Constant.GIADINHVN).FirstOrDefault().Value;
                 txtMoney_HL.Text = minimumMoney.Where(x => x.Key == Constant.HANHLANG).FirstOrDefault().Value;
 
-                decimal value = decimal.Parse(txtMoney_30s.Text, System.Globalization.NumberStyles.AllowThousands);
-                txtMoney_30s.Text = String.Format(culture, "{0:N0}", value);
+                //decimal value = decimal.Parse(txtMoney_30s.Text, System.Globalization.NumberStyles.AllowThousands);
+                //txtMoney_30s.Text = String.Format(culture, "{0:N0}", value);
 
-                value = decimal.Parse(txtMoney_CB.Text, System.Globalization.NumberStyles.AllowThousands);
+                decimal value = decimal.Parse(txtMoney_CB.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoney_CB.Text = String.Format(culture, "{0:N0}", value);
 
-                value = decimal.Parse(txtMoney_GD.Text, System.Globalization.NumberStyles.AllowThousands);
-                txtMoney_GD.Text = String.Format(culture, "{0:N0}", value);
+                //value = decimal.Parse(txtMoney_GD.Text, System.Globalization.NumberStyles.AllowThousands);
+                //txtMoney_GD.Text = String.Format(culture, "{0:N0}", value);
 
                 value = decimal.Parse(txtMoney_HL.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoney_HL.Text = String.Format(culture, "{0:N0}", value);
