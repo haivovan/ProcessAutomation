@@ -20,7 +20,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string REG_EXTRACT_MONEY_TEMPLATE1 = @"(tang)+(.*?VND)";
         public const string REG_EXTRACT_MONEY_TEMPLATE2 = @"(\+ )+(.*? )";
         public const string REG_EXTRACT_ACCOUNT = @"(cb|hl|gd|nt| c b| h l| g d| n t|cb |hl |gd |nt | c b | h l | g d | n t )+(\d\d\d\d)";
-        public static List<string> WEBS_NAME = new List<string> { "cb", "hl", "gd", "nt" };
+        public static List<string> WEBS_NAME = new List<string> { "cb", "hl" };
         #endregion
 
         #region Limitation
@@ -36,8 +36,8 @@ namespace ProcessAutomation.Main.Ultility
         #region WebName
         public const string CAYBANG = "cb";
         public const string HANHLANG = "hl";
-        public const string GIADINHVN = "gd";
-        public const string NT30s = "nt";
+        //public const string GIADINHVN = "gd";
+        //public const string NT30s = "nt";
         #endregion
     }
 }

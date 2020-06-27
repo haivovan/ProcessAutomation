@@ -70,6 +70,7 @@
             this.cb30s.TabIndex = 25;
             this.cb30s.Text = "30s";
             this.cb30s.UseVisualStyleBackColor = true;
+            this.cb30s.Enabled = false;
             // 
             // cbGiaDinh
             // 
@@ -81,6 +82,7 @@
             this.cbGiaDinh.TabIndex = 26;
             this.cbGiaDinh.Text = "GiaDinhVina";
             this.cbGiaDinh.UseVisualStyleBackColor = true;
+            this.cbGiaDinh.Enabled = false;
             // 
             // cbHanhLang
             // 

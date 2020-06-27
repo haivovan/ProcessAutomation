@@ -49,7 +49,7 @@ namespace ProcessAutomation.Main.Ultility
         public async void sendMessageZalo(string message)
         {
             var database = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
-            List<AdminSetting> listZaloIdReceive = database.Query.Where(x => x.Key == "zalo").ToList();
+            List<AdminSetting> listZaloIdReceive = database.Query.Where(x => x.Name == "zalo").ToList();
             try
             {
                 foreach(var item in listZaloIdReceive)

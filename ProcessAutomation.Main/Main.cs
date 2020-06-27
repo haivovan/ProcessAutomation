@@ -296,7 +296,7 @@ namespace ProcessAutomation.Main
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
-                else if (listMessage.ContainsKey(Constant.GIADINHVN) && listMessage[Constant.GIADINHVN].Count > 0)
+                /*else if (listMessage.ContainsKey(Constant.GIADINHVN) && listMessage[Constant.GIADINHVN].Count > 0)
                 {
                     if (iAutomationPayin == null || !(iAutomationPayin is GDSite))
                     {
@@ -325,7 +325,7 @@ namespace ProcessAutomation.Main
                     listMessage.Remove(Constant.NT30s);
                     iAutomationPayin = null;
                     showSearchMessage();
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -366,7 +366,7 @@ namespace ProcessAutomation.Main
                 var database = new MongoDatabase<Message>(typeof(Message).Name);
                 List<Message> listMessge = database.Query
                     .Where(x => (web_listBox_filter.SelectedItems.Count == 0)
-                        || (web_listBox_filter.SelectedItems.Count == 4) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 2) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -475,17 +475,17 @@ namespace ProcessAutomation.Main
 
             web_listBox_filter.Items.Add(Constant.CAYBANG);
             web_listBox_filter.Items.Add(Constant.HANHLANG);
-            web_listBox_filter.Items.Add(Constant.GIADINHVN);
-            web_listBox_filter.Items.Add(Constant.NT30s);
+            //web_listBox_filter.Items.Add(Constant.GIADINHVN);
+            //web_listBox_filter.Items.Add(Constant.NT30s);
             web_listBox_filter.SetSelected(0, true);
             web_listBox_filter.SetSelected(1, true);
-            web_listBox_filter.SetSelected(2, true);
-            web_listBox_filter.SetSelected(3, true);
+            //web_listBox_filter.SetSelected(2, true);
+            //web_listBox_filter.SetSelected(3, true);
 
             messageContition.WebSRun.Add(Constant.CAYBANG);
-            messageContition.WebSRun.Add(Constant.NT30s);
+            //messageContition.WebSRun.Add(Constant.NT30s);
             messageContition.WebSRun.Add(Constant.HANHLANG);
-            messageContition.WebSRun.Add(Constant.GIADINHVN);
+            //messageContition.WebSRun.Add(Constant.GIADINHVN);
             cbStopAutoLoadMess.Checked = true;
             showSearchMessage();
         }
