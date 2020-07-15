@@ -12,6 +12,7 @@ public class AccountData
         IDAccount = string.Empty;
         Name = string.Empty;
         Phone = string.Empty;
+        BK = string.Empty;
         CB = string.Empty;
         HLC = string.Empty;
         GD = string.Empty;
@@ -22,6 +23,7 @@ public class AccountData
     public string IDAccount { get; set; }
     public string Name { get; set; }
     public string Phone { get; set; }
+    public string BK { get; set; }
     public string CB { get; set; }
     public string HLC { get; set; }
     public string GD { get; set; }

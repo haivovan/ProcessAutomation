@@ -211,6 +211,7 @@ namespace ProcessAutomation.Main
                 listMessage = GetMessageToRun();
                 if (listMessage.Count == 0)
                 {
+                    listMessage.Add(Constant.BANHKEO, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.CAYBANG, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.HANHLANG, new List<Message>() { new Message { IsKeepSession = true } });
                 }
@@ -278,6 +279,21 @@ namespace ProcessAutomation.Main
                         return;
 
                     listMessage.Remove(Constant.CAYBANG);
+                    iAutomationPayin = null;
+                    showSearchMessage();
+                }
+                else if(listMessage.ContainsKey(Constant.BANHKEO) && listMessage[Constant.BANHKEO].Count > 0)
+                {
+                    if (iAutomationPayin == null || !(iAutomationPayin is BKSite))
+                    {
+                        iAutomationPayin = new BKSite(new List<Message>(listMessage[Constant.BANHKEO]), webLayout);
+                        iAutomationPayin.startPayIN();
+                    }
+
+                    if (!iAutomationPayin.checkProcessDone())
+                        return;
+
+                    listMessage.Remove(Constant.BANHKEO);
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
@@ -366,7 +382,7 @@ namespace ProcessAutomation.Main
                 var database = new MongoDatabase<Message>(typeof(Message).Name);
                 List<Message> listMessge = database.Query
                     .Where(x => (web_listBox_filter.SelectedItems.Count == 0)
-                        || (web_listBox_filter.SelectedItems.Count == 2) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 3) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -473,15 +489,18 @@ namespace ProcessAutomation.Main
             isError_filter.Items.Add(new ComboboxItem() { Text = "Không", Value = false });
             isError_filter.SelectedIndex = 0;
 
+            web_listBox_filter.Items.Add(Constant.BANHKEO);
             web_listBox_filter.Items.Add(Constant.CAYBANG);
             web_listBox_filter.Items.Add(Constant.HANHLANG);
             //web_listBox_filter.Items.Add(Constant.GIADINHVN);
             //web_listBox_filter.Items.Add(Constant.NT30s);
             web_listBox_filter.SetSelected(0, true);
             web_listBox_filter.SetSelected(1, true);
+            web_listBox_filter.SetSelected(2, true);
             //web_listBox_filter.SetSelected(2, true);
             //web_listBox_filter.SetSelected(3, true);
 
+            messageContition.WebSRun.Add(Constant.BANHKEO);
             messageContition.WebSRun.Add(Constant.CAYBANG);
             //messageContition.WebSRun.Add(Constant.NT30s);
             messageContition.WebSRun.Add(Constant.HANHLANG);
