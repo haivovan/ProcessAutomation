@@ -214,6 +214,7 @@ namespace ProcessAutomation.Main
                     listMessage.Add(Constant.BANHKEO, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.CAYBANG, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.HANHLANG, new List<Message>() { new Message { IsKeepSession = true } });
+                    listMessage.Add(Constant.MH, new List<Message>() { new Message { IsKeepSession = true } });
                 }
                 isCurrentPayInProcessDone = false;
                 if (!timerCheckChildProcess.Enabled)
@@ -312,36 +313,21 @@ namespace ProcessAutomation.Main
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
-                /*else if (listMessage.ContainsKey(Constant.GIADINHVN) && listMessage[Constant.GIADINHVN].Count > 0)
+                else if (listMessage.ContainsKey(Constant.MH) && listMessage[Constant.MH].Count > 0)
                 {
-                    if (iAutomationPayin == null || !(iAutomationPayin is GDSite))
+                    if (iAutomationPayin == null || !(iAutomationPayin is MHSite))
                     {
-                        iAutomationPayin = new GDSite(new List<Message>(listMessage[Constant.GIADINHVN]), webLayout);
+                        iAutomationPayin = new MHSite(new List<Message>(listMessage[Constant.MH]), webLayout);
                         iAutomationPayin.startPayIN();
                     }
 
                     if (!iAutomationPayin.checkProcessDone())
                         return;
 
-                    listMessage.Remove(Constant.GIADINHVN);
+                    listMessage.Remove(Constant.MH);
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
-                else if (listMessage.ContainsKey(Constant.NT30s) && listMessage[Constant.NT30s].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is NT30sSite))
-                    {
-                        iAutomationPayin = new NT30sSite(new List<Message>(listMessage[Constant.NT30s]), webLayout);
-                        iAutomationPayin.startPayIN();
-                    }
-
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
-
-                    listMessage.Remove(Constant.NT30s);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }*/
             }
             catch (Exception ex)
             {
@@ -492,18 +478,19 @@ namespace ProcessAutomation.Main
             web_listBox_filter.Items.Add(Constant.BANHKEO);
             web_listBox_filter.Items.Add(Constant.CAYBANG);
             web_listBox_filter.Items.Add(Constant.HANHLANG);
+            web_listBox_filter.Items.Add(Constant.MH);
             //web_listBox_filter.Items.Add(Constant.GIADINHVN);
             //web_listBox_filter.Items.Add(Constant.NT30s);
             web_listBox_filter.SetSelected(0, true);
             web_listBox_filter.SetSelected(1, true);
             web_listBox_filter.SetSelected(2, true);
-            //web_listBox_filter.SetSelected(2, true);
-            //web_listBox_filter.SetSelected(3, true);
+            web_listBox_filter.SetSelected(3, true);
 
             messageContition.WebSRun.Add(Constant.BANHKEO);
             messageContition.WebSRun.Add(Constant.CAYBANG);
             //messageContition.WebSRun.Add(Constant.NT30s);
             messageContition.WebSRun.Add(Constant.HANHLANG);
+            messageContition.WebSRun.Add(Constant.MH);
             //messageContition.WebSRun.Add(Constant.GIADINHVN);
             cbStopAutoLoadMess.Checked = true;
             showSearchMessage();

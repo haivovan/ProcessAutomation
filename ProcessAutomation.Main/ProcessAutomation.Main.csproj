@@ -60,18 +60,6 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>C88D99584B5DA35FB0AB95A43B6D013EFB02EA5D</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>ProcessAutomation.Main_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Crc32C.NET, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Crc32C.NET.1.0.5.0\lib\net20\Crc32C.NET.dll</HintPath>
@@ -142,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PayIn\BKSite.cs" />
+    <Compile Include="PayIn\MHSite.cs" />
     <Compile Include="PayIn\GlobalCheck.cs" />
     <Compile Include="PayIn\MessageContition.cs" />
     <Compile Include="PayIn\NT30sSite.cs" />
