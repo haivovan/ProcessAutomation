@@ -164,7 +164,7 @@ namespace ProcessAutomation.Main.Services
                     if (decimal.TryParse(money, out outMoney))
                     {   
                         result.Money = outMoney.ToString();
-                        result.IsSatisfied = outMoney >= Constant.SATISFIED_PAYIN;
+                        result.IsSatisfied = (outMoney >= Constant.SATISFIED_PAYIN | result.Web == Constant.MH);
                     }
                 }
             }

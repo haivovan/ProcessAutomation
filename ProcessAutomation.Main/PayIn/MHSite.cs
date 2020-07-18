@@ -247,7 +247,7 @@ namespace ProcessAutomation.Main.PayIn
         {
             var htmlLogin = webLayout.Document;
             var inputNguoiNhan = htmlLogin.GetElementById("txtIdNguoiNhan");
-            inputNguoiNhan.SetAttribute("value", currentMessage.Account);
+            inputNguoiNhan.SetAttribute("value", web_name + currentMessage.Account);
 
             var inputSoTien = htmlLogin.GetElementsByTagName("input");
             foreach (HtmlElement item in inputSoTien)
@@ -261,51 +261,6 @@ namespace ProcessAutomation.Main.PayIn
             }
             var buttonChuyenTien = htmlLogin.GetElementById("chuyentien_btnOk");
             buttonChuyenTien.InvokeMember("CLick");
-        }
-
-        private bool CheckAmountAccount()
-        {
-            try
-            {
-                HtmlElement tdResult = null;
-                var html = webLayout.Document;
-                var table = html.GetElementsByTagName("table")[0];
-                var trs = table.GetElementsByTagName("tr");
-                foreach (HtmlElement tr in trs)
-                {
-                    var tds = tr.GetElementsByTagName("td");
-                    foreach (HtmlElement td in tds)
-                    {
-                        try
-                        {
-                            string value = td.InnerText;
-                            if (value != null && value.Contains("SỐ DƯ TÀI KHOẢN"))
-                            {
-                                tdResult = tds[1]; //[1] is amount of money
-                                break;
-                            }
-                        }
-                        catch
-                        {
-                            continue;
-                        }
-                    }
-                }
-                if (tdResult != null)
-                {
-                    var minimumMoney = adminSetting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME
-                                                            && x.Key == Constant.CAYBANG).FirstOrDefault();
-
-                    decimal outMoney = 0;
-                    return (decimal.TryParse(tdResult.InnerHtml.Replace("VNĐ", "").Trim(), out outMoney)
-                        && outMoney >= decimal.Parse(minimumMoney.Value));
-                }
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         private void PayIn()
@@ -348,13 +303,6 @@ namespace ProcessAutomation.Main.PayIn
                 }
             }
             return isSuccess;
-        }
-
-        private void PayInSubmit()
-        {
-            var html = webLayout.Document;
-            var btnAdd = html.GetElementById("add_money_button");
-            btnAdd.InvokeMember("Click");
         }
 
         private string checkAccountAdmin(ref AdminAccount account)

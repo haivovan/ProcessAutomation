@@ -368,7 +368,7 @@ namespace ProcessAutomation.Main
                 var database = new MongoDatabase<Message>(typeof(Message).Name);
                 List<Message> listMessge = database.Query
                     .Where(x => (web_listBox_filter.SelectedItems.Count == 0)
-                        || (web_listBox_filter.SelectedItems.Count == 3) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 4) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -379,8 +379,6 @@ namespace ProcessAutomation.Main
                     .Where(x => (isError_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Có") && !string.IsNullOrEmpty(x.Error))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Không") && string.IsNullOrEmpty(x.Error)))
-                    //.Where(x => (x.DateExcute > BsonDateTime.Create(dtExecuteDate_from_filter.Value)
-                    //            && x.DateExcute < BsonDateTime.Create(dtExecuteDate_to_filter.Value)))
 
                     .ToList();
 

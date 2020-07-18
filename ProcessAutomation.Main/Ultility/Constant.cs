@@ -20,7 +20,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string REG_EXTRACT_MONEY_TEMPLATE1 = @"(tang)+(.*?VND)";
         public const string REG_EXTRACT_MONEY_TEMPLATE2 = @"(\+ )+(.*? )";
         public const string REG_EXTRACT_ACCOUNT = @"(cb|hl|bk|gd|nt|mh| c b| h l| g d| b k| n t| m h|cb |hl |gd |nt |mh | c b | h l | g d | n t | m h )+(\d\d\d\d)";
-        public static List<string> WEBS_NAME = new List<string> { "cb", "hl", "bk" };
+        public static List<string> WEBS_NAME = new List<string> { "cb", "hl", "bk", "mh" };
         #endregion
 
         #region Limitation
