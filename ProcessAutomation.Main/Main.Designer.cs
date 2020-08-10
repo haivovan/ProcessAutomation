@@ -220,7 +220,8 @@
             // 
             // dateExecuteTo
             // 
-            this.dateExecuteTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateExecuteTo.CustomFormat = "dd/MM/yyyy";
+            this.dateExecuteTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateExecuteTo.Location = new System.Drawing.Point(580, 139);
             this.dateExecuteTo.Name = "dateExecuteTo";
             this.dateExecuteTo.Size = new System.Drawing.Size(150, 29);
@@ -239,8 +240,8 @@
             // 
             // dateExecuteFrom
             // 
-            this.dateExecuteFrom.CustomFormat = "";
-            this.dateExecuteFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateExecuteFrom.CustomFormat = "dd/MM/yyyy";
+            this.dateExecuteFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateExecuteFrom.Location = new System.Drawing.Point(354, 139);
             this.dateExecuteFrom.Name = "dateExecuteFrom";
             this.dateExecuteFrom.Size = new System.Drawing.Size(189, 29);

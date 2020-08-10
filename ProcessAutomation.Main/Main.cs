@@ -384,6 +384,7 @@ namespace ProcessAutomation.Main
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Không") && string.IsNullOrEmpty(x.Error)))
                     .ToList();
 
+                dataGridView1.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
                 dataGridView1.Columns[4].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 dataGridView1.Columns[4].Frozen = false;
                 dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
