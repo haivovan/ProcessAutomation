@@ -151,7 +151,7 @@ namespace ProcessAutomation.Main.PayIn
                             break;
                         case "PayIn":
                             PayIn();
-                            await Task.Delay(3000);
+                            await Task.Delay(5000);
 
                             var payInSuccess = CheckSuccessPayIn();
                             await Task.Delay(3000);
@@ -341,7 +341,7 @@ namespace ProcessAutomation.Main.PayIn
             var updateOption = Builders<Message>.Update
             .Set(p => p.IsProcessed, true)
             .Set(p => p.Error, error)
-            .Set(p => p.DateExcute, DateTime.Now);
+            .Set(p => p.DateExcute, DateTime.Now.Date);
 
             database.UpdateOne(x => x.Id == currentMessage.Id, updateOption);
         }

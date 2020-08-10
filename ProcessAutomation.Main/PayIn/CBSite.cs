@@ -488,7 +488,7 @@ namespace ProcessAutomation.Main.PayIn
             var updateOption = Builders<Message>.Update
             .Set(p => p.IsProcessed, true)
             .Set(p => p.Error, error)
-            .Set(p => p.DateExcute, DateTime.Now);
+            .Set(p => p.DateExcute, DateTime.Now.Date);
 
             database.UpdateOne(x => x.Id == currentMessage.Id, updateOption);
         }

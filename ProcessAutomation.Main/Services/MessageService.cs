@@ -86,6 +86,8 @@ namespace ProcessAutomation.Main.Services
                 var messageComing = 0;
                 if (matches.Count > 0)
                 {
+                    List<Message> temp = new List<Message>();
+                    var list5LatestMessage = database.Query.OrderByDescending(x => x.Id).Take(5).ToList();
                     foreach (Match match in matches)
                     {
                         var dataToWrite = new StringBuilder();
@@ -95,14 +97,23 @@ namespace ProcessAutomation.Main.Services
                             .Replace("+00", "")
                             .Replace("\"", "")
                             .Skip(1));
-                        
+
                         mess.MessageContent = match.Groups[6].Value.Trim();
-                        if (database.Query.Any(x =>
-                            x.RecievedDate.Equals(mess.RecievedDate) &&
+                        if (temp.Exists(x =>
                             x.Account.Equals(mess.Account) &&
                             x.Web.Equals(mess.Web) &&
                             x.Money.Equals(mess.Money) &&
-                            x.MessageContent.Equals(mess.MessageContent))) {
+                            x.MessageContent.Equals(mess.MessageContent)))
+                        {
+                            continue;
+                        }
+
+                        if (list5LatestMessage.Any(x =>
+                            x.Account.Equals(mess.Account) &&
+                            x.Web.Equals(mess.Web) &&
+                            x.Money.Equals(mess.Money) &&
+                            x.MessageContent.Equals(mess.MessageContent)))
+                        {
                             continue;
                         }
 
@@ -119,14 +130,16 @@ namespace ProcessAutomation.Main.Services
                             mess.MessageContent + Environment.NewLine
                         );
                         //messages.Add(mess);
+                        temp.Add(mess);
                         database.InsertOne(mess);
                         csvHelper.WriteToFile(dataToWrite, $"{DateTime.Now.ToString("dd-MM-yyyy")}.csv");
                         messageComing++;
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                var mess = ex.Message;
             }
         }
 
@@ -136,9 +149,10 @@ namespace ProcessAutomation.Main.Services
             try
             {
                 // Check account
-                var matches = new Regex(Constant.REG_EXTRACT_ACCOUNT, RegexOptions.IgnoreCase).Match(mess).Groups;
-                if (matches.Count > 0 && matches[1].Value != "")
+                var matchedRegex = CheckAccountPattern(mess);
+                if (!string.IsNullOrEmpty(matchedRegex))
                 {
+                    var matches = new Regex(matchedRegex, RegexOptions.IgnoreCase).Match(mess).Groups;
                     result.Web = Regex.Replace(matches[1].ToString(), @"\s+", "").ToLower();
                     result.Account = Regex.Replace(matches[2].ToString().Trim(), @"[^0-9]+", "");
                     result.IsSatisfied = Constant.WEBS_NAME
@@ -175,5 +189,22 @@ namespace ProcessAutomation.Main.Services
 
             return result;
         }
+
+        public string CheckAccountPattern(string mess)
+        {
+            var matches = new Regex(Constant.REG_EXTRACT_ACCOUNT1, RegexOptions.IgnoreCase).Match(mess).Groups;
+            if (matches.Count > 0 && matches[1].Value != "")
+            {
+                return Constant.REG_EXTRACT_ACCOUNT1;
+            }
+
+            matches = new Regex(Constant.REG_EXTRACT_ACCOUNT2, RegexOptions.IgnoreCase).Match(mess).Groups;
+            if (matches.Count > 0 && matches[1].Value != "")
+            {
+                return Constant.REG_EXTRACT_ACCOUNT2;
+            }
+
+            return string.Empty;
+        } 
     }
 }

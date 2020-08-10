@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 
-[BsonIgnoreExtraElements]
 public class Message
 {
     public Message()
@@ -27,6 +27,8 @@ public class Message
     public bool IsSatisfied { get; set; }
     public bool IsProcessed { get; set; }
     public string Error { get; set; }
-    public BsonDateTime DateExcute { get; set; }
+    [BsonElement]
+    [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+    public DateTime? DateExcute { get; set; }
     public bool IsKeepSession { get; set; }
 }

@@ -19,6 +19,8 @@ using System.Windows.Forms;
 using MongoDB.Bson.IO;
 using System.Media;
 using System.IO;
+using MongoDB.Driver.Builders;
+using System.Globalization;
 
 namespace ProcessAutomation.Main
 {
@@ -364,9 +366,10 @@ namespace ProcessAutomation.Main
                 {
                     selectedList.Add(item.ToString());
                 }
-
                 var database = new MongoDatabase<Message>(typeof(Message).Name);
                 List<Message> listMessge = database.Query
+                    .Where(x => (cbStopAutoLoadMess.Checked) || 
+                        (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
                     .Where(x => (web_listBox_filter.SelectedItems.Count == 0)
                         || (web_listBox_filter.SelectedItems.Count == 4) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
@@ -379,9 +382,7 @@ namespace ProcessAutomation.Main
                     .Where(x => (isError_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Có") && !string.IsNullOrEmpty(x.Error))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Không") && string.IsNullOrEmpty(x.Error)))
-
                     .ToList();
-
 
                 dataGridView1.Columns[4].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 dataGridView1.Columns[4].Frozen = false;
@@ -390,10 +391,21 @@ namespace ProcessAutomation.Main
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.DefaultCellStyle.Font = new Font("Tahoma", 12);
                 dataGridView1.ScrollBars = ScrollBars.Both;
-                dataGridView1.DataSource = listMessge.OrderByDescending(x => x.Id).Take(100).ToList();
+
+                if (cbStopAutoLoadMess.Checked)
+                {
+                    listMessge = listMessge.OrderByDescending(x => x.Id).Take(1000).ToList();
+                    txtTotal.Text = "... VND";
+                }
+                else
+                {
+                    listMessge = listMessge.OrderByDescending(x => x.Id).ToList();
+                    var total = listMessge.Sum(x => decimal.Parse(x.Money));
+                    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+                    txtTotal.Text = total.ToString("#,###", cul.NumberFormat)+ " VND";
+                }
+                dataGridView1.DataSource = listMessge;
             }));
-
-
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
