@@ -84,11 +84,11 @@ namespace ProcessAutomation.Main
 
         private void btnStartReadMessage_Click(object sender, EventArgs e)
         {
-            if (!serialPort.IsOpen)
-            {
-                MessageBox.Show("Chưa kết nối thiết bị");
-                return;
-            }
+            //if (!serialPort.IsOpen)
+            //{
+            //    MessageBox.Show("Chưa kết nối thiết bị");
+            //    return;
+            //}
 
             lblErrorReadMessage.Hide();
             lblReadMessageProgress.Show();
@@ -368,7 +368,7 @@ namespace ProcessAutomation.Main
                 }
                 var database = new MongoDatabase<Message>(typeof(Message).Name);
                 List<Message> listMessge = database.Query
-                    .Where(x => (cbStopAutoLoadMess.Checked) || 
+                    .Where(x => (cbStopAutoLoadMess.Checked) ||
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
                     .Where(x => (web_listBox_filter.SelectedItems.Count == 0)
                         || (web_listBox_filter.SelectedItems.Count == 4) || selectedList.Contains(x.Web))
@@ -401,7 +401,9 @@ namespace ProcessAutomation.Main
                 else
                 {
                     listMessge = listMessge.OrderByDescending(x => x.Id).ToList();
-                    var total = listMessge.Sum(x => decimal.Parse(x.Money));
+                    var total = listMessge.Sum(x =>
+                    decimal.TryParse(x.Money, out decimal val)
+                    ? val : 0);
                     CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
                     txtTotal.Text = total.ToString("#,###", cul.NumberFormat)+ " VND";
                 }
