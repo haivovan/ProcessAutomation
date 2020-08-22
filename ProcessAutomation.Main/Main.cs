@@ -370,8 +370,9 @@ namespace ProcessAutomation.Main
                 List<Message> listMessge = database.Query
                     .Where(x => (cbStopAutoLoadMess.Checked) ||
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
-                    .Where(x => (web_listBox_filter.SelectedItems.Count == 0)
-                        || (web_listBox_filter.SelectedItems.Count == 4) || selectedList.Contains(x.Web))
+                    .Where(x => 
+                    (web_listBox_filter.SelectedItems.Count == 1 && selectedList[0].Equals("Tất Cả"))
+                        || (web_listBox_filter.SelectedItems.Count == 5) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -488,16 +489,19 @@ namespace ProcessAutomation.Main
             isError_filter.Items.Add(new ComboboxItem() { Text = "Không", Value = false });
             isError_filter.SelectedIndex = 0;
 
+            web_listBox_filter.Items.Add(Constant.ALL);
             web_listBox_filter.Items.Add(Constant.BANHKEO);
             web_listBox_filter.Items.Add(Constant.CAYBANG);
             web_listBox_filter.Items.Add(Constant.HANHLANG);
             web_listBox_filter.Items.Add(Constant.MH);
+            
             //web_listBox_filter.Items.Add(Constant.GIADINHVN);
             //web_listBox_filter.Items.Add(Constant.NT30s);
             web_listBox_filter.SetSelected(0, true);
             web_listBox_filter.SetSelected(1, true);
             web_listBox_filter.SetSelected(2, true);
             web_listBox_filter.SetSelected(3, true);
+            web_listBox_filter.SetSelected(4, true);
 
             messageContition.WebSRun.Add(Constant.BANHKEO);
             messageContition.WebSRun.Add(Constant.CAYBANG);

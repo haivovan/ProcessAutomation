@@ -42,6 +42,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string CAYBANG = "cb";
         public const string HANHLANG = "hl";
         public const string MH = "mh";
+        public const string ALL = "Tất Cả";
         #endregion
     }
 }
