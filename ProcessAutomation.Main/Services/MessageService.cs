@@ -168,6 +168,11 @@ namespace ProcessAutomation.Main.Services
                         match = new Regex(Constant.REG_EXTRACT_MONEY_TEMPLATE2).Match(mess).Groups[2] ?? null;
                     }
 
+                    if (match.Length == 0)
+                    {
+                        match = new Regex(Constant.REG_EXTRACT_MONEY_TEMPLATE3).Match(mess).Groups[2] ?? null;
+                    } 
+
                     if (string.IsNullOrEmpty(match.Value))
                         return result;
 

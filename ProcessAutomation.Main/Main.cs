@@ -84,11 +84,11 @@ namespace ProcessAutomation.Main
 
         private void btnStartReadMessage_Click(object sender, EventArgs e)
         {
-            if (!serialPort.IsOpen)
-            {
-                MessageBox.Show("Chưa kết nối thiết bị");
-                return;
-            }
+            //if (!serialPort.IsOpen)
+            //{
+            //    MessageBox.Show("Chưa kết nối thiết bị");
+            //    return;
+            //}
 
             lblErrorReadMessage.Hide();
             lblReadMessageProgress.Show();
@@ -395,7 +395,7 @@ namespace ProcessAutomation.Main
 
                 if (cbStopAutoLoadMess.Checked)
                 {
-                    listMessge = listMessge.OrderByDescending(x => x.Id).Take(1000).ToList();
+                    listMessge = listMessge.OrderByDescending(x => x.Id).Take(200).ToList();
                     txtTotal.Text = "... VND";
                 }
                 else
