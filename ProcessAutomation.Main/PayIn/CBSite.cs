@@ -128,7 +128,7 @@ namespace ProcessAutomation.Main.PayIn
                             break;
                         case "CheckAmountAccount":
                             var isAmountEnough = CheckAmountAccount();
-                            await Task.Delay(3000);
+                            await Task.Delay(5000);
 
                             if (!isAmountEnough)
                             {
@@ -183,7 +183,7 @@ namespace ProcessAutomation.Main.PayIn
                             CreateSyncTask();
                             SearchUserClick(userAccount);
                             await tcs.Task;
-                            await Task.Delay(2000);
+                            await Task.Delay(3000);
 
                             process = "AccessToPayIn";
                             break;
@@ -223,7 +223,7 @@ namespace ProcessAutomation.Main.PayIn
                             CreateSyncTask();
                             PayInSubmit();
                             await tcs.Task;
-                            await Task.Delay(2000);
+                            await Task.Delay(5000);
 
                             if (!webLayout.Url.ToString().Contains(agencies_URL))
                             {

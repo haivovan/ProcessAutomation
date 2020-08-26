@@ -154,7 +154,7 @@ namespace ProcessAutomation.Main.PayIn
                             await Task.Delay(5000);
 
                             var payInSuccess = CheckSuccessPayIn();
-                            await Task.Delay(3000);
+                            await Task.Delay(5000);
 
                             if (!payInSuccess)
                             {
