@@ -233,14 +233,14 @@ namespace ProcessAutomation.Main.PayIn
 
                                 SendNotificationForError(
                                     "Cộng tiền không thành công",
-                                    $"{Constant.HANHLANG.ToUpper()} : Lỗi +{ currentMessage.Money } { currentMessage.Web }{ currentMessage.Account }");
+                                    $"{Constant.HANHLANG.ToUpper()} : Lỗi + { currentMessage.Money } { currentMessage.Web }{ currentMessage.Account }");
                             }
                             else
                             {
                                 SaveRecord();
                                 SendNotificationForError(
                                     "Cộng tiền thành công",
-                                    $"{Constant.HANHLANG.ToUpper()} : Đã +{ currentMessage.Money } { currentMessage.Web }{ currentMessage.Account }");
+                                    $"{Constant.HANHLANG.ToUpper()} : Đã + { currentMessage.Money } { currentMessage.Web }{ currentMessage.Account }");
                             }
 
                             data.Remove(currentMessage);
