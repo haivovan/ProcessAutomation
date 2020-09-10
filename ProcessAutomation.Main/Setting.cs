@@ -28,6 +28,8 @@ namespace ProcessAutomation.Main
         {
             if (webToRun.IndexOf(Constant.CAYBANG) != -1) cbCayBang.Checked = true;
             if (webToRun.IndexOf(Constant.BANHKEO) != -1) cbBanhKeo.Checked = true;
+            if (webToRun.IndexOf(Constant.MH) != -1) cb12c.Checked = true;
+            if (webToRun.IndexOf(Constant.BANHKEO) != -1) cbBanhKeo.Checked = true;
             if (webToRun.IndexOf(Constant.HANHLANG) != -1) cbHanhLang.Checked = true;
             //if (webToRun.IndexOf(Constant.GIADINHVN) != -1) cbGiaDinh.Checked = true;
             //if (webToRun.IndexOf(Constant.NT30s) != -1) cb30s.Checked = true;
@@ -40,6 +42,7 @@ namespace ProcessAutomation.Main
             webToRun = new List<string>();
             if (cbCayBang.Checked) webToRun.Add(Constant.CAYBANG);
             if (cbBanhKeo.Checked) webToRun.Add(Constant.BANHKEO);
+            if (cb12c.Checked) webToRun.Add(Constant.MH);
             if (cbHanhLang.Checked) webToRun.Add(Constant.HANHLANG);
             //if (cbGiaDinh.Checked) webToRun.Add(Constant.GIADINHVN);
             //if (cb30s.Checked) webToRun.Add(Constant.NT30s);
@@ -55,6 +58,11 @@ namespace ProcessAutomation.Main
             .Set(p => p.Value, txtMoney_BK.Text.Replace(",", ""));
             database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                 && x.Key == Constant.BANHKEO, updateOption);
+
+            updateOption = Builders<AdminSetting>.Update
+            .Set(p => p.Value, txtMoney_MH.Text.Replace(",", ""));
+            database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
+                                && x.Key == Constant.MH, updateOption);
 
             updateOption = Builders<AdminSetting>.Update
             .Set(p => p.Value, txtMoney_HL.Text.Replace(",", ""));
@@ -82,6 +90,7 @@ namespace ProcessAutomation.Main
                 //txtMoney_30s.Text = minimumMoney.Where(x => x.Key == Constant.NT30s).FirstOrDefault().Value;
                 txtMoney_CB.Text = minimumMoney.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
                 txtMoney_BK.Text = minimumMoney.Where(x => x.Key == Constant.BANHKEO).FirstOrDefault().Value;
+                txtMoney_MH.Text = minimumMoney.Where(x => x.Key == Constant.MH).FirstOrDefault().Value;
                 //txtMoney_GD.Text = minimumMoney.Where(x => x.Key == Constant.GIADINHVN).FirstOrDefault().Value;
                 txtMoney_HL.Text = minimumMoney.Where(x => x.Key == Constant.HANHLANG).FirstOrDefault().Value;
 
@@ -90,6 +99,9 @@ namespace ProcessAutomation.Main
 
                 decimal value = decimal.Parse(txtMoney_CB.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoney_CB.Text = String.Format(culture, "{0:N0}", value);
+
+                value = decimal.Parse(txtMoney_MH.Text, System.Globalization.NumberStyles.AllowThousands);
+                txtMoney_MH.Text = String.Format(culture, "{0:N0}", value);
 
                 value = decimal.Parse(txtMoney_BK.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoney_BK.Text = String.Format(culture, "{0:N0}", value);
@@ -113,6 +125,20 @@ namespace ProcessAutomation.Main
             catch
             {
                 txtMoney_CB.Text = String.Format(culture, "{0:N0}", 0);
+            }
+        }
+
+        private void txtMoney_MH_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal value = decimal.Parse(txtMoney_MH.Text,
+                System.Globalization.NumberStyles.AllowThousands);
+                txtMoney_MH.Text = String.Format(culture, "{0:N0}", value);
+            }
+            catch
+            {
+                txtMoney_MH.Text = String.Format(culture, "{0:N0}", 0);
             }
         }
 
