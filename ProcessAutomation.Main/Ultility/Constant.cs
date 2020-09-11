@@ -26,7 +26,7 @@ namespace ProcessAutomation.Main.Ultility
         #endregion
 
         #region Limitation
-        public const decimal SATISFIED_PAYIN = 20000;
+        public const decimal SATISFIED_PAYIN = 500000;
         public const decimal AMOUNT_ACCOUNT_CB = 1000000; //10000000
         public const decimal AMOUNT_ACCOUNT_BK = 1000000; //10000000
         public const decimal AMOUNT_ACCOUNT_HL = 1000000; //5000000

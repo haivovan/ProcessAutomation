@@ -84,11 +84,11 @@ namespace ProcessAutomation.Main
 
         private void btnStartReadMessage_Click(object sender, EventArgs e)
         {
-            if (!serialPort.IsOpen)
-            {
-                MessageBox.Show("Chưa kết nối thiết bị");
-                return;
-            }
+            //if (!serialPort.IsOpen)
+            //{
+            //    MessageBox.Show("Chưa kết nối thiết bị");
+            //    return;
+            //}
 
             lblErrorReadMessage.Hide();
             lblReadMessageProgress.Show();
