@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PayIn\BKSite.cs" />
+    <Compile Include="PayIn\LQSite.cs" />
     <Compile Include="PayIn\MHSite.cs" />
     <Compile Include="PayIn\GlobalCheck.cs" />
     <Compile Include="PayIn\MessageContition.cs" />

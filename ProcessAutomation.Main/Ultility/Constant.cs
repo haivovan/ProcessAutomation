@@ -20,9 +20,9 @@ namespace ProcessAutomation.Main.Ultility
         public const string REG_EXTRACT_MONEY_TEMPLATE1 = @"(tang)+(.*?VND)";
         public const string REG_EXTRACT_MONEY_TEMPLATE2 = @"(\+ )+(.*? )";
         public const string REG_EXTRACT_MONEY_TEMPLATE3 = @"(\+)+(.*?VND)";
-        public const string REG_EXTRACT_ACCOUNT1 = @"(cb|hl|bk|gd|nt|mh| c b| h l| g d| b k| n t| m h|cb |hl |gd |nt |mh | c b | h l | g d | n t | m h )+(\d\d\d\d)";
-        public const string REG_EXTRACT_ACCOUNT2 = @"(cb|hl|bk|gd|nt|mh)+(\d \d\d\d)";
-        public const string REG_EXTRACT_ACCOUNT3 = @"(cb|hl|bk|gd|nt|mh| c b| h l| g d| b k| n t| m h|cb |hl |gd |nt |mh | c b | h l | g d | n t | m h )+(\d\d \d\d)";
+        public const string REG_EXTRACT_ACCOUNT1 = @"(lq|cb|hl|bk|gd|nt|mh| l q| c b| h l| g d| b k| n t| m h|lq |cb |hl |gd |nt |mh | l q | c b | h l | g d | n t | m h )+(\d\d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT2 = @"(lq|cb|hl|bk|gd|nt|mh)+(\d \d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT3 = @"(lq|cb|hl|bk|gd|nt|mh| l q| c b| h l| g d| b k| n t| m h|lq |cb |hl |gd |nt |mh | l q | c b | h l | g d | n t | m h )+(\d\d \d\d)";
         public static List<string> WEBS_NAME = new List<string> { "cb", "hl", "bk", "mh" };
         #endregion
 
@@ -32,6 +32,7 @@ namespace ProcessAutomation.Main.Ultility
         public const decimal AMOUNT_ACCOUNT_BK = 1000000; //10000000
         public const decimal AMOUNT_ACCOUNT_HL = 1000000; //5000000
         public const decimal AMOUNT_ACCOUNT_MH = 1000000; //5000000
+        public const decimal AMOUNT_ACCOUNT_LQ = 1000000; //5000000
         public const decimal AMOUNT_ACCOUNT_GD = 0; //10000000
         public const decimal AMOUNT_ACCOUNT_NT = 0; //10000000
         public const decimal TEST_MONEY = 20000;
@@ -44,6 +45,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string HANHLANG = "hl";
         public const string MH = "mh";
         public const string ALL = "Tất Cả";
+        public const string LANQUEPHUONG = "lq";
         #endregion
     }
 }

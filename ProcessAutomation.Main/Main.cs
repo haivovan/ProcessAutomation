@@ -217,6 +217,7 @@ namespace ProcessAutomation.Main
                     listMessage.Add(Constant.CAYBANG, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.HANHLANG, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.MH, new List<Message>() { new Message { IsKeepSession = true } });
+                    listMessage.Add(Constant.LANQUEPHUONG, new List<Message>() { new Message { IsKeepSession = true } });
                 }
                 isCurrentPayInProcessDone = false;
                 if (!timerCheckChildProcess.Enabled)
@@ -285,7 +286,7 @@ namespace ProcessAutomation.Main
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
-                else if(listMessage.ContainsKey(Constant.BANHKEO) && listMessage[Constant.BANHKEO].Count > 0)
+                else if (listMessage.ContainsKey(Constant.BANHKEO) && listMessage[Constant.BANHKEO].Count > 0)
                 {
                     if (iAutomationPayin == null || !(iAutomationPayin is BKSite))
                     {
@@ -327,6 +328,21 @@ namespace ProcessAutomation.Main
                         return;
 
                     listMessage.Remove(Constant.MH);
+                    iAutomationPayin = null;
+                    showSearchMessage();
+                }
+                else if (listMessage.ContainsKey(Constant.LANQUEPHUONG) && listMessage[Constant.LANQUEPHUONG].Count > 0)
+                {
+                    if (iAutomationPayin == null || !(iAutomationPayin is LQSite))
+                    {
+                        iAutomationPayin = new LQSite(new List<Message>(listMessage[Constant.LANQUEPHUONG]), webLayout);
+                        iAutomationPayin.startPayIN();
+                    }
+
+                    if (!iAutomationPayin.checkProcessDone())
+                        return;
+
+                    listMessage.Remove(Constant.LANQUEPHUONG);
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
@@ -372,7 +388,7 @@ namespace ProcessAutomation.Main
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
                     .Where(x => 
                     (web_listBox_filter.SelectedItems.Count == 1 && selectedList[0].Equals("Tất Cả"))
-                        || (web_listBox_filter.SelectedItems.Count == 5) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 6) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -494,7 +510,8 @@ namespace ProcessAutomation.Main
             web_listBox_filter.Items.Add(Constant.CAYBANG);
             web_listBox_filter.Items.Add(Constant.HANHLANG);
             web_listBox_filter.Items.Add(Constant.MH);
-            
+            web_listBox_filter.Items.Add(Constant.LANQUEPHUONG);
+
             //web_listBox_filter.Items.Add(Constant.GIADINHVN);
             //web_listBox_filter.Items.Add(Constant.NT30s);
             web_listBox_filter.SetSelected(0, true);
@@ -502,12 +519,14 @@ namespace ProcessAutomation.Main
             web_listBox_filter.SetSelected(2, true);
             web_listBox_filter.SetSelected(3, true);
             web_listBox_filter.SetSelected(4, true);
+            web_listBox_filter.SetSelected(5, true);
 
             messageContition.WebSRun.Add(Constant.BANHKEO);
             messageContition.WebSRun.Add(Constant.CAYBANG);
             //messageContition.WebSRun.Add(Constant.NT30s);
             messageContition.WebSRun.Add(Constant.HANHLANG);
             messageContition.WebSRun.Add(Constant.MH);
+            messageContition.WebSRun.Add(Constant.LANQUEPHUONG);
             //messageContition.WebSRun.Add(Constant.GIADINHVN);
             cbStopAutoLoadMess.Checked = true;
             showSearchMessage();

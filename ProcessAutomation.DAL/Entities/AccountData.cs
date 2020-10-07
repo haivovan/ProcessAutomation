@@ -17,6 +17,7 @@ public class AccountData
         HLC = string.Empty;
         GD = string.Empty;
         NT = string.Empty;
+        LQ = string.Empty;
     }
 
     public ObjectId Id { get; set; }
@@ -28,4 +29,5 @@ public class AccountData
     public string HLC { get; set; }
     public string GD { get; set; }
     public string NT { get; set; }
+    public string LQ { get; set; }
 }

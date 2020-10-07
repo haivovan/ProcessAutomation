@@ -29,12 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbLanQuePhuong = new System.Windows.Forms.CheckBox();
             this.cb30s = new System.Windows.Forms.CheckBox();
             this.cbGiaDinh = new System.Windows.Forms.CheckBox();
+            this.cb12c = new System.Windows.Forms.CheckBox();
             this.cbHanhLang = new System.Windows.Forms.CheckBox();
             this.cbCayBang = new System.Windows.Forms.CheckBox();
             this.cbBanhKeo = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtMoney_LQ = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMoney_MH = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtMoney_30s = new System.Windows.Forms.TextBox();
             this.txtMoney_GD = new System.Windows.Forms.TextBox();
             this.txtMoney_HL = new System.Windows.Forms.TextBox();
@@ -46,15 +52,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.okBtn = new System.Windows.Forms.Button();
-            this.cb12c = new System.Windows.Forms.CheckBox();
-            this.txtMoney_MH = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbLanQuePhuong);
             this.groupBox1.Controls.Add(this.cb30s);
             this.groupBox1.Controls.Add(this.cbGiaDinh);
             this.groupBox1.Controls.Add(this.cb12c);
@@ -67,6 +71,18 @@
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cài Đặt Web Chạy";
+            // 
+            // cbLanQuePhuong
+            // 
+            this.cbLanQuePhuong.AutoSize = true;
+            this.cbLanQuePhuong.Enabled = false;
+            this.cbLanQuePhuong.Location = new System.Drawing.Point(11, 225);
+            this.cbLanQuePhuong.Margin = new System.Windows.Forms.Padding(6);
+            this.cbLanQuePhuong.Name = "cbLanQuePhuong";
+            this.cbLanQuePhuong.Size = new System.Drawing.Size(181, 29);
+            this.cbLanQuePhuong.TabIndex = 29;
+            this.cbLanQuePhuong.Text = "LanQuePhuong";
+            this.cbLanQuePhuong.UseVisualStyleBackColor = true;
             // 
             // cb30s
             // 
@@ -91,6 +107,17 @@
             this.cbGiaDinh.TabIndex = 26;
             this.cbGiaDinh.Text = "GiaDinhVina";
             this.cbGiaDinh.UseVisualStyleBackColor = true;
+            // 
+            // cb12c
+            // 
+            this.cb12c.AutoSize = true;
+            this.cb12c.Location = new System.Drawing.Point(159, 113);
+            this.cb12c.Margin = new System.Windows.Forms.Padding(6);
+            this.cb12c.Name = "cb12c";
+            this.cb12c.Size = new System.Drawing.Size(66, 29);
+            this.cb12c.TabIndex = 27;
+            this.cb12c.Text = "12c";
+            this.cb12c.UseVisualStyleBackColor = true;
             // 
             // cbHanhLang
             // 
@@ -127,6 +154,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtMoney_LQ);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtMoney_MH);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtMoney_30s);
@@ -141,14 +170,47 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(365, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(494, 326);
+            this.groupBox2.Size = new System.Drawing.Size(494, 390);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Số tiền tối thiếu";
             // 
+            // txtMoney_LQ
+            // 
+            this.txtMoney_LQ.Location = new System.Drawing.Point(190, 225);
+            this.txtMoney_LQ.Name = "txtMoney_LQ";
+            this.txtMoney_LQ.Size = new System.Drawing.Size(213, 31);
+            this.txtMoney_LQ.TabIndex = 6;
+            this.txtMoney_LQ.Leave += new System.EventHandler(this.txtMoney_LQ_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 231);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(162, 25);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "LanQuePhuong";
+            // 
+            // txtMoney_MH
+            // 
+            this.txtMoney_MH.Location = new System.Drawing.Point(190, 181);
+            this.txtMoney_MH.Name = "txtMoney_MH";
+            this.txtMoney_MH.Size = new System.Drawing.Size(213, 31);
+            this.txtMoney_MH.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 184);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 25);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "12c";
+            // 
             // txtMoney_30s
             // 
-            this.txtMoney_30s.Location = new System.Drawing.Point(190, 283);
+            this.txtMoney_30s.Location = new System.Drawing.Point(190, 323);
             this.txtMoney_30s.Name = "txtMoney_30s";
             this.txtMoney_30s.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_30s.TabIndex = 2;
@@ -156,7 +218,7 @@
             // 
             // txtMoney_GD
             // 
-            this.txtMoney_GD.Location = new System.Drawing.Point(190, 234);
+            this.txtMoney_GD.Location = new System.Drawing.Point(190, 274);
             this.txtMoney_GD.Name = "txtMoney_GD";
             this.txtMoney_GD.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_GD.TabIndex = 2;
@@ -184,12 +246,12 @@
             this.txtMoney_BK.Name = "txtMoney_BK";
             this.txtMoney_BK.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_BK.TabIndex = 1;
-            this.txtMoney_BK.Leave += new System.EventHandler(this.txtMoney_BK_Leave);
+            this.txtMoney_BK.Leave += new System.EventHandler(this.txtMoney_MH_Leave);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 289);
+            this.label4.Location = new System.Drawing.Point(24, 329);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 25);
             this.label4.TabIndex = 1;
@@ -198,7 +260,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 240);
+            this.label3.Location = new System.Drawing.Point(24, 280);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 25);
             this.label3.TabIndex = 1;
@@ -234,7 +296,7 @@
             // okBtn
             // 
             this.okBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okBtn.Location = new System.Drawing.Point(726, 344);
+            this.okBtn.Location = new System.Drawing.Point(724, 423);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(135, 34);
             this.okBtn.TabIndex = 27;
@@ -242,39 +304,11 @@
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
-            // cb12c
-            // 
-            this.cb12c.AutoSize = true;
-            this.cb12c.Location = new System.Drawing.Point(159, 113);
-            this.cb12c.Margin = new System.Windows.Forms.Padding(6);
-            this.cb12c.Name = "cb12c";
-            this.cb12c.Size = new System.Drawing.Size(66, 29);
-            this.cb12c.TabIndex = 27;
-            this.cb12c.Text = "12c";
-            this.cb12c.UseVisualStyleBackColor = true;
-            // 
-            // txtMoney_MH
-            // 
-            this.txtMoney_MH.Location = new System.Drawing.Point(190, 181);
-            this.txtMoney_MH.Name = "txtMoney_MH";
-            this.txtMoney_MH.Size = new System.Drawing.Size(213, 31);
-            this.txtMoney_MH.TabIndex = 4;
-            this.txtMoney_BK.Leave += new System.EventHandler(this.txtMoney_MH_Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 184);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 25);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "12c";
-            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 390);
+            this.ClientSize = new System.Drawing.Size(873, 469);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -317,5 +351,8 @@
         private System.Windows.Forms.CheckBox cb12c;
         private System.Windows.Forms.TextBox txtMoney_MH;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox cbLanQuePhuong;
+        private System.Windows.Forms.TextBox txtMoney_LQ;
+        private System.Windows.Forms.Label label7;
     }
 }
