@@ -75,7 +75,6 @@
             // cbLanQuePhuong
             // 
             this.cbLanQuePhuong.AutoSize = true;
-            this.cbLanQuePhuong.Enabled = false;
             this.cbLanQuePhuong.Location = new System.Drawing.Point(11, 225);
             this.cbLanQuePhuong.Margin = new System.Windows.Forms.Padding(6);
             this.cbLanQuePhuong.Name = "cbLanQuePhuong";
@@ -133,6 +132,7 @@
             // cbCayBang
             // 
             this.cbCayBang.AutoSize = true;
+            this.cbCayBang.Enabled = false;
             this.cbCayBang.Location = new System.Drawing.Point(159, 57);
             this.cbCayBang.Margin = new System.Windows.Forms.Padding(6);
             this.cbCayBang.Name = "cbCayBang";
