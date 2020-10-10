@@ -26,10 +26,10 @@ namespace ProcessAutomation.Main
 
         private void Setting_Load(object sender, EventArgs e)
         {
-            if (webToRun.IndexOf(Constant.CAYBANG) != -1) cbCayBang.Checked = true;
+            //if (webToRun.IndexOf(Constant.CAYBANG) != -1) cbCayBang.Checked = true;
             if (webToRun.IndexOf(Constant.BANHKEO) != -1) cbBanhKeo.Checked = true;
             if (webToRun.IndexOf(Constant.MH) != -1) cb12c.Checked = true;
-            if (webToRun.IndexOf(Constant.BANHKEO) != -1) cbBanhKeo.Checked = true;
+            //if (webToRun.IndexOf(Constant.BANHKEO) != -1) cbBanhKeo.Checked = true;
             if (webToRun.IndexOf(Constant.HANHLANG) != -1) cbHanhLang.Checked = true;
             if (webToRun.IndexOf(Constant.LANQUEPHUONG) != -1) cbLanQuePhuong.Checked = true;
             //if (webToRun.IndexOf(Constant.GIADINHVN) != -1) cbGiaDinh.Checked = true;

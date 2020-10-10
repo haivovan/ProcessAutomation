@@ -448,7 +448,7 @@ namespace ProcessAutomation.Main.PayIn
             var amount = html.GetElementById("Amount");
             var bonus = adminSetting.Query
                   .Where(x => x.Key == Constant.BONUS)
-                  .Where(x => x.Name == Constant.MH).FirstOrDefault().Value;
+                  .Where(x => x.Name == Constant.HANHLANG).FirstOrDefault().Value;
             var money = decimal.Parse(currentMessage.Money);
             var total = money + Math.Round(money * decimal.Parse(bonus) / 100);
 
