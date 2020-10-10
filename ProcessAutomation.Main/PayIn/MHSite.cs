@@ -254,7 +254,12 @@ namespace ProcessAutomation.Main.PayIn
                 var attr = item.GetAttribute("fname");
                 if (attr != null && attr == "sotien")
                 {
-                    item.SetAttribute("value", currentMessage.Money);
+                    var bonus = adminSetting.Query
+                    .Where(x => x.Key == Constant.BONUS)
+                    .Where(x => x.Name == Constant.MH).FirstOrDefault().Value;
+                    var money = decimal.Parse(currentMessage.Money);
+                    var total = money + Math.Round(money * decimal.Parse(bonus) / 100);
+                    item.SetAttribute("value", total.ToString());
                     break;
                 }
             }

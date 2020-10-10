@@ -36,6 +36,7 @@ namespace ProcessAutomation.Main
             //if (webToRun.IndexOf(Constant.NT30s) != -1) cb30s.Checked = true;
 
             GetSettingMinimumMoney();
+            GetSettingBonus();
         }
 
         private void okBtn_Click(object sender, EventArgs e)
@@ -76,6 +77,7 @@ namespace ProcessAutomation.Main
             database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                 && x.Key == Constant.LANQUEPHUONG, updateOption);
 
+
             /* updateOption = Builders<AdminSetting>.Update
             .Set(p => p.Value, txtMoney_GD.Text.Replace(",", ""));
             database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
@@ -85,7 +87,36 @@ namespace ProcessAutomation.Main
              .Set(p => p.Value, txtMoney_30s.Text.Replace(",", ""));
              database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                 && x.Key == Constant.NT30s, updateOption);
-*/
+            */
+            UpdateBonus(updateOption, database);
+        }
+        
+        private void UpdateBonus(UpdateDefinition<AdminSetting> updateOption, MongoDatabase<AdminSetting> database)
+        {
+            updateOption = Builders<AdminSetting>.Update
+           .Set(p => p.Value, txtBonus_CB.Text);
+            database.UpdateOne(x => x.Name == Constant.BONUS
+                                && x.Key == Constant.CAYBANG, updateOption);
+
+            updateOption = Builders<AdminSetting>.Update
+            .Set(p => p.Value, txtBonus_BK.Text);
+            database.UpdateOne(x => x.Name == Constant.BONUS
+                                && x.Key == Constant.BANHKEO, updateOption);
+
+            updateOption = Builders<AdminSetting>.Update
+            .Set(p => p.Value, txtBonus_MH.Text);
+            database.UpdateOne(x => x.Name == Constant.BONUS
+                                && x.Key == Constant.MH, updateOption);
+
+            updateOption = Builders<AdminSetting>.Update
+            .Set(p => p.Value, txtBonus_HL.Text);
+            database.UpdateOne(x => x.Name == Constant.BONUS
+                                && x.Key == Constant.HANHLANG, updateOption);
+
+            updateOption = Builders<AdminSetting>.Update
+            .Set(p => p.Value, txtBonus_LQ.Text);
+            database.UpdateOne(x => x.Name == Constant.BONUS
+                                && x.Key == Constant.LANQUEPHUONG, updateOption);
         }
 
         private void GetSettingMinimumMoney()
@@ -122,6 +153,28 @@ namespace ProcessAutomation.Main
 
                 value = decimal.Parse(txtMoney_LQ.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoney_LQ.Text = String.Format(culture, "{0:N0}", value);
+            }
+        }
+
+        private void GetSettingBonus()
+        {
+            var setting = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
+            var bonus = setting.Query.Where(x => x.Name == Constant.BONUS).ToList();
+            if (bonus.Count > 0)
+            {
+                //txtMoney_30s.Text = minimumMoney.Where(x => x.Key == Constant.NT30s).FirstOrDefault().Value;
+                txtBonus_CB.Text = bonus.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
+                txtBonus_BK.Text = bonus.Where(x => x.Key == Constant.BANHKEO).FirstOrDefault().Value;
+                txtBonus_MH.Text = bonus.Where(x => x.Key == Constant.MH).FirstOrDefault().Value;
+                //txtMoney_GD.Text = minimumMoney.Where(x => x.Key == Constant.GIADINHVN).FirstOrDefault().Value;
+                txtBonus_HL.Text = bonus.Where(x => x.Key == Constant.HANHLANG).FirstOrDefault().Value;
+                txtBonus_LQ.Text = bonus.Where(x => x.Key == Constant.LANQUEPHUONG).FirstOrDefault().Value;
+
+                txtBonus_CB.Text = decimal.Parse(txtBonus_CB.Text).ToString();
+                txtBonus_BK.Text = decimal.Parse(txtBonus_BK.Text).ToString();
+                txtBonus_MH.Text = decimal.Parse(txtBonus_MH.Text).ToString();
+                txtBonus_HL.Text = decimal.Parse(txtBonus_HL.Text).ToString();
+                txtBonus_LQ.Text = decimal.Parse(txtBonus_LQ.Text).ToString();
             }
         }
 

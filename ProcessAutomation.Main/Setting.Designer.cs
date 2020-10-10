@@ -37,6 +37,13 @@
             this.cbCayBang = new System.Windows.Forms.CheckBox();
             this.cbBanhKeo = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtBonus_30s = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_GD = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_LQ = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_MH = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_HL = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_BK = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_CB = new System.Windows.Forms.NumericUpDown();
             this.txtMoney_LQ = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMoney_MH = new System.Windows.Forms.TextBox();
@@ -52,8 +59,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.okBtn = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_30s)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_GD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_LQ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_MH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_HL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_BK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_CB)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -154,6 +170,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtBonus_30s);
+            this.groupBox2.Controls.Add(this.txtBonus_GD);
+            this.groupBox2.Controls.Add(this.txtBonus_LQ);
+            this.groupBox2.Controls.Add(this.txtBonus_MH);
+            this.groupBox2.Controls.Add(this.txtBonus_HL);
+            this.groupBox2.Controls.Add(this.txtBonus_BK);
+            this.groupBox2.Controls.Add(this.txtBonus_CB);
             this.groupBox2.Controls.Add(this.txtMoney_LQ);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtMoney_MH);
@@ -168,12 +191,102 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(365, 12);
+            this.groupBox2.Location = new System.Drawing.Point(365, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(494, 390);
+            this.groupBox2.Size = new System.Drawing.Size(586, 418);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Số tiền tối thiếu";
+            // 
+            // txtBonus_30s
+            // 
+            this.txtBonus_30s.DecimalPlaces = 1;
+            this.txtBonus_30s.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_30s.Location = new System.Drawing.Point(422, 323);
+            this.txtBonus_30s.Name = "txtBonus_30s";
+            this.txtBonus_30s.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_30s.TabIndex = 7;
+            // 
+            // txtBonus_GD
+            // 
+            this.txtBonus_GD.DecimalPlaces = 1;
+            this.txtBonus_GD.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_GD.Location = new System.Drawing.Point(422, 274);
+            this.txtBonus_GD.Name = "txtBonus_GD";
+            this.txtBonus_GD.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_GD.TabIndex = 7;
+            // 
+            // txtBonus_LQ
+            // 
+            this.txtBonus_LQ.DecimalPlaces = 1;
+            this.txtBonus_LQ.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_LQ.Location = new System.Drawing.Point(422, 225);
+            this.txtBonus_LQ.Name = "txtBonus_LQ";
+            this.txtBonus_LQ.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_LQ.TabIndex = 7;
+            // 
+            // txtBonus_MH
+            // 
+            this.txtBonus_MH.DecimalPlaces = 1;
+            this.txtBonus_MH.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_MH.Location = new System.Drawing.Point(422, 181);
+            this.txtBonus_MH.Name = "txtBonus_MH";
+            this.txtBonus_MH.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_MH.TabIndex = 7;
+            // 
+            // txtBonus_HL
+            // 
+            this.txtBonus_HL.DecimalPlaces = 1;
+            this.txtBonus_HL.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_HL.Location = new System.Drawing.Point(422, 129);
+            this.txtBonus_HL.Name = "txtBonus_HL";
+            this.txtBonus_HL.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_HL.TabIndex = 7;
+            // 
+            // txtBonus_BK
+            // 
+            this.txtBonus_BK.DecimalPlaces = 1;
+            this.txtBonus_BK.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_BK.Location = new System.Drawing.Point(422, 76);
+            this.txtBonus_BK.Name = "txtBonus_BK";
+            this.txtBonus_BK.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_BK.TabIndex = 7;
+            // 
+            // txtBonus_CB
+            // 
+            this.txtBonus_CB.DecimalPlaces = 1;
+            this.txtBonus_CB.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_CB.Location = new System.Drawing.Point(422, 24);
+            this.txtBonus_CB.Name = "txtBonus_CB";
+            this.txtBonus_CB.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_CB.TabIndex = 7;
             // 
             // txtMoney_LQ
             // 
@@ -212,6 +325,7 @@
             // 
             this.txtMoney_30s.Location = new System.Drawing.Point(190, 323);
             this.txtMoney_30s.Name = "txtMoney_30s";
+            this.txtMoney_30s.ReadOnly = true;
             this.txtMoney_30s.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_30s.TabIndex = 2;
             this.txtMoney_30s.Leave += new System.EventHandler(this.txtMoney_30s_Leave);
@@ -220,6 +334,7 @@
             // 
             this.txtMoney_GD.Location = new System.Drawing.Point(190, 274);
             this.txtMoney_GD.Name = "txtMoney_GD";
+            this.txtMoney_GD.ReadOnly = true;
             this.txtMoney_GD.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_GD.TabIndex = 2;
             this.txtMoney_GD.Leave += new System.EventHandler(this.txtMoney_GD_Leave);
@@ -296,7 +411,7 @@
             // okBtn
             // 
             this.okBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okBtn.Location = new System.Drawing.Point(724, 423);
+            this.okBtn.Location = new System.Drawing.Point(816, 449);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(135, 34);
             this.okBtn.TabIndex = 27;
@@ -304,11 +419,31 @@
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(568, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(182, 25);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Số Tiền Tối Thiểu";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(802, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 25);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Bonus";
+            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 469);
+            this.ClientSize = new System.Drawing.Size(960, 495);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -324,7 +459,15 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_30s)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_GD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_LQ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_MH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_HL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_BK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_CB)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -354,5 +497,14 @@
         private System.Windows.Forms.CheckBox cbLanQuePhuong;
         private System.Windows.Forms.TextBox txtMoney_LQ;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown txtBonus_30s;
+        private System.Windows.Forms.NumericUpDown txtBonus_GD;
+        private System.Windows.Forms.NumericUpDown txtBonus_LQ;
+        private System.Windows.Forms.NumericUpDown txtBonus_MH;
+        private System.Windows.Forms.NumericUpDown txtBonus_HL;
+        private System.Windows.Forms.NumericUpDown txtBonus_BK;
+        private System.Windows.Forms.NumericUpDown txtBonus_CB;
     }
 }
