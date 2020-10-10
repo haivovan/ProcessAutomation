@@ -255,8 +255,8 @@ namespace ProcessAutomation.Main.PayIn
                 if (attr != null && attr == "sotien")
                 {
                     var bonus = adminSetting.Query
-                    .Where(x => x.Key == Constant.BONUS)
-                    .Where(x => x.Name == Constant.MH).FirstOrDefault().Value;
+                    .Where(x => x.Name == Constant.BONUS)
+                    .Where(x => x.Key == Constant.MH).FirstOrDefault().Value;
                     var money = decimal.Parse(currentMessage.Money);
                     var total = money + Math.Round(money * decimal.Parse(bonus) / 100);
                     item.SetAttribute("value", total.ToString());
