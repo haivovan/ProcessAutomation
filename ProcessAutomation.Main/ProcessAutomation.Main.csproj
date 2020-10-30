@@ -100,6 +100,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SharpCompress, Version=0.23.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.23.0\lib\net45\SharpCompress.dll</HintPath>
     </Reference>
@@ -141,6 +144,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RegisterAccount\RegisterAccountModel.cs" />
+    <Compile Include="RegisterAccount\RegisterAccount_BKSite.cs" />
+    <Compile Include="RegisterAccount\RegisterAccount_HLCSite.cs" />
+    <Compile Include="RegisterAccount\IRegisterAccount.cs" />
+    <Compile Include="RegisterAccount\RegisterAccount_LQSite.cs" />
     <Compile Include="PayIn\BKSite.cs" />
     <Compile Include="PayIn\LQSite.cs" />
     <Compile Include="PayIn\MHSite.cs" />
@@ -150,6 +158,13 @@
     <Compile Include="PayIn\GDSite.cs" />
     <Compile Include="PayIn\HLCSite.cs" />
     <Compile Include="PayIn\CBSite.cs" />
+    <Compile Include="RegisterAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterAccount.Designer.cs">
+      <DependentUpon>RegisterAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +201,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RegisterAccount.resx">
+      <DependentUpon>RegisterAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>

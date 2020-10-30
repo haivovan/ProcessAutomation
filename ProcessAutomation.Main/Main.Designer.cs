@@ -70,6 +70,7 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShowHistory = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblReadMessageProgress = new System.Windows.Forms.Label();
             this.lblErrorReadMessage = new System.Windows.Forms.Label();
             this.btnStopReadMessage = new System.Windows.Forms.Button();
@@ -83,6 +84,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerCheckKeepSection = new System.Windows.Forms.Timer(this.components);
+            this.timerCheckNewAccount = new System.Windows.Forms.Timer(this.components);
             this.tabPayIn.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.tabReaMessage.SuspendLayout();
@@ -508,6 +510,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.lblReadMessageProgress);
             this.groupBox2.Controls.Add(this.lblErrorReadMessage);
             this.groupBox2.Controls.Add(this.btnStopReadMessage);
@@ -518,6 +521,16 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đọc Tin Nhắn";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(504, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(252, 107);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblReadMessageProgress
             // 
@@ -715,5 +728,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label txtTotal;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timerCheckNewAccount;
     }
 }

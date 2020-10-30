@@ -48,5 +48,11 @@ namespace ProcessAutomation.Main.Ultility
         public const string ALL = "Tất Cả";
         public const string LANQUEPHUONG = "lq";
         #endregion
+
+        #region RegisterAccount
+        public const string GET_NEW_ACCOUNT_URL = "https://checkcode.sinsudaidu.com/php/adddatactv.php";
+        public const string UPDATE_ACCOUNT_URL = "https://checkcode.sinsudaidu.com/php/updatedatactv.php";
+        public const string INTEREST = "1";
+        #endregion
     }
 }
