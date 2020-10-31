@@ -46,8 +46,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 624);
             this.Controls.Add(this.registerAccountBrowser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "RegisterAccount";
-            this.Text = "RegisterAccount";
+            this.Text = "Tạo Account";
             this.ResumeLayout(false);
 
         }

@@ -30,7 +30,7 @@ namespace ProcessAutomation.Main.Services
                 var content = response.Content;
 
                 registerModel = Newtonsoft.Json.JsonConvert.DeserializeObject<RegisterAccountModel>(content);
-                if (registerModel.Id == 0)
+                if (registerModel == null || registerModel.Id == 0)
                 {
                     return new RegisterAccountModel();
                 }

@@ -452,7 +452,7 @@ namespace ProcessAutomation.Main.PayIn
             var money = decimal.Parse(currentMessage.Money);
             var total = money + Math.Round(money * decimal.Parse(bonus) / 100);
 
-            amount.SetAttribute("value", total.ToString()); //TODO
+            amount.SetAttribute("value", total.ToString());
         }
 
         private void PayInSubmit()

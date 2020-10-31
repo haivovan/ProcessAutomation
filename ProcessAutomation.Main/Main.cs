@@ -88,11 +88,11 @@ namespace ProcessAutomation.Main
 
         private void btnStartReadMessage_Click(object sender, EventArgs e)
         {
-            if (!serialPort.IsOpen)
-            {
-                MessageBox.Show("Chưa kết nối thiết bị");
-                return;
-            }
+            //if (!serialPort.IsOpen)
+            //{
+            //    MessageBox.Show("Chưa kết nối thiết bị");
+            //    return;
+            //}
 
             lblErrorReadMessage.Hide();
             lblReadMessageProgress.Show();
@@ -245,76 +245,6 @@ namespace ProcessAutomation.Main
             catch (Exception)
             {
             }
-            
-            //RegisterAccountModel
-            //form.Dispose();
-            //timerCheckNewAccount.Stop();
-            //if (listMessage.Count == 0)
-            //{
-            //    isCurrentPayInProcessDone = true;
-            //    timerCheckChildProcess.Stop();
-            //    return;
-            //}
-
-            //if (listMessage.ContainsKey(Constant.CAYBANG) && listMessage[Constant.CAYBANG].Count > 0)
-            //{
-            //    if (iAutomationPayin == null || !(iAutomationPayin is CBSite))
-            //    {
-            //        iAutomationPayin = new CBSite(new List<Message>(listMessage[Constant.CAYBANG]), webLayout);
-            //        iAutomationPayin.startPayIN();
-            //    }
-
-            //    if (!iAutomationPayin.checkProcessDone())
-            //        return;
-
-            //    listMessage.Remove(Constant.CAYBANG);
-            //    iAutomationPayin = null;
-            //    showSearchMessage();
-            //}
-            //else if (listMessage.ContainsKey(Constant.BANHKEO) && listMessage[Constant.BANHKEO].Count > 0)
-            //{
-            //    if (iAutomationPayin == null || !(iAutomationPayin is BKSite))
-            //    {
-            //        iAutomationPayin = new BKSite(new List<Message>(listMessage[Constant.BANHKEO]), webLayout);
-            //        iAutomationPayin.startPayIN();
-            //    }
-
-            //    if (!iAutomationPayin.checkProcessDone())
-            //        return;
-
-            //    listMessage.Remove(Constant.BANHKEO);
-            //    iAutomationPayin = null;
-            //    showSearchMessage();
-            //}
-            //else if (listMessage.ContainsKey(Constant.HANHLANG) && listMessage[Constant.HANHLANG].Count > 0)
-            //{
-            //    if (iAutomationPayin == null || !(iAutomationPayin is HLCSite))
-            //    {
-            //        iAutomationPayin = new HLCSite(new List<Message>(listMessage[Constant.HANHLANG]), webLayout);
-            //        iAutomationPayin.startPayIN();
-            //    }
-
-            //    if (!iAutomationPayin.checkProcessDone())
-            //        return;
-
-            //    listMessage.Remove(Constant.HANHLANG);
-            //    iAutomationPayin = null;
-            //    showSearchMessage();
-            //}
-            //if (Application.OpenForms.OfType<RegisterAccount>().Any() && timerCount > 5) {
-            //    form.Dispose();
-            //    timerCheckNewAccount.Stop();
-            //}
-            //else if (!Application.OpenForms.OfType<RegisterAccount>().Any())
-            //{
-            //    form = new RegisterAccount();
-            //    form.webBrowser1.Navigate("http://www.google.com");
-            //    form.Show(this);
-            //}
-            //else
-            //{
-            //    timerCount++;
-            //}
         }
         private void StartLoginKeepSeciton(object sender, EventArgs e)
         {
@@ -597,7 +527,7 @@ namespace ProcessAutomation.Main
             timerCheckNewAccount = new System.Windows.Forms.Timer();
             timerCheckNewAccount.Interval = (5000);
             timerCheckNewAccount.Tick += new EventHandler(StartGettingAccountAndCreate);
-            //timerCheckNewAccount.Start();
+            timerCheckNewAccount.Start();
         }
 
         private void InitControl()
@@ -723,11 +653,6 @@ namespace ProcessAutomation.Main
                 byte[] hash = sha.ComputeHash(textData);
                 return BitConverter.ToString(hash).Replace("-", String.Empty).ToLower();
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            StartGettingAccountAndCreate(sender, e);
         }
     }
 }

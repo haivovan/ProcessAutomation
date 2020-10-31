@@ -237,9 +237,8 @@ namespace ProcessAutomation.Main.PayIn
 
             if (inputUserName != null && inputPassword != null)
             {
-                // ToDo
-                inputUserName.SetAttribute("value", "chaupm02");
-                inputPassword.SetAttribute("value", "Nkm++0000");
+                inputUserName.SetAttribute("value", adminAccount.AccountName);
+                inputPassword.SetAttribute("value", adminAccount.Password);
                 inputOTP.SetAttribute("value", otpValue);
                 btnLogin.InvokeMember("Click");
             }
