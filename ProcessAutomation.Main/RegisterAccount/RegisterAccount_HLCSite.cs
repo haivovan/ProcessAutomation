@@ -171,14 +171,14 @@ namespace ProcessAutomation.Main.PayIn
                                 var errorMessage = $"Tạo user { data.WebId + data.IdNumber } bị lỗi";
                                 SendNotificationForError(
                                     "Tạo user không thành công",
-                                    (string.IsNullOrEmpty(errorFromServerPhp) ? $"Có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
+                                    (!string.IsNullOrEmpty(errorFromServerPhp) ? $"Có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
                                     $"{Constant.HANHLANG.ToUpper()} : user { data.WebId + data.IdNumber } lỗi {errorFromCreation}");
                             }
                             else
                             {
                                 SendNotificationForError(
                                     $"Tạo user thành công cho web {Constant.HANHLANG.ToUpper()}",
-                                    (string.IsNullOrEmpty(errorFromServerPhp) ? $"Tạo thành công nhưng có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
+                                    (!string.IsNullOrEmpty(errorFromServerPhp) ? $"Tạo thành công nhưng có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
                                     $"Thông tin:" + Environment.NewLine +
                                     $"Họ tên" +
                                     $"Sdt: {data.Phone}" + Environment.NewLine +
