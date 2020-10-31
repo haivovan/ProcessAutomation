@@ -174,9 +174,10 @@ namespace ProcessAutomation.Main.PayIn
                                     $"Tạo user thành công cho web {Constant.LANQUEPHUONG.ToUpper()}",
                                     (!string.IsNullOrEmpty(errorFromServerPhp) ? $"Tạo thành công nhưng có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
                                     $"Thông tin:" + Environment.NewLine +
-                                    $"Họ tên" +
+                                    $"Họ tên: {data.Name}" + Environment.NewLine +
                                     $"Sdt: {data.Phone}" + Environment.NewLine +
                                     $"Tên web: {Constant.LANQUEPHUONG.ToUpper()} ({data.WebId})" + Environment.NewLine +
+                                    $"Link web: {url}" + Environment.NewLine +
                                     $"Tk: {data.WebId + data.IdNumber}" + Environment.NewLine +
                                     $"Mk: {data.Password}" + Environment.NewLine +
                                     $"Nội dung chuyển khoản nạp số dư: {data.WebId + data.IdNumber}" + Environment.NewLine +
@@ -374,7 +375,6 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                mailService.SendEmail(subject, message);
                 helper.sendMessageZalo(message);
             }
             catch (Exception ex)
