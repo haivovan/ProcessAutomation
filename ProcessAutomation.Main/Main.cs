@@ -88,11 +88,11 @@ namespace ProcessAutomation.Main
 
         private void btnStartReadMessage_Click(object sender, EventArgs e)
         {
-            //if (!serialPort.IsOpen)
-            //{
-            //    MessageBox.Show("Chưa kết nối thiết bị");
-            //    return;
-            //}
+            if (!serialPort.IsOpen)
+            {
+                MessageBox.Show("Chưa kết nối thiết bị");
+                return;
+            }
 
             lblErrorReadMessage.Hide();
             lblReadMessageProgress.Show();
@@ -226,15 +226,13 @@ namespace ProcessAutomation.Main
                 switch (registerModel.WebId.ToLower())
                 {
                     case Constant.BANHKEO:
-                        //new RegisterAccount_BKSite(registerModel); ToDo
-                        registerAccount = new RegisterAccount_HLCSite(registerModel);
+                        registerAccount = new RegisterAccount_BKSite(registerModel);
                         break;
                     case Constant.HANHLANG:
                         registerAccount = new RegisterAccount_HLCSite(registerModel);
                         break;
                     case Constant.LANQUEPHUONG:
-                        //new RegisterAccount_LQSite(registerModel);
-                        registerAccount = new RegisterAccount_HLCSite(registerModel);
+                        registerAccount = new RegisterAccount_LQSite(registerModel);
                         break;
                 }
 

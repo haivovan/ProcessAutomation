@@ -13,7 +13,7 @@ namespace ProcessAutomation.Main.PayIn
     public class RegisterAccount_HLCSite : IRegisterAccount
     {
         MailService mailService = new MailService();
-        AccountService accountSerice = new AccountService();
+        AccountService accountService = new AccountService();
         Helper helper = new Helper();
         private WebBrowser webLayout;
         private RegisterAccountModel data = new RegisterAccountModel();
@@ -345,7 +345,7 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                return accountSerice.UpdateAccountStatus(data.Id);
+                return accountService.UpdateAccountStatus(data.Id);
             }
             catch (Exception ex)
             {
