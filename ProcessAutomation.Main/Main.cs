@@ -525,7 +525,6 @@ namespace ProcessAutomation.Main
             timerCheckNewAccount = new System.Windows.Forms.Timer();
             timerCheckNewAccount.Interval = (5000);
             timerCheckNewAccount.Tick += new EventHandler(StartGettingAccountAndCreate);
-            timerCheckNewAccount.Start();
         }
 
         private void InitControl()
@@ -535,6 +534,7 @@ namespace ProcessAutomation.Main
             btnStopPayIn.Hide();
             lblReadMessageProgress.Hide();
             lblPayInProgress.Hide();
+            btnStopCreateAccount.Hide();
 
             isProcessed_filter.Items.Add(new ComboboxItem() { Text = "Tất Cả", Value = "" });
             isProcessed_filter.Items.Add(new ComboboxItem() { Text = "Rồi", Value = true });
@@ -651,6 +651,20 @@ namespace ProcessAutomation.Main
                 byte[] hash = sha.ComputeHash(textData);
                 return BitConverter.ToString(hash).Replace("-", String.Empty).ToLower();
             }
+        }
+
+        private void btnStartCreateAccount_Click(object sender, EventArgs e)
+        {
+            timerCheckNewAccount.Start();
+            btnStartCreateAccount.Hide();
+            btnStopCreateAccount.Show();
+        }
+
+        private void btnStopCreateAccount_Click(object sender, EventArgs e)
+        {
+            timerCheckNewAccount.Stop();
+            btnStopCreateAccount.Hide();
+            btnStartCreateAccount.Show();
         }
     }
 }

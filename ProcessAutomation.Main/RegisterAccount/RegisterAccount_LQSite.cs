@@ -158,16 +158,18 @@ namespace ProcessAutomation.Main.PayIn
                             await tcs.Task;
                             await Task.Delay(5000);
 
+                            var errorFromServerPhp = UpdateUserStatus();
                             if (!webLayout.Url.ToString().Contains(agencies_URL))
                             {
+                                var errorFromCreation = GetErrorFromCreation();
                                 var errorMessage = $"Tạo user { data.WebId + data.IdNumber } bị lỗi";
                                 SendNotificationForError(
                                     "Tạo user không thành công",
-                                    $"{Constant.LANQUEPHUONG.ToUpper()} : Lỗi tạo user { data.WebId + data.IdNumber }");
+                                    (string.IsNullOrEmpty(errorFromServerPhp) ? $"Có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
+                                    $"{Constant.LANQUEPHUONG.ToUpper()} : user { data.WebId + data.IdNumber } lỗi {errorFromCreation}");
                             }
                             else
                             {
-                                var errorFromServerPhp = UpdateUserStatus();
                                 SendNotificationForError(
                                     $"Tạo user thành công cho web {Constant.LANQUEPHUONG.ToUpper()}",
                                     (string.IsNullOrEmpty(errorFromServerPhp) ? $"Tạo thành công nhưng có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
@@ -347,6 +349,25 @@ namespace ProcessAutomation.Main.PayIn
             }
             return string.Empty;
         }
+
+        private string GetErrorFromCreation()
+        {
+            var html = webLayout.Document;
+            var form = html.GetElementsByTagName("form");
+            foreach (HtmlElement item in form)
+            {
+                var p = item.GetElementsByTagName("P");
+                foreach (HtmlElement temp in p)
+                {
+                    if (temp.InnerHtml.Contains("field-validation-error"))
+                    {
+                        return temp.InnerText;
+                    }
+                }
+            }
+            return "Lỗi không xác định";
+        }
+
 
         private void SendNotificationForError(string subject, string message)
         {

@@ -40,6 +40,9 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.SettingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabReaMessage = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnStopCreateAccount = new System.Windows.Forms.Button();
+            this.btnStartCreateAccount = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtTotal = new System.Windows.Forms.Label();
             this.dateExecuteTo = new System.Windows.Forms.DateTimePicker();
@@ -87,6 +90,7 @@
             this.tabPayIn.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.tabReaMessage.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -170,6 +174,7 @@
             // 
             // tabReaMessage
             // 
+            this.tabReaMessage.Controls.Add(this.groupBox4);
             this.tabReaMessage.Controls.Add(this.groupBox3);
             this.tabReaMessage.Controls.Add(this.groupBox2);
             this.tabReaMessage.Controls.Add(this.groupBox1);
@@ -181,6 +186,37 @@
             this.tabReaMessage.TabIndex = 0;
             this.tabReaMessage.Text = "Đọc Tin Nhắn";
             this.tabReaMessage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnStopCreateAccount);
+            this.groupBox4.Controls.Add(this.btnStartCreateAccount);
+            this.groupBox4.Location = new System.Drawing.Point(1100, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(335, 109);
+            this.groupBox4.TabIndex = 19;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Tạo Account";
+            // 
+            // btnStopCreateAccount
+            // 
+            this.btnStopCreateAccount.Location = new System.Drawing.Point(6, 37);
+            this.btnStopCreateAccount.Name = "btnStopCreateAccount";
+            this.btnStopCreateAccount.Size = new System.Drawing.Size(207, 38);
+            this.btnStopCreateAccount.TabIndex = 15;
+            this.btnStopCreateAccount.Text = "Dừng tạo tài khoản";
+            this.btnStopCreateAccount.UseVisualStyleBackColor = true;
+            this.btnStopCreateAccount.Click += new System.EventHandler(this.btnStopCreateAccount_Click);
+            // 
+            // btnStartCreateAccount
+            // 
+            this.btnStartCreateAccount.Location = new System.Drawing.Point(6, 37);
+            this.btnStartCreateAccount.Name = "btnStartCreateAccount";
+            this.btnStartCreateAccount.Size = new System.Drawing.Size(207, 38);
+            this.btnStartCreateAccount.TabIndex = 14;
+            this.btnStartCreateAccount.Text = "Bắt đầu tạo tài khoản";
+            this.btnStartCreateAccount.UseVisualStyleBackColor = true;
+            this.btnStartCreateAccount.Click += new System.EventHandler(this.btnStartCreateAccount_Click);
             // 
             // groupBox3
             // 
@@ -515,7 +551,7 @@
             this.groupBox2.Controls.Add(this.btnStartReadMessage);
             this.groupBox2.Location = new System.Drawing.Point(600, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(835, 109);
+            this.groupBox2.Size = new System.Drawing.Size(494, 109);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đọc Tin Nhắn";
@@ -647,6 +683,7 @@
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.tabReaMessage.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -717,5 +754,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label txtTotal;
         private System.Windows.Forms.Timer timerCheckNewAccount;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnStopCreateAccount;
+        private System.Windows.Forms.Button btnStartCreateAccount;
     }
 }
