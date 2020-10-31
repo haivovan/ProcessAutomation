@@ -25,16 +25,24 @@ namespace ProcessAutomation.Main.Services
             IRestRequest request = new RestRequest("get", Method.GET);
             IRestResponse response = client.Execute(request);
 
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            try
             {
-                var content = response.Content;
-
-                registerModel = Newtonsoft.Json.JsonConvert.DeserializeObject<RegisterAccountModel>(content);
-                if (registerModel == null || registerModel.Id == 0)
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return new RegisterAccountModel();
+                    var content = response.Content;
+                    if (content == "0")
+                        return new RegisterAccountModel();
+
+                    registerModel = Newtonsoft.Json.JsonConvert.DeserializeObject<RegisterAccountModel>(content);
+                    if (registerModel == null || registerModel.Id == 0)
+                        return new RegisterAccountModel();
                 }
             }
+            catch
+            {
+                return new RegisterAccountModel();
+            }
+           
             return registerModel;
         }
         public string UpdateAccountStatus(int id)

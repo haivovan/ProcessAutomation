@@ -22,4 +22,5 @@ public class RegisterAccountModel
     public string IdNumber { get; set; }
     public string Password { get; set; }
     public int Status { get; set; }
+    public string Percent { get; set; }
 }

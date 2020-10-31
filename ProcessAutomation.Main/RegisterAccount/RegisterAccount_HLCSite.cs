@@ -294,21 +294,22 @@ namespace ProcessAutomation.Main.PayIn
             var txtRateSMS = html.GetElementById("RateSMS");
             var txtRateKPlus = html.GetElementById("RateKPlus");
 
+            var bonus = data.Percent;
             txtUserName.SetAttribute("value", data.WebId + data.IdNumber);
             txtPassword.SetAttribute("value", data.Password);
             txtFullName.SetAttribute("value", data.Name);
             txtPhone.SetAttribute("value", data.Phone);
-            txtRateVT136.SetAttribute("value", Constant.INTEREST);
-            txtRateVT199.SetAttribute("value", Constant.INTEREST);
-            txtRateVT199.SetAttribute("value", Constant.INTEREST);
-            txtRateVTOrder.SetAttribute("value", Constant.INTEREST);
-            txtRateMobiOrder.SetAttribute("value", Constant.INTEREST);
-            txtRateVinaOrder.SetAttribute("value", Constant.INTEREST);
-            txtRateVT.SetAttribute("value", Constant.INTEREST);
-            txtRateMobi.SetAttribute("value", Constant.INTEREST);
-            txtRateVina.SetAttribute("value", Constant.INTEREST);
-            txtRateSMS.SetAttribute("value", Constant.INTEREST);
-            txtRateKPlus.SetAttribute("value", Constant.INTEREST);
+            txtRateVT136.SetAttribute("value", bonus);
+            txtRateVT199.SetAttribute("value", bonus);
+            txtRateVT199.SetAttribute("value", bonus);
+            txtRateVTOrder.SetAttribute("value", bonus);
+            txtRateMobiOrder.SetAttribute("value", bonus);
+            txtRateVinaOrder.SetAttribute("value", bonus);
+            txtRateVT.SetAttribute("value", bonus);
+            txtRateMobi.SetAttribute("value", bonus);
+            txtRateVina.SetAttribute("value", bonus);
+            txtRateSMS.SetAttribute("value", bonus);
+            txtRateKPlus.SetAttribute("value", bonus);
         }
 
         private void AddUser()
