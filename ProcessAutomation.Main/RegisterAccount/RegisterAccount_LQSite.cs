@@ -19,7 +19,7 @@ namespace ProcessAutomation.Main.PayIn
         private RegisterAccountModel data = new RegisterAccountModel();
         private RegisterAccount registerAccountForm;
         private const string web_name = "lanquephuong";
-        private const string url = "https://mibamien.club/Login";
+        private const string url = "https://mibamien.club/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";
