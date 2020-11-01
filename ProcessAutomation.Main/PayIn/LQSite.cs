@@ -90,7 +90,7 @@ namespace ProcessAutomation.Main.PayIn
                                 break;
                             }
 
-                            if (webLayout.Url.ToString() != index_URL)
+                            if (webLayout.Url.ToString() != index_URL && webLayout.Url.ToString() != url)
                             {
                                 SendNotificationForError(
                                         "Trang Web Không Truy Cập Được",
