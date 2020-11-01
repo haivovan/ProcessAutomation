@@ -292,7 +292,7 @@ namespace ProcessAutomation.Main.PayIn
             var inputOTP = htmlLogin.GetElementById("OTP");
             var btnLogin = htmlLogin.GetElementById("login");
             var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.BANHKEO).FirstOrDefault();
-            var otpValue = otpSetting.Value ?? string.Empty;
+            var otpValue = otpSetting?.Value ?? string.Empty;
 
             if (inputUserName != null && inputPassword != null)
             {
