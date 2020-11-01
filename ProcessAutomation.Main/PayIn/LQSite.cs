@@ -17,7 +17,7 @@ namespace ProcessAutomation.Main.PayIn
         private WebBrowser webLayout;
         private List<Message> data = new List<Message>();
         private const string web_name = "lanquephuong";
-        private const string url = "https://lanquephuong.club/";
+        private const string url = "https://mibamien.club/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";
