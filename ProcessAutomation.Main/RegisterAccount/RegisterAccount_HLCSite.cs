@@ -184,7 +184,7 @@ namespace ProcessAutomation.Main.PayIn
                                     $"Sdt: {data.Phone}" + Environment.NewLine +
                                     $"Tên web: {Constant.HANHLANG.ToUpper()} ({data.WebId})" + Environment.NewLine +
                                     $"Link web: {url}" + Environment.NewLine +
-                                    $"Tk: {data.WebId + data.IdNumber}" + Environment.NewLine +
+                                    $"Tk({data.GetLevel()}): {data.WebId + data.IdNumber}" + Environment.NewLine +
                                     $"Mk: {data.Password}" + Environment.NewLine +
                                     $"Nội dung chuyển khoản nạp số dư: {data.WebId + data.IdNumber}" + Environment.NewLine +
                                     $"STK VPBank: 97229748 - PHAN MINH CHÂU" + Environment.NewLine +

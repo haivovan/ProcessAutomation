@@ -23,4 +23,10 @@ public class RegisterAccountModel
     public string Password { get; set; }
     public int Status { get; set; }
     public string Percent { get; set; }
+    public string GetLevel()
+    {
+        var level = 0;
+        int.TryParse(this.Percent, out level);
+        return ("C" + (level + 1)).ToString();
+    }
 }
