@@ -215,6 +215,12 @@ namespace ProcessAutomation.Main.Services
                 return Constant.REG_EXTRACT_ACCOUNT3;
             }
 
+            matches = new Regex(Constant.REG_EXTRACT_ACCOUNT4, RegexOptions.IgnoreCase).Match(mess).Groups;
+            if (matches.Count > 0 && matches[1].Value != "")
+            {
+                return Constant.REG_EXTRACT_ACCOUNT4;
+            }
+
             return string.Empty;
         } 
     }

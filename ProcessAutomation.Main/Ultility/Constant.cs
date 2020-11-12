@@ -23,6 +23,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string REG_EXTRACT_ACCOUNT1 = @"(lq|cb|hl|bk|gd|nt|mh| l q| c b| h l| g d| b k| n t| m h|lq |cb |hl |gd |nt |mh | l q | c b | h l | g d | n t | m h )+(\d\d\d\d)";
         public const string REG_EXTRACT_ACCOUNT2 = @"(lq|cb|hl|bk|gd|nt|mh)+(\d \d\d\d)";
         public const string REG_EXTRACT_ACCOUNT3 = @"(lq|cb|hl|bk|gd|nt|mh| l q| c b| h l| g d| b k| n t| m h|lq |cb |hl |gd |nt |mh | l q | c b | h l | g d | n t | m h )+(\d\d \d\d)";
+        public const string REG_EXTRACT_ACCOUNT4 = @"(lq|cb|hl|bk|gd|nt|mh)+( \d\d\d\d)";
         public static List<string> WEBS_NAME = new List<string> { "cb", "hl", "bk", "mh", "lq" };
         #endregion
 
