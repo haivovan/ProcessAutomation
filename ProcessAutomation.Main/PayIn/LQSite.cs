@@ -5,6 +5,7 @@ using ProcessAutomation.Main.Ultility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -384,8 +385,16 @@ namespace ProcessAutomation.Main.PayIn
                     var minimumMoney = adminSetting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                                             && x.Key == Constant.LANQUEPHUONG).FirstOrDefault();
 
+                    var temp = tdResult.InnerHtml;
+                    var matches = new Regex(Constant.REG_EXTRACT_SO_DU, RegexOptions.IgnoreCase).Match(temp).Groups;
+                    if (matches.Count < 2)
+                    {
+                        return false;
+                    }
+
+                    var money = matches[1].ToString();
                     decimal outMoney = 0;
-                    return (decimal.TryParse(tdResult.InnerHtml.Replace("VNĐ", "").Trim(), out outMoney)
+                    return (decimal.TryParse(money.Replace("VNĐ", "").Trim(), out outMoney)
                         && outMoney >= decimal.Parse(minimumMoney.Value));
                 }
                 return false;
