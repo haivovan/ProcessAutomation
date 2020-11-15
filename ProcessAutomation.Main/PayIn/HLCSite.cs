@@ -384,7 +384,7 @@ namespace ProcessAutomation.Main.PayIn
                 {
                     var minimumMoney = adminSetting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                                             && x.Key == Constant.HANHLANG).FirstOrDefault();
-                    var temp = tdResult.InnerHtml;
+                    var temp = tdResult.InnerText;
                     var matches = new Regex(Constant.REG_EXTRACT_SO_DU, RegexOptions.IgnoreCase).Match(temp).Groups;
                     if (matches.Count < 2)
                     {
