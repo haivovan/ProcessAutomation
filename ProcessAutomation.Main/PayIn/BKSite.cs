@@ -229,6 +229,9 @@ namespace ProcessAutomation.Main.PayIn
                             PayIn();
                             await Task.Delay(5000);
 
+                            var userName = GetUserName();
+                            await Task.Delay(2000);
+
                             CreateSyncTask();
                             PayInSubmit();
                             await tcs.Task;
@@ -241,7 +244,7 @@ namespace ProcessAutomation.Main.PayIn
 
                                 SendNotificationForError(
                                      "Cộng tiền không thành công",
-                                     $"{Constant.BANHKEO.ToUpper()} : Lỗi + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account }");
+                                     $"{Constant.BANHKEO.ToUpper()} : Lỗi + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account } ({ userName })");
                             }
                             else
                             {
@@ -249,7 +252,7 @@ namespace ProcessAutomation.Main.PayIn
                                 SaveRecord();
                                 SendNotificationForError(
                                      "Cộng tiền thành công",
-                                     $"{Constant.BANHKEO.ToUpper()} : Đã + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account }, SD: { helper.GetMoneyFormat(moneyAfterPay.ToString()) } ");
+                                     $"{Constant.BANHKEO.ToUpper()} : Đã + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account } ({ userName }), SD: { helper.GetMoneyFormat(moneyAfterPay.ToString()) } ");
                             }
 
                             data.Remove(currentMessage);
@@ -469,6 +472,46 @@ namespace ProcessAutomation.Main.PayIn
             var total = money + Math.Round(money * decimal.Parse(bonus) / 100);
 
             amount.SetAttribute("value", total.ToString());
+        }
+
+        private string GetUserName()
+        {
+            try
+            {
+                HtmlElement tdResult = null;
+                var html = webLayout.Document;
+                var table = html.GetElementsByTagName("table")[0];
+                var trs = table.GetElementsByTagName("tr");
+                foreach (HtmlElement tr in trs)
+                {
+                    var tds = tr.GetElementsByTagName("td");
+                    foreach (HtmlElement td in tds)
+                    {
+                        try
+                        {
+                            string value = td.InnerText;
+                            if (value != null && value.Contains("TÀI KHOẢN"))
+                            {
+                                tdResult = tds[1];
+                                break;
+                            }
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                    }
+                }
+                if (tdResult != null)
+                {
+                    return tdResult.InnerText;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return string.Empty;
         }
 
         private void PayInSubmit()
