@@ -83,7 +83,7 @@ namespace ProcessAutomation.Main
         private void UpdateBonus(UpdateDefinition<AdminSetting> updateOption, MongoDatabase<AdminSetting> database)
         {
             updateOption = Builders<AdminSetting>.Update
-           .Set(p => p.Value, txtMoney_CB.Text);
+           .Set(p => p.Value, txtBonus_CB.Text);
             database.UpdateOne(x => x.Name == Constant.BONUS
                                 && x.Key == Constant.CAYBANG, updateOption);
 
