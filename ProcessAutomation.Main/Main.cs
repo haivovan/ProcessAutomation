@@ -541,6 +541,7 @@ namespace ProcessAutomation.Main
             timerCheckNewOTP = new System.Windows.Forms.Timer();
             timerCheckNewOTP.Interval = (30000);
             timerCheckNewOTP.Tick += new EventHandler(StartCheckingNewOTP);
+            timerCheckNewOTP.Start();
         }
 
         private void InitControl()
