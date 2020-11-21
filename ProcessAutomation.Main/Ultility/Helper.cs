@@ -83,6 +83,32 @@ namespace ProcessAutomation.Main.Ultility
 
         }
 
+        public async void sendMessageTelegram(string message)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var url = "https://api.telegram.org/bot" + Constant.TELEGRAM_TOKEN + "/sendMessage";
+                    HttpResponseMessage response = client.PostAsync(url,
+                        new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(
+                        new
+                        {
+                            chat_id = Constant.CHAT_ID1,
+                            text = message
+                        }),
+                        Encoding.UTF8, "application/json")
+                    ).Result;
+                    var customerJsonString = response.Content.ReadAsStringAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
         public string GetMoneyFormat(string money)
         {
             System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");            

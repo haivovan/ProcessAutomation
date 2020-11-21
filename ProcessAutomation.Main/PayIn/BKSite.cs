@@ -499,6 +499,7 @@ namespace ProcessAutomation.Main.PayIn
             {
                 mailService.SendEmail(subject, message);
                 helper.sendMessageZalo(message);
+                helper.sendMessageTelegram(message);
             }
             catch (Exception ex)
             {

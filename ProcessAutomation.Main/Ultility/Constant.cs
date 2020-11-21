@@ -63,5 +63,11 @@ namespace ProcessAutomation.Main.Ultility
         public const string OTP = "otp";
         public const string GET_OTP_URL = "https://checkcode.sinsudaidu.com/php/getotp.php";
         #endregion
+
+        #region Telegram
+        public const string TELEGRAM_TOKEN = "1493452165:AAHf2jkrJWT5cE2ly4WJYIGK9DhLJSAc87k";
+        public const string CHAT_ID1 = "-378039836";
+        #endregion
+
     }
 }
