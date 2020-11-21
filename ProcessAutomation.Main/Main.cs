@@ -538,9 +538,9 @@ namespace ProcessAutomation.Main
             timerCheckNewAccount.Interval = (5000);
             timerCheckNewAccount.Tick += new EventHandler(StartGettingAccountAndCreate);
 
-            timerCheckNewAccount = new System.Windows.Forms.Timer();
-            timerCheckNewAccount.Interval = (30000);
-            timerCheckNewAccount.Tick += new EventHandler(StartCheckingNewOTP);
+            timerCheckNewOTP = new System.Windows.Forms.Timer();
+            timerCheckNewOTP.Interval = (30000);
+            timerCheckNewOTP.Tick += new EventHandler(StartCheckingNewOTP);
         }
 
         private void InitControl()
