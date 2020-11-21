@@ -83,8 +83,9 @@ namespace ProcessAutomation.Main.Ultility
 
         }
 
-        public async void sendMessageTelegram(string message)
+        public async void sendMessageTelegram(string message, string chatId = Constant.CHAT_ID_GROUP)
         {
+            message = "test send registered account";
             try
             {
                 using (var client = new HttpClient())
@@ -94,7 +95,7 @@ namespace ProcessAutomation.Main.Ultility
                         new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(
                         new
                         {
-                            chat_id = Constant.CHAT_ID1,
+                            chat_id = chatId,
                             text = message
                         }),
                         Encoding.UTF8, "application/json")

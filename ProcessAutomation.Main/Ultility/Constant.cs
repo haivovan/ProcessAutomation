@@ -66,7 +66,8 @@ namespace ProcessAutomation.Main.Ultility
 
         #region Telegram
         public const string TELEGRAM_TOKEN = "1493452165:AAHf2jkrJWT5cE2ly4WJYIGK9DhLJSAc87k";
-        public const string CHAT_ID1 = "-378039836";
+        public const string CHAT_ID_GROUP = "-378039836";
+        public const string CHAT_ID_CHAU = "755964496";
         #endregion
 
     }
