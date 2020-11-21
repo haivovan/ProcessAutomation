@@ -89,8 +89,6 @@ namespace ProcessAutomation.Main
 
         private void btnStartReadMessage_Click(object sender, EventArgs e)
         {
-            Helper a = new Helper();
-            a.sendMessageTelegram("");
             if (!serialPort.IsOpen)
             {
                 MessageBox.Show("Chưa kết nối thiết bị");

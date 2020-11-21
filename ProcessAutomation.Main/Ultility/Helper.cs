@@ -85,7 +85,6 @@ namespace ProcessAutomation.Main.Ultility
 
         public async void sendMessageTelegram(string message, string chatId = Constant.CHAT_ID_GROUP)
         {
-            message = "test send registered account";
             try
             {
                 using (var client = new HttpClient())
