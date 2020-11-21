@@ -150,6 +150,8 @@ namespace ProcessAutomation.Main.PayIn
                             {
                                 Globals.isSentNotification_BK = false;
                             }
+
+                            moneyLeft = currentMoney;
                             process = "AccessToDaily";
                             break;
                         case "AccessToDaily":
