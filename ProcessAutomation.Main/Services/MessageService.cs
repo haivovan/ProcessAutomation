@@ -183,7 +183,16 @@ namespace ProcessAutomation.Main.Services
                     if (decimal.TryParse(money, out outMoney))
                     {   
                         result.Money = outMoney.ToString();
-                        result.IsSatisfied = (outMoney >= Constant.SATISFIED_PAYIN | result.Web == Constant.MH);
+
+                        var setting = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
+                        var minPayMoney = setting.Query
+                            .Where(x => x.Name == Constant.MINIMUM_PAY_MONEY_NAME)
+                            .Where(x => x.Key.ToLower() == result.Web).FirstOrDefault();
+
+                        if (minPayMoney != null)
+                        {
+                            result.IsSatisfied = (outMoney >= decimal.Parse(minPayMoney.Value));
+                        }    
                     }
                 }
             }

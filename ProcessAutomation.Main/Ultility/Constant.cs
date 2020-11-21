@@ -40,6 +40,7 @@ namespace ProcessAutomation.Main.Ultility
         public const decimal AMOUNT_ACCOUNT_NT = 0; //10000000
         public const decimal TEST_MONEY = 20000;
         public const string MINIMUM_MONEY_NAME = "MinimumMoney";
+        public const string MINIMUM_PAY_MONEY_NAME = "MinimumPayMoney";
         public const string BONUS = "Bonus";
         #endregion
 
@@ -56,6 +57,11 @@ namespace ProcessAutomation.Main.Ultility
         public const string GET_NEW_ACCOUNT_URL = "https://checkcode.sinsudaidu.com/php/adddatactv.php";
         public const string UPDATE_ACCOUNT_URL = "https://checkcode.sinsudaidu.com/php/updatedatactv.php";
         public const string INTEREST = "1";
+        #endregion
+
+        #region CheckOTP
+        public const string OTP = "otp";
+        public const string GET_OTP_URL = "https://checkcode.sinsudaidu.com/php/getotp.php";
         #endregion
     }
 }

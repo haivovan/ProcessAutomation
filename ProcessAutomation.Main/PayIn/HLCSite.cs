@@ -68,6 +68,7 @@ namespace ProcessAutomation.Main.PayIn
                 isFinishProcess = false;
                 AccountData userAccount = new AccountData();
                 var adminAccount = new AdminAccount();
+                decimal moneyLeft = 0;
 
                 var process = checkAccountAdmin(ref adminAccount);
                 do
@@ -126,10 +127,13 @@ namespace ProcessAutomation.Main.PayIn
                                 process = "Finish";
                             }
                             break;
-
-                            break;
                         case "CheckAmountAccount":
-                            var isAmountEnough = CheckAmountAccount();
+                            var currentMoney = GetAmountAccount();
+                            var isAmountEnough = false;
+                            if (currentMoney > 0)
+                            {
+                                isAmountEnough = CheckAmoutAccount(currentMoney);
+                            }
                             await Task.Delay(5000);
 
                             if (!isAmountEnough)
@@ -145,6 +149,8 @@ namespace ProcessAutomation.Main.PayIn
                             {
                                 Globals.isSentNotification_HL = false;
                             }
+
+                            moneyLeft = currentMoney;
                             process = "AccessToDaily";
                             break;
                         case "AccessToDaily":
@@ -234,14 +240,15 @@ namespace ProcessAutomation.Main.PayIn
 
                                 SendNotificationForError(
                                     "Cộng tiền không thành công",
-                                    $"{Constant.HANHLANG.ToUpper()} : Lỗi + { currentMessage.Money } { currentMessage.Web }{ currentMessage.Account }");
+                                    $"{Constant.HANHLANG.ToUpper()} : Lỗi + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account }");
                             }
                             else
                             {
+                                var moneyAfterPay = moneyLeft - decimal.Parse(currentMessage.Money);
                                 SaveRecord();
                                 SendNotificationForError(
                                     "Cộng tiền thành công",
-                                    $"{Constant.HANHLANG.ToUpper()} : Đã + { currentMessage.Money } { currentMessage.Web }{ currentMessage.Account }");
+                                    $"{Constant.HANHLANG.ToUpper()} : Đã + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account }, SD: { helper.GetMoneyFormat(moneyAfterPay.ToString()) } ");
                             }
 
                             data.Remove(currentMessage);
@@ -253,10 +260,6 @@ namespace ProcessAutomation.Main.PayIn
                             process = "OpenWeb";
                             break;
                         case "Finish":
-                            //CreateSyncTask();
-                            //webLayout.Navigate("about:blank");
-                            //await tcs.Task;
-                            //await Task.Delay(1000);
                             isFinishProcess = true;
                             break;
                     }
@@ -352,7 +355,7 @@ namespace ProcessAutomation.Main.PayIn
             }
         }
 
-        private bool CheckAmountAccount()
+        private decimal GetAmountAccount()
         {
             try
             {
@@ -382,26 +385,31 @@ namespace ProcessAutomation.Main.PayIn
                 }
                 if (tdResult != null)
                 {
-                    var minimumMoney = adminSetting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME
-                                                            && x.Key == Constant.HANHLANG).FirstOrDefault();
                     var temp = tdResult.InnerText;
                     var matches = new Regex(Constant.REG_EXTRACT_SO_DU, RegexOptions.IgnoreCase).Match(temp).Groups;
                     if (matches.Count < 2)
                     {
-                        return false;
+                        return 0;
                     }
 
                     var money = matches[1].ToString();
                     decimal outMoney = 0;
-                    return (decimal.TryParse(money.Replace("VNĐ", "").Trim(), out outMoney)
-                        && outMoney >= decimal.Parse(minimumMoney.Value));
+                    decimal.TryParse(money.Replace("VNĐ", "").Trim(), out outMoney);
+                    return outMoney;
                 }
-                return false;
+                return 0;
             }
             catch (Exception)
             {
-                return false;
+                return 0;
             }
+        }
+
+        private bool CheckAmoutAccount(decimal currentMoney)
+        {
+            var minimumMoney = adminSetting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME
+                                                           && x.Key == Constant.HANHLANG).FirstOrDefault();
+            return currentMoney >= decimal.Parse(minimumMoney.Value);
         }
 
         private HtmlElement FindAccountOnResult(AccountData accountData)

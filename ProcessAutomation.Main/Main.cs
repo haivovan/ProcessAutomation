@@ -41,6 +41,7 @@ namespace ProcessAutomation.Main
         System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
         SoundPlayer audio = new SoundPlayer(Properties.Resources.ring1);
         AccountService accountService = new AccountService();
+        OTPService otpService = new OTPService();
 
         public Main()
         {
@@ -239,6 +240,17 @@ namespace ProcessAutomation.Main
                 RegisterAccount form = new RegisterAccount(registerAccount);
                 form.Show(this);
                 form.StartRegister(form);
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void StartCheckingNewOTP(object sender, EventArgs e)
+        {
+            try
+            {
+                otpService.CrawlingNewOTP();
             }
             catch (Exception)
             {
@@ -525,6 +537,10 @@ namespace ProcessAutomation.Main
             timerCheckNewAccount = new System.Windows.Forms.Timer();
             timerCheckNewAccount.Interval = (5000);
             timerCheckNewAccount.Tick += new EventHandler(StartGettingAccountAndCreate);
+
+            timerCheckNewAccount = new System.Windows.Forms.Timer();
+            timerCheckNewAccount.Interval = (30000);
+            timerCheckNewAccount.Tick += new EventHandler(StartCheckingNewOTP);
         }
 
         private void InitControl()

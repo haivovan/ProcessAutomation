@@ -69,6 +69,7 @@ namespace ProcessAutomation.Main.PayIn
                 isFinishProcess = false;
                 AccountData userAccount = new AccountData();
                 var adminAccount = new AdminAccount();
+                decimal moneyLeft = 0;
 
                 var process = checkAccountAdmin(ref adminAccount);
                 do
@@ -128,7 +129,12 @@ namespace ProcessAutomation.Main.PayIn
                             }
                             break;
                         case "CheckAmountAccount":
-                            var isAmountEnough = CheckAmountAccount();
+                            var currentMoney = GetAmountAccount();
+                            var isAmountEnough = false;
+                            if (currentMoney > 0)
+                            {
+                                isAmountEnough = CheckAmoutAccount(currentMoney);
+                            }
                             await Task.Delay(5000);
 
                             if (!isAmountEnough)
@@ -233,14 +239,15 @@ namespace ProcessAutomation.Main.PayIn
 
                                 SendNotificationForError(
                                      "Cộng tiền không thành công",
-                                     $"{Constant.BANHKEO.ToUpper()} : Lỗi + { currentMessage.Money } { currentMessage.Web }{ currentMessage.Account }");
+                                     $"{Constant.BANHKEO.ToUpper()} : Lỗi + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account }");
                             }
                             else
                             {
+                                var moneyAfterPay = moneyLeft - decimal.Parse(currentMessage.Money);
                                 SaveRecord();
                                 SendNotificationForError(
                                      "Cộng tiền thành công",
-                                     $"{Constant.BANHKEO.ToUpper()} : Đã + { currentMessage.Money } { currentMessage.Web }{ currentMessage.Account }");
+                                     $"{Constant.BANHKEO.ToUpper()} : Đã + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account }, SD: { helper.GetMoneyFormat(moneyAfterPay.ToString()) } ");
                             }
 
                             data.Remove(currentMessage);
@@ -347,7 +354,7 @@ namespace ProcessAutomation.Main.PayIn
             }
         }
 
-        private bool CheckAmountAccount()
+        private decimal GetAmountAccount()
         {
             try
             {
@@ -377,27 +384,30 @@ namespace ProcessAutomation.Main.PayIn
                 }
                 if (tdResult != null)
                 {
-                    var minimumMoney = adminSetting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME
-                                                            && x.Key == Constant.BANHKEO).FirstOrDefault();
-
                     var temp = tdResult.InnerText;
                     var matches = new Regex(Constant.REG_EXTRACT_SO_DU, RegexOptions.IgnoreCase).Match(temp).Groups;
                     if (matches.Count < 2)
                     {
-                        return false;
+                        return 0;
                     }
 
                     var money = matches[1].ToString();
                     decimal outMoney = 0;
-                    return (decimal.TryParse(money.Replace("VNĐ", "").Trim(), out outMoney)
-                        && outMoney >= decimal.Parse(minimumMoney.Value));
+                    decimal.TryParse(money.Replace("VNĐ", "").Trim(), out outMoney);
+                    return outMoney;
                 }
-                return false;
+                return 0;
             }
             catch (Exception)
             {
-                return false;
+                return 0;
             }
+        }
+        private bool CheckAmoutAccount(decimal currentMoney)
+        {
+            var minimumMoney = adminSetting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME
+                                                           && x.Key == Constant.BANHKEO).FirstOrDefault();
+            return currentMoney >= decimal.Parse(minimumMoney.Value);
         }
 
         private HtmlElement FindAccountOnResult(AccountData accountData)

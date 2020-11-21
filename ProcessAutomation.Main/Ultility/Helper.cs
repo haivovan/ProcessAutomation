@@ -82,5 +82,15 @@ namespace ProcessAutomation.Main.Ultility
             }
 
         }
+
+        public string GetMoneyFormat(string money)
+        {
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");            
+
+            decimal value = decimal.Parse(money,
+                System.Globalization.NumberStyles.AllowThousands);
+
+            return String.Format(culture, "{0:N0}", value);
+        }
     }
 }

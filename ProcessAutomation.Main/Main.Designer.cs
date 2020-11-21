@@ -87,6 +87,7 @@
             this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerCheckKeepSection = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewAccount = new System.Windows.Forms.Timer(this.components);
+            this.timerCheckNewOTP = new System.Windows.Forms.Timer(this.components);
             this.tabPayIn.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.tabReaMessage.SuspendLayout();
@@ -757,5 +758,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnStopCreateAccount;
         private System.Windows.Forms.Button btnStartCreateAccount;
+        private System.Windows.Forms.Timer timerCheckNewOTP;
     }
 }

@@ -144,7 +144,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RegisterAccount\RegisterAccountModel.cs" />
+    <Compile Include="Model\OTPModel.cs" />
+    <Compile Include="Model\RegisterAccountModel.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_BKSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_HLCSite.cs" />
     <Compile Include="RegisterAccount\IRegisterAccount.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="RegisterAccount.Designer.cs">
       <DependentUpon>RegisterAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\OTPService.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Setting.cs">
       <SubType>Form</SubType>

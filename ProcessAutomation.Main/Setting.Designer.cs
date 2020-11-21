@@ -61,6 +61,12 @@
             this.okBtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtMoneyPay_BK = new System.Windows.Forms.TextBox();
+            this.txtMoneyPay_CB = new System.Windows.Forms.TextBox();
+            this.txtMoneyPay_HL = new System.Windows.Forms.TextBox();
+            this.txtMoneyPay_MH = new System.Windows.Forms.TextBox();
+            this.txtMoneyPay_LQ = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_30s)).BeginInit();
@@ -177,13 +183,18 @@
             this.groupBox2.Controls.Add(this.txtBonus_HL);
             this.groupBox2.Controls.Add(this.txtBonus_BK);
             this.groupBox2.Controls.Add(this.txtBonus_CB);
+            this.groupBox2.Controls.Add(this.txtMoneyPay_LQ);
             this.groupBox2.Controls.Add(this.txtMoney_LQ);
             this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtMoneyPay_MH);
             this.groupBox2.Controls.Add(this.txtMoney_MH);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtMoney_30s);
             this.groupBox2.Controls.Add(this.txtMoney_GD);
+            this.groupBox2.Controls.Add(this.txtMoneyPay_HL);
             this.groupBox2.Controls.Add(this.txtMoney_HL);
+            this.groupBox2.Controls.Add(this.txtMoneyPay_CB);
+            this.groupBox2.Controls.Add(this.txtMoneyPay_BK);
             this.groupBox2.Controls.Add(this.txtMoney_CB);
             this.groupBox2.Controls.Add(this.txtMoney_BK);
             this.groupBox2.Controls.Add(this.label4);
@@ -193,7 +204,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(365, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(586, 418);
+            this.groupBox2.Size = new System.Drawing.Size(820, 418);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             // 
@@ -205,7 +216,7 @@
             0,
             0,
             65536});
-            this.txtBonus_30s.Location = new System.Drawing.Point(422, 323);
+            this.txtBonus_30s.Location = new System.Drawing.Point(680, 323);
             this.txtBonus_30s.Name = "txtBonus_30s";
             this.txtBonus_30s.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_30s.TabIndex = 7;
@@ -218,7 +229,7 @@
             0,
             0,
             65536});
-            this.txtBonus_GD.Location = new System.Drawing.Point(422, 274);
+            this.txtBonus_GD.Location = new System.Drawing.Point(680, 274);
             this.txtBonus_GD.Name = "txtBonus_GD";
             this.txtBonus_GD.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_GD.TabIndex = 7;
@@ -231,7 +242,7 @@
             0,
             0,
             65536});
-            this.txtBonus_LQ.Location = new System.Drawing.Point(422, 225);
+            this.txtBonus_LQ.Location = new System.Drawing.Point(680, 225);
             this.txtBonus_LQ.Name = "txtBonus_LQ";
             this.txtBonus_LQ.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_LQ.TabIndex = 7;
@@ -244,7 +255,7 @@
             0,
             0,
             65536});
-            this.txtBonus_MH.Location = new System.Drawing.Point(422, 181);
+            this.txtBonus_MH.Location = new System.Drawing.Point(680, 181);
             this.txtBonus_MH.Name = "txtBonus_MH";
             this.txtBonus_MH.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_MH.TabIndex = 7;
@@ -257,7 +268,7 @@
             0,
             0,
             65536});
-            this.txtBonus_HL.Location = new System.Drawing.Point(422, 129);
+            this.txtBonus_HL.Location = new System.Drawing.Point(680, 129);
             this.txtBonus_HL.Name = "txtBonus_HL";
             this.txtBonus_HL.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_HL.TabIndex = 7;
@@ -270,7 +281,7 @@
             0,
             0,
             65536});
-            this.txtBonus_BK.Location = new System.Drawing.Point(422, 76);
+            this.txtBonus_BK.Location = new System.Drawing.Point(680, 76);
             this.txtBonus_BK.Name = "txtBonus_BK";
             this.txtBonus_BK.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_BK.TabIndex = 7;
@@ -283,7 +294,7 @@
             0,
             0,
             65536});
-            this.txtBonus_CB.Location = new System.Drawing.Point(422, 24);
+            this.txtBonus_CB.Location = new System.Drawing.Point(680, 24);
             this.txtBonus_CB.Name = "txtBonus_CB";
             this.txtBonus_CB.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_CB.TabIndex = 7;
@@ -431,18 +442,67 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(802, 6);
+            this.label9.Location = new System.Drawing.Point(1064, 6);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 25);
             this.label9.TabIndex = 28;
             this.label9.Text = "Bonus";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(794, 6);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(227, 25);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Số Tiền Nạp Tối Thiểu";
+            // 
+            // txtMoneyPay_BK
+            // 
+            this.txtMoneyPay_BK.Location = new System.Drawing.Point(434, 76);
+            this.txtMoneyPay_BK.Name = "txtMoneyPay_BK";
+            this.txtMoneyPay_BK.Size = new System.Drawing.Size(213, 31);
+            this.txtMoneyPay_BK.TabIndex = 1;
+            this.txtMoneyPay_BK.Leave += new System.EventHandler(this.txtMoney_MH_Leave);
+            // 
+            // txtMoneyPay_CB
+            // 
+            this.txtMoneyPay_CB.Location = new System.Drawing.Point(434, 24);
+            this.txtMoneyPay_CB.Name = "txtMoneyPay_CB";
+            this.txtMoneyPay_CB.Size = new System.Drawing.Size(213, 31);
+            this.txtMoneyPay_CB.TabIndex = 2;
+            this.txtMoneyPay_CB.Leave += new System.EventHandler(this.txtMoney_CB_Leave);
+            // 
+            // txtMoneyPay_HL
+            // 
+            this.txtMoneyPay_HL.Location = new System.Drawing.Point(434, 129);
+            this.txtMoneyPay_HL.Name = "txtMoneyPay_HL";
+            this.txtMoneyPay_HL.Size = new System.Drawing.Size(213, 31);
+            this.txtMoneyPay_HL.TabIndex = 2;
+            this.txtMoneyPay_HL.Leave += new System.EventHandler(this.txtMoney_HL_Leave);
+            // 
+            // txtMoneyPay_MH
+            // 
+            this.txtMoneyPay_MH.Location = new System.Drawing.Point(434, 181);
+            this.txtMoneyPay_MH.Name = "txtMoneyPay_MH";
+            this.txtMoneyPay_MH.Size = new System.Drawing.Size(213, 31);
+            this.txtMoneyPay_MH.TabIndex = 4;
+            // 
+            // txtMoneyPay_LQ
+            // 
+            this.txtMoneyPay_LQ.Location = new System.Drawing.Point(434, 225);
+            this.txtMoneyPay_LQ.Name = "txtMoneyPay_LQ";
+            this.txtMoneyPay_LQ.Size = new System.Drawing.Size(213, 31);
+            this.txtMoneyPay_LQ.TabIndex = 6;
+            this.txtMoneyPay_LQ.Leave += new System.EventHandler(this.txtMoney_LQ_Leave);
+            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 495);
+            this.ClientSize = new System.Drawing.Size(1197, 495);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.groupBox2);
@@ -506,5 +566,11 @@
         private System.Windows.Forms.NumericUpDown txtBonus_HL;
         private System.Windows.Forms.NumericUpDown txtBonus_BK;
         private System.Windows.Forms.NumericUpDown txtBonus_CB;
+        private System.Windows.Forms.TextBox txtMoneyPay_LQ;
+        private System.Windows.Forms.TextBox txtMoneyPay_MH;
+        private System.Windows.Forms.TextBox txtMoneyPay_HL;
+        private System.Windows.Forms.TextBox txtMoneyPay_CB;
+        private System.Windows.Forms.TextBox txtMoneyPay_BK;
+        private System.Windows.Forms.Label label10;
     }
 }
