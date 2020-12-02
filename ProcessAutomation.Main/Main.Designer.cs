@@ -60,17 +60,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Web = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Money = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecievedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MessageContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsSatisfied = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.IsProcessed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DateExcute = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Error = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShowHistory = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblReadMessageProgress = new System.Windows.Forms.Label();
@@ -88,16 +77,28 @@
             this.timerCheckKeepSection = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewAccount = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewOTP = new System.Windows.Forms.Timer(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Web = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Money = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecievedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MessageContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsSatisfied = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsProcessed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DateExcute = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Error = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeExecute = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPayIn.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.tabReaMessage.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPayIn
@@ -183,7 +184,7 @@
             this.tabReaMessage.Location = new System.Drawing.Point(4, 33);
             this.tabReaMessage.Name = "tabReaMessage";
             this.tabReaMessage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReaMessage.Size = new System.Drawing.Size(1446, 761);
+            this.tabReaMessage.Size = new System.Drawing.Size(1486, 761);
             this.tabReaMessage.TabIndex = 0;
             this.tabReaMessage.Text = "Đọc Tin Nhắn";
             this.tabReaMessage.UseVisualStyleBackColor = true;
@@ -241,7 +242,7 @@
             this.groupBox3.Controls.Add(this.btnShowHistory);
             this.groupBox3.Location = new System.Drawing.Point(3, 121);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1439, 755);
+            this.groupBox3.Size = new System.Drawing.Size(1480, 755);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm Kiếm";
@@ -395,145 +396,6 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Web";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Web,
-            this.Account,
-            this.Money,
-            this.RecievedDate,
-            this.MessageContent,
-            this.IsSatisfied,
-            this.IsProcessed,
-            this.DateExcute,
-            this.Error,
-            this.Id});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 174);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView1.RowTemplate.Height = 35;
-            this.dataGridView1.Size = new System.Drawing.Size(1429, 460);
-            this.dataGridView1.TabIndex = 21;
-            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
-            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // Web
-            // 
-            this.Web.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Web.DataPropertyName = "Web";
-            this.Web.FillWeight = 50.09074F;
-            this.Web.Frozen = true;
-            this.Web.HeaderText = "Web";
-            this.Web.Name = "Web";
-            this.Web.ReadOnly = true;
-            this.Web.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Web.Width = 50;
-            // 
-            // Account
-            // 
-            this.Account.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Account.DataPropertyName = "Account";
-            this.Account.FillWeight = 289.0847F;
-            this.Account.Frozen = true;
-            this.Account.HeaderText = "Tài Khoản";
-            this.Account.Name = "Account";
-            this.Account.ReadOnly = true;
-            this.Account.Width = 60;
-            // 
-            // Money
-            // 
-            this.Money.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Money.DataPropertyName = "Money";
-            this.Money.FillWeight = 56.80839F;
-            this.Money.Frozen = true;
-            this.Money.HeaderText = "Số tiền";
-            this.Money.Name = "Money";
-            this.Money.ReadOnly = true;
-            this.Money.Width = 70;
-            // 
-            // RecievedDate
-            // 
-            this.RecievedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.RecievedDate.DataPropertyName = "RecievedDate";
-            this.RecievedDate.FillWeight = 108.8008F;
-            this.RecievedDate.Frozen = true;
-            this.RecievedDate.HeaderText = "Ngày Nhận";
-            this.RecievedDate.Name = "RecievedDate";
-            this.RecievedDate.ReadOnly = true;
-            this.RecievedDate.Width = 120;
-            // 
-            // MessageContent
-            // 
-            this.MessageContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.MessageContent.DataPropertyName = "MessageContent";
-            this.MessageContent.FillWeight = 108.8008F;
-            this.MessageContent.Frozen = true;
-            this.MessageContent.HeaderText = "Nội Dung";
-            this.MessageContent.Name = "MessageContent";
-            this.MessageContent.ReadOnly = true;
-            this.MessageContent.Width = 600;
-            // 
-            // IsSatisfied
-            // 
-            this.IsSatisfied.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.IsSatisfied.DataPropertyName = "IsSatisfied";
-            this.IsSatisfied.FillWeight = 36.34379F;
-            this.IsSatisfied.Frozen = true;
-            this.IsSatisfied.HeaderText = "Hợp Lệ";
-            this.IsSatisfied.Name = "IsSatisfied";
-            this.IsSatisfied.ReadOnly = true;
-            this.IsSatisfied.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsSatisfied.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.IsSatisfied.Width = 70;
-            // 
-            // IsProcessed
-            // 
-            this.IsProcessed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.IsProcessed.DataPropertyName = "IsProcessed";
-            this.IsProcessed.FillWeight = 32.46909F;
-            this.IsProcessed.Frozen = true;
-            this.IsProcessed.HeaderText = "Đã Xử Lý";
-            this.IsProcessed.Name = "IsProcessed";
-            this.IsProcessed.ReadOnly = true;
-            this.IsProcessed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsProcessed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.IsProcessed.Width = 70;
-            // 
-            // DateExcute
-            // 
-            this.DateExcute.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DateExcute.DataPropertyName = "DateExcute";
-            this.DateExcute.FillWeight = 108.8008F;
-            this.DateExcute.Frozen = true;
-            this.DateExcute.HeaderText = "Ngày Xử Lý";
-            this.DateExcute.Name = "DateExcute";
-            this.DateExcute.ReadOnly = true;
-            this.DateExcute.Width = 160;
-            // 
-            // Error
-            // 
-            this.Error.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Error.DataPropertyName = "Error";
-            this.Error.FillWeight = 108.8008F;
-            this.Error.Frozen = true;
-            this.Error.HeaderText = "Lỗi";
-            this.Error.Name = "Error";
-            this.Error.ReadOnly = true;
-            this.Error.Width = 250;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
             // btnShowHistory
             // 
             this.btnShowHistory.Location = new System.Drawing.Point(909, 82);
@@ -648,7 +510,7 @@
             this.tabControl.Location = new System.Drawing.Point(1, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1454, 798);
+            this.tabControl.Size = new System.Drawing.Size(1494, 798);
             this.tabControl.TabIndex = 10;
             // 
             // menuStrip1
@@ -666,11 +528,162 @@
             this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
             this.SettingToolStripMenuItem.Size = new System.Drawing.Size(12, 29);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Web,
+            this.Account,
+            this.Money,
+            this.RecievedDate,
+            this.MessageContent,
+            this.IsSatisfied,
+            this.IsProcessed,
+            this.DateExcute,
+            this.Error,
+            this.Id,
+            this.TimeExecute});
+            this.dataGridView1.Location = new System.Drawing.Point(4, 174);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.RowTemplate.Height = 35;
+            this.dataGridView1.Size = new System.Drawing.Size(1476, 460);
+            this.dataGridView1.TabIndex = 21;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // Web
+            // 
+            this.Web.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Web.DataPropertyName = "Web";
+            this.Web.FillWeight = 50.09074F;
+            this.Web.Frozen = true;
+            this.Web.HeaderText = "Web";
+            this.Web.Name = "Web";
+            this.Web.ReadOnly = true;
+            this.Web.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Web.Width = 50;
+            // 
+            // Account
+            // 
+            this.Account.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Account.DataPropertyName = "Account";
+            this.Account.FillWeight = 289.0847F;
+            this.Account.Frozen = true;
+            this.Account.HeaderText = "Tài Khoản";
+            this.Account.Name = "Account";
+            this.Account.ReadOnly = true;
+            this.Account.Width = 60;
+            // 
+            // Money
+            // 
+            this.Money.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Money.DataPropertyName = "Money";
+            this.Money.FillWeight = 56.80839F;
+            this.Money.Frozen = true;
+            this.Money.HeaderText = "Số tiền";
+            this.Money.Name = "Money";
+            this.Money.ReadOnly = true;
+            this.Money.Width = 70;
+            // 
+            // RecievedDate
+            // 
+            this.RecievedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.RecievedDate.DataPropertyName = "RecievedDate";
+            this.RecievedDate.FillWeight = 108.8008F;
+            this.RecievedDate.Frozen = true;
+            this.RecievedDate.HeaderText = "Ngày Nhận";
+            this.RecievedDate.Name = "RecievedDate";
+            this.RecievedDate.ReadOnly = true;
+            this.RecievedDate.Width = 120;
+            // 
+            // MessageContent
+            // 
+            this.MessageContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MessageContent.DataPropertyName = "MessageContent";
+            this.MessageContent.FillWeight = 108.8008F;
+            this.MessageContent.Frozen = true;
+            this.MessageContent.HeaderText = "Nội Dung";
+            this.MessageContent.Name = "MessageContent";
+            this.MessageContent.ReadOnly = true;
+            this.MessageContent.Width = 500;
+            // 
+            // IsSatisfied
+            // 
+            this.IsSatisfied.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.IsSatisfied.DataPropertyName = "IsSatisfied";
+            this.IsSatisfied.FillWeight = 36.34379F;
+            this.IsSatisfied.Frozen = true;
+            this.IsSatisfied.HeaderText = "Hợp Lệ";
+            this.IsSatisfied.Name = "IsSatisfied";
+            this.IsSatisfied.ReadOnly = true;
+            this.IsSatisfied.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsSatisfied.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsSatisfied.Width = 70;
+            // 
+            // IsProcessed
+            // 
+            this.IsProcessed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.IsProcessed.DataPropertyName = "IsProcessed";
+            this.IsProcessed.FillWeight = 32.46909F;
+            this.IsProcessed.Frozen = true;
+            this.IsProcessed.HeaderText = "Đã Xử Lý";
+            this.IsProcessed.Name = "IsProcessed";
+            this.IsProcessed.ReadOnly = true;
+            this.IsProcessed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsProcessed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsProcessed.Width = 70;
+            // 
+            // DateExcute
+            // 
+            this.DateExcute.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DateExcute.DataPropertyName = "DateExcute";
+            this.DateExcute.FillWeight = 108.8008F;
+            this.DateExcute.Frozen = true;
+            this.DateExcute.HeaderText = "Ngày Xử Lý";
+            this.DateExcute.Name = "DateExcute";
+            this.DateExcute.ReadOnly = true;
+            this.DateExcute.Width = 160;
+            // 
+            // Error
+            // 
+            this.Error.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Error.DataPropertyName = "Error";
+            this.Error.FillWeight = 108.8008F;
+            this.Error.Frozen = true;
+            this.Error.HeaderText = "Lỗi";
+            this.Error.Name = "Error";
+            this.Error.ReadOnly = true;
+            this.Error.Width = 250;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.Frozen = true;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // TimeExecute
+            // 
+            this.TimeExecute.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TimeExecute.DataPropertyName = "TimeExecute";
+            this.TimeExecute.FillWeight = 20F;
+            this.TimeExecute.Frozen = true;
+            this.TimeExecute.HeaderText = "Thử Lại";
+            this.TimeExecute.Name = "TimeExecute";
+            this.TimeExecute.Width = 80;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 802);
+            this.ClientSize = new System.Drawing.Size(1494, 802);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
@@ -687,7 +700,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -695,6 +707,7 @@
             this.tabControl.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -718,7 +731,6 @@
         private System.Windows.Forms.Button btnStartReadMessage;
         private System.Windows.Forms.Label lblErrorReadMessage;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnShowHistory;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label2;
@@ -737,16 +749,6 @@
         private System.Windows.Forms.ComboBox isProcessed_filter;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox cbStopAutoLoadMess;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Web;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Account;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Money;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RecievedDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MessageContent;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsSatisfied;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsProcessed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateExcute;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Error;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.ListBox web_listBox_filter;
         private System.Windows.Forms.Timer timerCheckKeepSection;
         private System.Windows.Forms.DateTimePicker dateExecuteTo;
@@ -759,5 +761,17 @@
         private System.Windows.Forms.Button btnStopCreateAccount;
         private System.Windows.Forms.Button btnStartCreateAccount;
         private System.Windows.Forms.Timer timerCheckNewOTP;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Web;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Account;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Money;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecievedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MessageContent;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsSatisfied;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsProcessed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateExcute;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Error;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeExecute;
     }
 }

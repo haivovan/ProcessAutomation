@@ -16,6 +16,7 @@ public class Message
         IsProcessed = false;
         Error = string.Empty;
         DateExcute = null;
+        TimeExecute = null;
     }
 
     public ObjectId Id { get; set; }
@@ -31,4 +32,5 @@ public class Message
     [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
     public DateTime? DateExcute { get; set; }
     public bool IsKeepSession { get; set; }
+    public int? TimeExecute { get; set; }
 }

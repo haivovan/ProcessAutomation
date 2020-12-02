@@ -556,12 +556,35 @@ namespace ProcessAutomation.Main.PayIn
         private void SaveRecord(string error = "")
         {
             MongoDatabase<Message> database = new MongoDatabase<Message>(typeof(Message).Name);
-            var updateOption = Builders<Message>.Update
-            .Set(p => p.IsProcessed, true)
-            .Set(p => p.Error, error)
-            .Set(p => p.DateExcute, DateTime.Now.Date);
+            var updateOption = Builders<Message>.Update;
+            var updates = new List<UpdateDefinition<Message>>();
 
-            database.UpdateOne(x => x.Id == currentMessage.Id, updateOption);
+            updates.Add(updateOption.Set(p => p.Error, error));
+            updates.Add(updateOption.Set(p => p.DateExcute, DateTime.Now.Date));
+            
+            if (string.IsNullOrEmpty(error))
+            {
+                updates.Add(updateOption.Set(p => p.IsProcessed, true));
+            }
+            else
+            {
+                if (currentMessage.TimeExecute.HasValue)
+                {
+                    var timeExcute = currentMessage.TimeExecute++;
+                    if (timeExcute == 3)
+                    {
+                        updates.Add(updateOption.Set(p => p.IsProcessed, true));
+                    }
+                    updates.Add(updateOption.Set(p => p.TimeExecute, timeExcute));
+                }
+                else
+                {
+                    updates.Add(updateOption.Set(p => p.TimeExecute, 3));
+                    updates.Add(updateOption.Set(p => p.IsProcessed, true));
+                }
+            }
+
+            database.UpdateOne(x => x.Id == currentMessage.Id, updateOption.Combine(updates));
         }
     }
 }

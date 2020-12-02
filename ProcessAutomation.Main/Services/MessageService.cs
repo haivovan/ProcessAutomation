@@ -72,9 +72,11 @@ namespace ProcessAutomation.Main.Services
         public Dictionary<string, List<Message>> ReadMessage(MessageContition messageCondition)
         {
             return database.Query
-               .Where(x => x.IsProcessed == false && x.IsSatisfied == true)
+               .Where(x => x.IsSatisfied == true)
+               .Where(x => x.TimeExecute.HasValue)
+               .Where(x => x.IsProcessed == false && x.TimeExecute.Value < 3)
                .Where(x => messageCondition.WebSRun.Contains(x.Web))
-               .ToList()
+               .OrderBy(x => x.TimeExecute).Take(5).ToList()
                .GroupBy(x => x.Web)
                .ToDictionary(x => x.Key, x => x.ToList());
         }
@@ -97,6 +99,7 @@ namespace ProcessAutomation.Main.Services
                             .Replace("+00", "")
                             .Replace("\"", "")
                             .Skip(1));
+                        mess.TimeExecute = 0;
 
                         mess.MessageContent = match.Groups[6].Value.Trim();
                         if (temp.Exists(x =>
