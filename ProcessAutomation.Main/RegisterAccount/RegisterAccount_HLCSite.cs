@@ -382,7 +382,6 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                helper.sendMessageZalo(message);
                 helper.sendMessageTelegram(message, Constant.CHAT_ID_CHAU);
             }
             catch (Exception ex)

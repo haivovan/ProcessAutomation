@@ -46,42 +46,42 @@ namespace ProcessAutomation.Main.Ultility
             }
         }
 
-        public async void sendMessageZalo(string message)
-        {
-            var database = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
-            List<AdminSetting> listZaloIdReceive = database.Query.Where(x => x.Name == "zalo").ToList();
-            try
-            {
-                foreach(var item in listZaloIdReceive)
-                {
-                    using (var client = new HttpClient())
-                    {
-                        HttpResponseMessage response = client.PostAsync("https://openapi.zalo.me/v2.0/oa/message?access_token=SRGfJyQJcKnwjoL8nv6PJ7cqBql4YvWS3lHwUhQCh1rsqajyr8or9mZdOL35euTD0zno3C26eqOy-KCvqA7mNWU40oh5m-GZ8E0a9_scs5CMm34jrPRXPtVs5XMogzWHPSCxTDcSrJupw1auq87mKHgW7LJXvDOhMS4QS9UFtsqWr0mf_h73Vp_XS1x4feP6FULMFuQaYdz-vsm5cxdG0qt-47Q3cjSqDByRGU_azZ0pcpj8ohtc8Ix5327fuSTWCg1wDUd4bcGAf6SxSJcF4OGmpOkPJG",
-                         new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(
-                           new
-                           {
-                               recipient = new
-                               {
-                                   user_id = item.Value
-                               },
-                               message = new
-                               {
-                                   text = message
-                               }
-                           }),
-                           Encoding.UTF8, "application/json")
-                       ).Result;
-                        var customerJsonString = response.Content.ReadAsStringAsync();
-                    } 
-                }
+        //public async void sendMessageZalo(string message)
+        //{
+        //    var database = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
+        //    List<AdminSetting> listZaloIdReceive = database.Query.Where(x => x.Name == "zalo").ToList();
+        //    try
+        //    {
+        //        foreach(var item in listZaloIdReceive)
+        //        {
+        //            using (var client = new HttpClient())
+        //            {
+        //                HttpResponseMessage response = client.PostAsync("https://openapi.zalo.me/v2.0/oa/message?access_token=SRGfJyQJcKnwjoL8nv6PJ7cqBql4YvWS3lHwUhQCh1rsqajyr8or9mZdOL35euTD0zno3C26eqOy-KCvqA7mNWU40oh5m-GZ8E0a9_scs5CMm34jrPRXPtVs5XMogzWHPSCxTDcSrJupw1auq87mKHgW7LJXvDOhMS4QS9UFtsqWr0mf_h73Vp_XS1x4feP6FULMFuQaYdz-vsm5cxdG0qt-47Q3cjSqDByRGU_azZ0pcpj8ohtc8Ix5327fuSTWCg1wDUd4bcGAf6SxSJcF4OGmpOkPJG",
+        //                 new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(
+        //                   new
+        //                   {
+        //                       recipient = new
+        //                       {
+        //                           user_id = item.Value
+        //                       },
+        //                       message = new
+        //                       {
+        //                           text = message
+        //                       }
+        //                   }),
+        //                   Encoding.UTF8, "application/json")
+        //               ).Result;
+        //                var customerJsonString = response.Content.ReadAsStringAsync();
+        //            } 
+        //        }
                 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-            }
+        //    }
 
-        }
+        //}
 
         public async void sendMessageTelegram(string message, string chatId = Constant.CHAT_ID_GROUP)
         {

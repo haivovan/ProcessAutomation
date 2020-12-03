@@ -543,7 +543,6 @@ namespace ProcessAutomation.Main.PayIn
             try
             {
                 mailService.SendEmail(subject, message);
-                helper.sendMessageZalo(message);
                 helper.sendMessageTelegram(message);
             }
             catch (Exception ex)
