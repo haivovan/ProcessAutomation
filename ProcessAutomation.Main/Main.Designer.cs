@@ -60,6 +60,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Web = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Money = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecievedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MessageContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsSatisfied = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsProcessed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DateExcute = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Error = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeExecute = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShowHistory = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblReadMessageProgress = new System.Windows.Forms.Label();
@@ -77,28 +89,17 @@
             this.timerCheckKeepSection = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewAccount = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewOTP = new System.Windows.Forms.Timer(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Web = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Money = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecievedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MessageContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsSatisfied = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.IsProcessed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DateExcute = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Error = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeExecute = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timerAutoStart = new System.Windows.Forms.Timer(this.components);
             this.tabPayIn.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.tabReaMessage.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPayIn
@@ -111,7 +112,7 @@
             this.tabPayIn.Location = new System.Drawing.Point(4, 33);
             this.tabPayIn.Name = "tabPayIn";
             this.tabPayIn.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPayIn.Size = new System.Drawing.Size(1446, 761);
+            this.tabPayIn.Size = new System.Drawing.Size(1486, 761);
             this.tabPayIn.TabIndex = 1;
             this.tabPayIn.Text = "Nạp Tiền";
             this.tabPayIn.UseVisualStyleBackColor = true;
@@ -161,7 +162,7 @@
             this.SettingToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(3, 3);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1440, 33);
+            this.menuStrip2.Size = new System.Drawing.Size(1480, 33);
             this.menuStrip2.TabIndex = 20;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -396,138 +397,6 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Web";
             // 
-            // btnShowHistory
-            // 
-            this.btnShowHistory.Location = new System.Drawing.Point(909, 82);
-            this.btnShowHistory.Name = "btnShowHistory";
-            this.btnShowHistory.Size = new System.Drawing.Size(118, 33);
-            this.btnShowHistory.TabIndex = 20;
-            this.btnShowHistory.Text = "Tìm";
-            this.btnShowHistory.UseVisualStyleBackColor = true;
-            this.btnShowHistory.Click += new System.EventHandler(this.btnShowHistory_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblReadMessageProgress);
-            this.groupBox2.Controls.Add(this.lblErrorReadMessage);
-            this.groupBox2.Controls.Add(this.btnStopReadMessage);
-            this.groupBox2.Controls.Add(this.btnStartReadMessage);
-            this.groupBox2.Location = new System.Drawing.Point(600, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(494, 109);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Đọc Tin Nhắn";
-            // 
-            // lblReadMessageProgress
-            // 
-            this.lblReadMessageProgress.AutoSize = true;
-            this.lblReadMessageProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReadMessageProgress.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblReadMessageProgress.Location = new System.Drawing.Point(231, 43);
-            this.lblReadMessageProgress.Name = "lblReadMessageProgress";
-            this.lblReadMessageProgress.Size = new System.Drawing.Size(211, 25);
-            this.lblReadMessageProgress.TabIndex = 18;
-            this.lblReadMessageProgress.Text = "Đang đọc tin nhắn ...";
-            // 
-            // lblErrorReadMessage
-            // 
-            this.lblErrorReadMessage.AutoSize = true;
-            this.lblErrorReadMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorReadMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorReadMessage.Location = new System.Drawing.Point(6, 75);
-            this.lblErrorReadMessage.Name = "lblErrorReadMessage";
-            this.lblErrorReadMessage.Size = new System.Drawing.Size(70, 25);
-            this.lblErrorReadMessage.TabIndex = 17;
-            this.lblErrorReadMessage.Text = "label2";
-            // 
-            // btnStopReadMessage
-            // 
-            this.btnStopReadMessage.Location = new System.Drawing.Point(6, 37);
-            this.btnStopReadMessage.Name = "btnStopReadMessage";
-            this.btnStopReadMessage.Size = new System.Drawing.Size(207, 38);
-            this.btnStopReadMessage.TabIndex = 15;
-            this.btnStopReadMessage.Text = "Dừng đọc tin nhắn";
-            this.btnStopReadMessage.UseVisualStyleBackColor = true;
-            this.btnStopReadMessage.Click += new System.EventHandler(this.btnStopReadMessage_Click);
-            // 
-            // btnStartReadMessage
-            // 
-            this.btnStartReadMessage.Location = new System.Drawing.Point(6, 37);
-            this.btnStartReadMessage.Name = "btnStartReadMessage";
-            this.btnStartReadMessage.Size = new System.Drawing.Size(207, 38);
-            this.btnStartReadMessage.TabIndex = 14;
-            this.btnStartReadMessage.Text = "Bắt đầu đọc tin nhắn";
-            this.btnStartReadMessage.UseVisualStyleBackColor = true;
-            this.btnStartReadMessage.Click += new System.EventHandler(this.btnStartReadMessage_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.connectPortBtn);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.SerialPortCombobox);
-            this.groupBox1.Location = new System.Drawing.Point(7, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(587, 109);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Kết Nối Thiết Bị";
-            // 
-            // connectPortBtn
-            // 
-            this.connectPortBtn.Location = new System.Drawing.Point(435, 39);
-            this.connectPortBtn.Name = "connectPortBtn";
-            this.connectPortBtn.Size = new System.Drawing.Size(124, 33);
-            this.connectPortBtn.TabIndex = 8;
-            this.connectPortBtn.Text = "Kết Nối";
-            this.connectPortBtn.UseVisualStyleBackColor = true;
-            this.connectPortBtn.Click += new System.EventHandler(this.connectPortBtn_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Cổng Kết Nối";
-            // 
-            // SerialPortCombobox
-            // 
-            this.SerialPortCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SerialPortCombobox.FormattingEnabled = true;
-            this.SerialPortCombobox.Location = new System.Drawing.Point(154, 39);
-            this.SerialPortCombobox.Name = "SerialPortCombobox";
-            this.SerialPortCombobox.Size = new System.Drawing.Size(261, 32);
-            this.SerialPortCombobox.TabIndex = 6;
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabReaMessage);
-            this.tabControl.Controls.Add(this.tabPayIn);
-            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(1, 5);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1494, 798);
-            this.tabControl.TabIndex = 10;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SettingToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1440, 33);
-            this.menuStrip1.TabIndex = 21;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // SettingToolStripMenuItem
-            // 
-            this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
-            this.SettingToolStripMenuItem.Size = new System.Drawing.Size(12, 29);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
@@ -679,6 +548,138 @@
             this.TimeExecute.Name = "TimeExecute";
             this.TimeExecute.Width = 80;
             // 
+            // btnShowHistory
+            // 
+            this.btnShowHistory.Location = new System.Drawing.Point(909, 82);
+            this.btnShowHistory.Name = "btnShowHistory";
+            this.btnShowHistory.Size = new System.Drawing.Size(118, 33);
+            this.btnShowHistory.TabIndex = 20;
+            this.btnShowHistory.Text = "Tìm";
+            this.btnShowHistory.UseVisualStyleBackColor = true;
+            this.btnShowHistory.Click += new System.EventHandler(this.btnShowHistory_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblReadMessageProgress);
+            this.groupBox2.Controls.Add(this.lblErrorReadMessage);
+            this.groupBox2.Controls.Add(this.btnStopReadMessage);
+            this.groupBox2.Controls.Add(this.btnStartReadMessage);
+            this.groupBox2.Location = new System.Drawing.Point(600, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(494, 109);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Đọc Tin Nhắn";
+            // 
+            // lblReadMessageProgress
+            // 
+            this.lblReadMessageProgress.AutoSize = true;
+            this.lblReadMessageProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReadMessageProgress.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblReadMessageProgress.Location = new System.Drawing.Point(231, 43);
+            this.lblReadMessageProgress.Name = "lblReadMessageProgress";
+            this.lblReadMessageProgress.Size = new System.Drawing.Size(211, 25);
+            this.lblReadMessageProgress.TabIndex = 18;
+            this.lblReadMessageProgress.Text = "Đang đọc tin nhắn ...";
+            // 
+            // lblErrorReadMessage
+            // 
+            this.lblErrorReadMessage.AutoSize = true;
+            this.lblErrorReadMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorReadMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorReadMessage.Location = new System.Drawing.Point(6, 75);
+            this.lblErrorReadMessage.Name = "lblErrorReadMessage";
+            this.lblErrorReadMessage.Size = new System.Drawing.Size(70, 25);
+            this.lblErrorReadMessage.TabIndex = 17;
+            this.lblErrorReadMessage.Text = "label2";
+            // 
+            // btnStopReadMessage
+            // 
+            this.btnStopReadMessage.Location = new System.Drawing.Point(6, 37);
+            this.btnStopReadMessage.Name = "btnStopReadMessage";
+            this.btnStopReadMessage.Size = new System.Drawing.Size(207, 38);
+            this.btnStopReadMessage.TabIndex = 15;
+            this.btnStopReadMessage.Text = "Dừng đọc tin nhắn";
+            this.btnStopReadMessage.UseVisualStyleBackColor = true;
+            this.btnStopReadMessage.Click += new System.EventHandler(this.btnStopReadMessage_Click);
+            // 
+            // btnStartReadMessage
+            // 
+            this.btnStartReadMessage.Location = new System.Drawing.Point(6, 37);
+            this.btnStartReadMessage.Name = "btnStartReadMessage";
+            this.btnStartReadMessage.Size = new System.Drawing.Size(207, 38);
+            this.btnStartReadMessage.TabIndex = 14;
+            this.btnStartReadMessage.Text = "Bắt đầu đọc tin nhắn";
+            this.btnStartReadMessage.UseVisualStyleBackColor = true;
+            this.btnStartReadMessage.Click += new System.EventHandler(this.btnStartReadMessage_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.connectPortBtn);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.SerialPortCombobox);
+            this.groupBox1.Location = new System.Drawing.Point(7, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(587, 109);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Kết Nối Thiết Bị";
+            // 
+            // connectPortBtn
+            // 
+            this.connectPortBtn.Location = new System.Drawing.Point(435, 39);
+            this.connectPortBtn.Name = "connectPortBtn";
+            this.connectPortBtn.Size = new System.Drawing.Size(124, 33);
+            this.connectPortBtn.TabIndex = 8;
+            this.connectPortBtn.Text = "Kết Nối";
+            this.connectPortBtn.UseVisualStyleBackColor = true;
+            this.connectPortBtn.Click += new System.EventHandler(this.connectPortBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Cổng Kết Nối";
+            // 
+            // SerialPortCombobox
+            // 
+            this.SerialPortCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SerialPortCombobox.FormattingEnabled = true;
+            this.SerialPortCombobox.Location = new System.Drawing.Point(154, 39);
+            this.SerialPortCombobox.Name = "SerialPortCombobox";
+            this.SerialPortCombobox.Size = new System.Drawing.Size(261, 32);
+            this.SerialPortCombobox.TabIndex = 6;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabReaMessage);
+            this.tabControl.Controls.Add(this.tabPayIn);
+            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl.Location = new System.Drawing.Point(1, 5);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1494, 798);
+            this.tabControl.TabIndex = 10;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SettingToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1440, 33);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // SettingToolStripMenuItem
+            // 
+            this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
+            this.SettingToolStripMenuItem.Size = new System.Drawing.Size(12, 29);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -700,6 +701,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -707,7 +709,6 @@
             this.tabControl.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -773,5 +774,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Error;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeExecute;
+        private System.Windows.Forms.Timer timerAutoStart;
     }
 }

@@ -42,16 +42,23 @@ namespace ProcessAutomation.Main
         SoundPlayer audio = new SoundPlayer(Properties.Resources.ring1);
         AccountService accountService = new AccountService();
         OTPService otpService = new OTPService();
+        bool isQualified = false;
 
         public Main()
         {
             InitializeComponent();
+
+            timerAutoStart = new System.Windows.Forms.Timer();
+            timerAutoStart.Interval = (5000);
+            timerAutoStart.Tick += new EventHandler(AutoStart);
+            timerAutoStart.Start();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
             if (checkLicense())
             {
+                isQualified = true;
                 AddPortsToCombobox();
                 InitAllTimer();
                 InitControl();
@@ -682,6 +689,19 @@ namespace ProcessAutomation.Main
             timerCheckNewAccount.Stop();
             btnStopCreateAccount.Hide();
             btnStartCreateAccount.Show();
+        }
+
+        private void AutoStart(object sender, EventArgs e)
+        {
+            if (isQualified)
+            {
+                connectPortBtn_Click(sender, e);
+                btnStartReadMessage_Click(sender, e);
+                btnStartPayIn_Click(sender, e);
+                btnStartCreateAccount_Click(sender, e);
+
+                timerAutoStart.Stop();
+            }
         }
     }
 }
