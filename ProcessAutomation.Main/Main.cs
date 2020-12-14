@@ -157,7 +157,7 @@ namespace ProcessAutomation.Main
                 MessageBox.Show("Lỗi thiết bị, hãy kiểm tra lại");
                 return;
             }
-            MessageBox.Show("Kết nối thiết bị thành công");
+            //MessageBox.Show("Kết nối thiết bị thành công");
             timerReadMessageFromDevice.Start();
         }
 
