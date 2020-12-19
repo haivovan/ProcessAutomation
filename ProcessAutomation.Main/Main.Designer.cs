@@ -33,6 +33,8 @@
             this.timerCheckChildProcess = new System.Windows.Forms.Timer(this.components);
             this.timerReadMessage = new System.Windows.Forms.Timer(this.components);
             this.tabPayIn = new System.Windows.Forms.TabPage();
+            this.webLayoutIE = new System.Windows.Forms.WebBrowser();
+            this.webLayout = new Gecko.GeckoWebBrowser();
             this.lblPayInProgress = new System.Windows.Forms.Label();
             this.btnStopPayIn = new System.Windows.Forms.Button();
             this.btnStartPayIn = new System.Windows.Forms.Button();
@@ -89,8 +91,6 @@
             this.timerCheckNewAccount = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewOTP = new System.Windows.Forms.Timer(this.components);
             this.timerAutoStart = new System.Windows.Forms.Timer(this.components);
-            this.webLayout = new Gecko.GeckoWebBrowser();
-            this.webLayoutIE = new System.Windows.Forms.WebBrowser();
             this.tabPayIn.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.tabReaMessage.SuspendLayout();
@@ -118,6 +118,23 @@
             this.tabPayIn.TabIndex = 1;
             this.tabPayIn.Text = "Nạp Tiền";
             this.tabPayIn.UseVisualStyleBackColor = true;
+            // 
+            // webLayoutIE
+            // 
+            this.webLayoutIE.Location = new System.Drawing.Point(744, 119);
+            this.webLayoutIE.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webLayoutIE.Name = "webLayoutIE";
+            this.webLayoutIE.Size = new System.Drawing.Size(742, 633);
+            this.webLayoutIE.TabIndex = 22;
+            // 
+            // webLayout
+            // 
+            this.webLayout.FrameEventsPropagateToMainWindow = false;
+            this.webLayout.Location = new System.Drawing.Point(2, 119);
+            this.webLayout.Name = "webLayout";
+            this.webLayout.Size = new System.Drawing.Size(736, 633);
+            this.webLayout.TabIndex = 21;
+            this.webLayout.UseHttpActivityObserver = false;
             // 
             // lblPayInProgress
             // 
@@ -673,23 +690,6 @@
             // 
             this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
             this.SettingToolStripMenuItem.Size = new System.Drawing.Size(12, 29);
-            // 
-            // webLayout
-            // 
-            this.webLayout.FrameEventsPropagateToMainWindow = false;
-            this.webLayout.Location = new System.Drawing.Point(6, 112);
-            this.webLayout.Name = "webLayout";
-            this.webLayout.Size = new System.Drawing.Size(1477, 643);
-            this.webLayout.TabIndex = 21;
-            this.webLayout.UseHttpActivityObserver = false;
-            // 
-            // webLayoutIE
-            // 
-            this.webLayoutIE.Location = new System.Drawing.Point(7, 112);
-            this.webLayoutIE.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webLayoutIE.Name = "webLayoutIE";
-            this.webLayoutIE.Size = new System.Drawing.Size(1473, 640);
-            this.webLayoutIE.TabIndex = 22;
             // 
             // Main
             // 

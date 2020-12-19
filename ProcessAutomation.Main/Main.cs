@@ -54,8 +54,6 @@ namespace ProcessAutomation.Main
             timerAutoStart.Interval = (5000);
             timerAutoStart.Tick += new EventHandler(AutoStart);
             timerAutoStart.Start();
-            
-            
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -83,10 +81,10 @@ namespace ProcessAutomation.Main
 
             }
 
-            isQualified = true;
-            AddPortsToCombobox();
-            InitAllTimer();
-            InitControl();
+            //isQualified = true;
+            //AddPortsToCombobox();
+            //InitAllTimer();
+            //InitControl();
         }
 
         private bool checkLicense()
@@ -228,7 +226,7 @@ namespace ProcessAutomation.Main
         {
             if (Application.OpenForms.OfType<RegisterAccount>().Any())
             {
-                return;  
+                return;
             }
 
             try
@@ -455,7 +453,7 @@ namespace ProcessAutomation.Main
                 List<Message> listMessge = database.Query
                     .Where(x => (cbStopAutoLoadMess.Checked) ||
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
-                    .Where(x => 
+                    .Where(x =>
                     (web_listBox_filter.SelectedItems.Count == 1 && selectedList[0].Equals("Tất Cả"))
                         || (web_listBox_filter.SelectedItems.Count == 6) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
@@ -491,7 +489,7 @@ namespace ProcessAutomation.Main
                     decimal.TryParse(x.Money, out decimal val)
                     ? val : 0);
                     CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-                    txtTotal.Text = total.ToString("#,###", cul.NumberFormat)+ " VND";
+                    txtTotal.Text = total.ToString("#,###", cul.NumberFormat) + " VND";
                 }
                 dataGridView1.DataSource = listMessge;
             }));
