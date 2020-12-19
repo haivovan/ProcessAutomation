@@ -47,13 +47,15 @@ namespace ProcessAutomation.Main
 
         public Main()
         {
+            Xpcom.Initialize("Firefox");
             InitializeComponent();
 
             timerAutoStart = new System.Windows.Forms.Timer();
             timerAutoStart.Interval = (5000);
             timerAutoStart.Tick += new EventHandler(AutoStart);
             timerAutoStart.Start();
-            Xpcom.Initialize("Firefox");
+            
+            
         }
 
         private void Main_Load(object sender, EventArgs e)
