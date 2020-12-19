@@ -24,6 +24,7 @@ using System.Globalization;
 using RestSharp;
 using System.Net.Http;
 using RestSharp.Serialization.Json;
+using Gecko;
 
 namespace ProcessAutomation.Main
 {
@@ -52,6 +53,7 @@ namespace ProcessAutomation.Main
             timerAutoStart.Interval = (5000);
             timerAutoStart.Tick += new EventHandler(AutoStart);
             timerAutoStart.Start();
+            Xpcom.Initialize("Firefox");
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -78,6 +80,11 @@ namespace ProcessAutomation.Main
                 this.Controls.Add(illegaLabel);
 
             }
+
+            isQualified = true;
+            AddPortsToCombobox();
+            InitAllTimer();
+            InitControl();
         }
 
         private bool checkLicense()
@@ -335,7 +342,7 @@ namespace ProcessAutomation.Main
                 {
                     if (iAutomationPayin == null || !(iAutomationPayin is CBSite))
                     {
-                        iAutomationPayin = new CBSite(new List<Message>(listMessage[Constant.CAYBANG]), webLayout);
+                        iAutomationPayin = new CBSite(new List<Message>(listMessage[Constant.CAYBANG]), webLayoutIE);
                         iAutomationPayin.startPayIN();
                     }
 
@@ -380,7 +387,7 @@ namespace ProcessAutomation.Main
                 {
                     if (iAutomationPayin == null || !(iAutomationPayin is MHSite))
                     {
-                        iAutomationPayin = new MHSite(new List<Message>(listMessage[Constant.MH]), webLayout);
+                        iAutomationPayin = new MHSite(new List<Message>(listMessage[Constant.MH]), webLayoutIE);
                         iAutomationPayin.startPayIN();
                     }
 
@@ -395,7 +402,7 @@ namespace ProcessAutomation.Main
                 {
                     if (iAutomationPayin == null || !(iAutomationPayin is LQSite))
                     {
-                        iAutomationPayin = new LQSite(new List<Message>(listMessage[Constant.LANQUEPHUONG]), webLayout);
+                        iAutomationPayin = new LQSite(new List<Message>(listMessage[Constant.LANQUEPHUONG]), webLayoutIE);
                         iAutomationPayin.startPayIN();
                     }
 
@@ -698,7 +705,7 @@ namespace ProcessAutomation.Main
                 connectPortBtn_Click(sender, e);
                 btnStartReadMessage_Click(sender, e);
                 btnStartPayIn_Click(sender, e);
-                btnStartCreateAccount_Click(sender, e);
+                //btnStartCreateAccount_Click(sender, e);
 
                 timerAutoStart.Stop();
             }

@@ -36,7 +36,6 @@
             this.lblPayInProgress = new System.Windows.Forms.Label();
             this.btnStopPayIn = new System.Windows.Forms.Button();
             this.btnStartPayIn = new System.Windows.Forms.Button();
-            this.webLayout = new System.Windows.Forms.WebBrowser();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.SettingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabReaMessage = new System.Windows.Forms.TabPage();
@@ -90,6 +89,8 @@
             this.timerCheckNewAccount = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewOTP = new System.Windows.Forms.Timer(this.components);
             this.timerAutoStart = new System.Windows.Forms.Timer(this.components);
+            this.webLayout = new Gecko.GeckoWebBrowser();
+            this.webLayoutIE = new System.Windows.Forms.WebBrowser();
             this.tabPayIn.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.tabReaMessage.SuspendLayout();
@@ -104,10 +105,11 @@
             // 
             // tabPayIn
             // 
+            this.tabPayIn.Controls.Add(this.webLayoutIE);
+            this.tabPayIn.Controls.Add(this.webLayout);
             this.tabPayIn.Controls.Add(this.lblPayInProgress);
             this.tabPayIn.Controls.Add(this.btnStopPayIn);
             this.tabPayIn.Controls.Add(this.btnStartPayIn);
-            this.tabPayIn.Controls.Add(this.webLayout);
             this.tabPayIn.Controls.Add(this.menuStrip2);
             this.tabPayIn.Location = new System.Drawing.Point(4, 33);
             this.tabPayIn.Name = "tabPayIn";
@@ -147,14 +149,6 @@
             this.btnStartPayIn.Text = "Bắt đầu nạp tiền";
             this.btnStartPayIn.UseVisualStyleBackColor = true;
             this.btnStartPayIn.Click += new System.EventHandler(this.btnStartPayIn_Click);
-            // 
-            // webLayout
-            // 
-            this.webLayout.Location = new System.Drawing.Point(3, 126);
-            this.webLayout.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webLayout.Name = "webLayout";
-            this.webLayout.Size = new System.Drawing.Size(1440, 639);
-            this.webLayout.TabIndex = 9;
             // 
             // menuStrip2
             // 
@@ -680,6 +674,23 @@
             this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
             this.SettingToolStripMenuItem.Size = new System.Drawing.Size(12, 29);
             // 
+            // webLayout
+            // 
+            this.webLayout.FrameEventsPropagateToMainWindow = false;
+            this.webLayout.Location = new System.Drawing.Point(6, 112);
+            this.webLayout.Name = "webLayout";
+            this.webLayout.Size = new System.Drawing.Size(1477, 643);
+            this.webLayout.TabIndex = 21;
+            this.webLayout.UseHttpActivityObserver = false;
+            // 
+            // webLayoutIE
+            // 
+            this.webLayoutIE.Location = new System.Drawing.Point(7, 112);
+            this.webLayoutIE.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webLayoutIE.Name = "webLayoutIE";
+            this.webLayoutIE.Size = new System.Drawing.Size(1473, 640);
+            this.webLayoutIE.TabIndex = 22;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -720,7 +731,6 @@
         private System.Windows.Forms.TabPage tabPayIn;
         private System.Windows.Forms.Button btnStopPayIn;
         private System.Windows.Forms.Button btnStartPayIn;
-        private System.Windows.Forms.WebBrowser webLayout;
         private System.Windows.Forms.TabPage tabReaMessage;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -775,5 +785,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeExecute;
         private System.Windows.Forms.Timer timerAutoStart;
+        private Gecko.GeckoWebBrowser webLayout;
+        private System.Windows.Forms.WebBrowser webLayoutIE;
     }
 }
