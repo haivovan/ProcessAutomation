@@ -80,11 +80,6 @@ namespace ProcessAutomation.Main
                 this.Controls.Add(illegaLabel);
 
             }
-
-            //isQualified = true;
-            //AddPortsToCombobox();
-            //InitAllTimer();
-            //InitControl();
         }
 
         private bool checkLicense()

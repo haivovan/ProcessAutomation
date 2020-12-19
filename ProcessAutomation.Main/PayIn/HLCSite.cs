@@ -434,7 +434,7 @@ namespace ProcessAutomation.Main.PayIn
                 {
                     try
                     {
-                        string value = td.InnerHtml.ToString();
+                        string value = td.TextContent.Trim();
                         if (value != null && value.Trim() == accountData.HLC.Trim())
                         {
                             trFound = tr;
