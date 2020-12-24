@@ -700,7 +700,7 @@ namespace ProcessAutomation.Main
                 connectPortBtn_Click(sender, e);
                 btnStartReadMessage_Click(sender, e);
                 btnStartPayIn_Click(sender, e);
-                //btnStartCreateAccount_Click(sender, e);
+                btnStartCreateAccount_Click(sender, e);
 
                 timerAutoStart.Stop();
             }

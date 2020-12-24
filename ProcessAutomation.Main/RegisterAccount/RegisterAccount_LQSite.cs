@@ -1,4 +1,6 @@
-﻿using MongoDB.Driver;
+﻿using Gecko;
+using Gecko.DOM;
+using MongoDB.Driver;
 using ProcessAutomation.DAL;
 using ProcessAutomation.Main.Services;
 using ProcessAutomation.Main.Ultility;
@@ -15,7 +17,7 @@ namespace ProcessAutomation.Main.PayIn
         AccountService accountService = new AccountService();
         MailService mailService = new MailService();
         Helper helper = new Helper();
-        private WebBrowser webLayout;
+        private GeckoWebBrowser webLayout;
         private RegisterAccountModel data = new RegisterAccountModel();
         private RegisterAccount registerAccountForm;
         private const string web_name = "lanquephuong";
@@ -29,7 +31,7 @@ namespace ProcessAutomation.Main.PayIn
         Message currentMessage;
         Void v;
         TaskCompletionSource<Void> tcs = null;
-        WebBrowserDocumentCompletedEventHandler documentComplete = null;
+        EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs> documentComplete;
         MongoDatabase<AdminSetting> adminSetting = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
 
         public RegisterAccount_LQSite(RegisterAccountModel data)
@@ -37,7 +39,7 @@ namespace ProcessAutomation.Main.PayIn
             this.data = data;
         }
 
-        public void startRegister(WebBrowser webLayout, RegisterAccount form)
+        public void startRegister(GeckoWebBrowser webLayout, RegisterAccount form)
         {
             this.webLayout = webLayout;
             this.registerAccountForm = form;
@@ -50,13 +52,13 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                documentComplete = new WebBrowserDocumentCompletedEventHandler((s, e) =>
+                documentComplete = new EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>((s, e) =>
                 {
-                    if (webLayout.DocumentText.Contains("res://ieframe.dll"))
-                    {
-                        tcs.SetException(new Exception("Lỗi không có kết nối internet"));
-                        return;
-                    }
+                    //if (webLayout.DocumentText.Contains("res://ieframe.dll"))
+                    //{
+                    //    tcs.SetException(new Exception("Lỗi không có kết nối internet"));
+                    //    return;
+                    //}
                     if (!tcs.Task.IsCompleted)
                     {
                         webLayout.DocumentCompleted -= documentComplete;
@@ -218,7 +220,6 @@ namespace ProcessAutomation.Main.PayIn
         private void CreateSyncTask()
         {
             tcs = new TaskCompletionSource<Void>();
-            webLayout.ScriptErrorsSuppressed = true;
             webLayout.DocumentCompleted += documentComplete;
         }
 
@@ -228,16 +229,16 @@ namespace ProcessAutomation.Main.PayIn
             var inputUserName = htmlLogin.GetElementById("Username");
             var inputPassword = htmlLogin.GetElementById("Password");
             var inputOTP = htmlLogin.GetElementById("OTP");
-            var btnLogin = htmlLogin.GetElementById("login");
             var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.LANQUEPHUONG).FirstOrDefault();
             var otpValue = otpSetting.Value ?? string.Empty;
+            GeckoLinkElement btnLogin = new GeckoLinkElement(htmlLogin.GetElementsByName("login")[0].DomObject);
 
             if (inputUserName != null && inputPassword != null)
             {
                 inputUserName.SetAttribute("value", adminAccount.AccountName);
                 inputPassword.SetAttribute("value", adminAccount.Password);
                 inputOTP.SetAttribute("value", otpValue);
-                btnLogin.InvokeMember("Click");
+                btnLogin.Click();
             }
         }
 
@@ -245,12 +246,12 @@ namespace ProcessAutomation.Main.PayIn
         {
             var htmlIndex = webLayout.Document;
             var aTag = htmlIndex.GetElementsByTagName("a");
-            foreach (HtmlElement item in aTag)
+            foreach (GeckoHtmlElement item in aTag)
             {
-                var href = item.GetAttribute("href");
+                var href = url + item.GetAttribute("href").TrimStart('/');
                 if (href != null && href == agencies_URL)
                 {
-                    item.InvokeMember("Click");
+                    item.Click();
                     break;
                 }
             }
@@ -260,12 +261,12 @@ namespace ProcessAutomation.Main.PayIn
         {
             var htmlIndex = webLayout.Document;
             var aTag = htmlIndex.GetElementsByTagName("a");
-            foreach (HtmlElement item in aTag)
+            foreach (GeckoHtmlElement item in aTag)
             {
-                var href = item.GetAttribute("href");
+                var href = url + item.GetAttribute("href").TrimStart('/');
                 if (href != null && href == addUser_URL)
                 {
-                    item.InvokeMember("Click");
+                    item.Click();
                     break;
                 }
             }
@@ -311,12 +312,12 @@ namespace ProcessAutomation.Main.PayIn
         {
             var html = webLayout.Document;
             var inputTag = html.GetElementsByTagName("input");
-            foreach (HtmlElement item in inputTag)
+            foreach (GeckoHtmlElement item in inputTag)
             {
                 var name = item.GetAttribute("name");
                 if (name != null && name == "login")
                 {
-                    item.InvokeMember("onclick");
+                    item.Click();
                     break;
                 }
             }
@@ -356,14 +357,14 @@ namespace ProcessAutomation.Main.PayIn
         {
             var html = webLayout.Document;
             var form = html.GetElementsByTagName("form");
-            foreach (HtmlElement item in form)
+            foreach (GeckoHtmlElement item in form)
             {
                 var p = item.GetElementsByTagName("P");
-                foreach (HtmlElement temp in p)
+                foreach (GeckoHtmlElement temp in p)
                 {
                     if (temp.InnerHtml.Contains("field-validation-error"))
                     {
-                        return temp.InnerText;
+                        return temp.TextContent;
                     }
                 }
             }

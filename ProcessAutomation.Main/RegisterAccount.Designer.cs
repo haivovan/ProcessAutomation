@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.registerAccountBrowser = new System.Windows.Forms.WebBrowser();
+            this.registerAccountBrowser = new Gecko.GeckoWebBrowser();
             this.SuspendLayout();
             // 
             // registerAccountBrowser
             // 
-            this.registerAccountBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.registerAccountBrowser.FrameEventsPropagateToMainWindow = false;
             this.registerAccountBrowser.Location = new System.Drawing.Point(0, 0);
-            this.registerAccountBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.registerAccountBrowser.Name = "registerAccountBrowser";
-            this.registerAccountBrowser.Size = new System.Drawing.Size(1085, 624);
-            this.registerAccountBrowser.TabIndex = 0;
+            this.registerAccountBrowser.Size = new System.Drawing.Size(1087, 625);
+            this.registerAccountBrowser.TabIndex = 1;
+            this.registerAccountBrowser.UseHttpActivityObserver = false;
             // 
             // RegisterAccount
             // 
@@ -55,6 +55,6 @@
 
         #endregion
 
-        public System.Windows.Forms.WebBrowser registerAccountBrowser;
+        private Gecko.GeckoWebBrowser registerAccountBrowser;
     }
 }

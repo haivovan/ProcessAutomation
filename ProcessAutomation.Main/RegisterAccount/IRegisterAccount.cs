@@ -1,9 +1,10 @@
-﻿using System.Windows.Forms;
+﻿using Gecko;
+using System.Windows.Forms;
 
 namespace ProcessAutomation.Main.PayIn
 {
     public interface IRegisterAccount
     {
-        void startRegister(WebBrowser webBrowser, RegisterAccount form);
+        void startRegister(GeckoWebBrowser webBrowser, RegisterAccount form);
     }
 }
