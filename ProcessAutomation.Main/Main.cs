@@ -69,7 +69,7 @@ namespace ProcessAutomation.Main
             {
                 tabControl.Hide();
                 // Creating and setting the label 
-                Label illegaLabel = new Label();
+                Label illegaLabel = new Label(); 
                 illegaLabel.Text = "Eyyyyy! Đừng Xài Lậu Chứ Fen :)";
                 illegaLabel.Location = new Point(300, 300);
                 illegaLabel.AutoSize = true;
