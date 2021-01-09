@@ -30,4 +30,5 @@ public class AccountData
     public string GD { get; set; }
     public string NT { get; set; }
     public string LQ { get; set; }
+    public string DN { get; set; }
 }

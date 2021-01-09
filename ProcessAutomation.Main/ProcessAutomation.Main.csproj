@@ -152,6 +152,8 @@
   <ItemGroup>
     <Compile Include="Model\OTPModel.cs" />
     <Compile Include="Model\RegisterAccountModel.cs" />
+    <Compile Include="PayIn\DNSite.cs" />
+    <Compile Include="RegisterAccount\RegisterAccount_DNSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_BKSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_HLCSite.cs" />
     <Compile Include="RegisterAccount\IRegisterAccount.cs" />

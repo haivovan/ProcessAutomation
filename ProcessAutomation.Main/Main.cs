@@ -244,6 +244,9 @@ namespace ProcessAutomation.Main
                     case Constant.LANQUEPHUONG:
                         registerAccount = new RegisterAccount_LQSite(registerModel);
                         break;
+                    case Constant.DIENNUOC:
+                        registerAccount = new RegisterAccount_LQSite(registerModel);
+                        break;
                 }
 
                 RegisterAccount form = new RegisterAccount(registerAccount);
@@ -280,6 +283,7 @@ namespace ProcessAutomation.Main
                     listMessage.Add(Constant.HANHLANG, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.MH, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.LANQUEPHUONG, new List<Message>() { new Message { IsKeepSession = true } });
+                    listMessage.Add(Constant.DIENNUOC, new List<Message>() { new Message { IsKeepSession = true } });
                 }
                 isCurrentPayInProcessDone = false;
                 if (!timerCheckChildProcess.Enabled)
@@ -408,6 +412,21 @@ namespace ProcessAutomation.Main
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
+                else if (listMessage.ContainsKey(Constant.DIENNUOC) && listMessage[Constant.DIENNUOC].Count > 0)
+                {
+                    if (iAutomationPayin == null || !(iAutomationPayin is LQSite))
+                    {
+                        iAutomationPayin = new DNSite(new List<Message>(listMessage[Constant.DIENNUOC]), webLayout);
+                        iAutomationPayin.startPayIN();
+                    }
+
+                    if (!iAutomationPayin.checkProcessDone())
+                        return;
+
+                    listMessage.Remove(Constant.DIENNUOC);
+                    iAutomationPayin = null;
+                    showSearchMessage();
+                }
             }
             catch (Exception ex)
             {
@@ -450,7 +469,7 @@ namespace ProcessAutomation.Main
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
                     .Where(x =>
                     (web_listBox_filter.SelectedItems.Count == 1 && selectedList[0].Equals("Tất Cả"))
-                        || (web_listBox_filter.SelectedItems.Count == 6) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 7) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -583,6 +602,7 @@ namespace ProcessAutomation.Main
             web_listBox_filter.Items.Add(Constant.HANHLANG);
             web_listBox_filter.Items.Add(Constant.MH);
             web_listBox_filter.Items.Add(Constant.LANQUEPHUONG);
+            web_listBox_filter.Items.Add(Constant.DIENNUOC);
 
             //web_listBox_filter.Items.Add(Constant.GIADINHVN);
             //web_listBox_filter.Items.Add(Constant.NT30s);
@@ -592,6 +612,7 @@ namespace ProcessAutomation.Main
             web_listBox_filter.SetSelected(3, true);
             web_listBox_filter.SetSelected(4, true);
             web_listBox_filter.SetSelected(5, true);
+            web_listBox_filter.SetSelected(6, true);
 
             messageContition.WebSRun.Add(Constant.BANHKEO);
             messageContition.WebSRun.Add(Constant.CAYBANG);
@@ -599,7 +620,7 @@ namespace ProcessAutomation.Main
             messageContition.WebSRun.Add(Constant.HANHLANG);
             messageContition.WebSRun.Add(Constant.MH);
             messageContition.WebSRun.Add(Constant.LANQUEPHUONG);
-            //messageContition.WebSRun.Add(Constant.GIADINHVN);
+            messageContition.WebSRun.Add(Constant.DIENNUOC);
             cbStopAutoLoadMess.Checked = true;
             showSearchMessage();
         }
