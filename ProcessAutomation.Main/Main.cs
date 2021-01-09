@@ -245,7 +245,7 @@ namespace ProcessAutomation.Main
                         registerAccount = new RegisterAccount_LQSite(registerModel);
                         break;
                     case Constant.DIENNUOC:
-                        registerAccount = new RegisterAccount_LQSite(registerModel);
+                        registerAccount = new RegisterAccount_DNSite(registerModel);
                         break;
                 }
 
@@ -414,7 +414,7 @@ namespace ProcessAutomation.Main
                 }
                 else if (listMessage.ContainsKey(Constant.DIENNUOC) && listMessage[Constant.DIENNUOC].Count > 0)
                 {
-                    if (iAutomationPayin == null || !(iAutomationPayin is LQSite))
+                    if (iAutomationPayin == null || !(iAutomationPayin is DNSite))
                     {
                         iAutomationPayin = new DNSite(new List<Message>(listMessage[Constant.DIENNUOC]), webLayout);
                         iAutomationPayin.startPayIN();
