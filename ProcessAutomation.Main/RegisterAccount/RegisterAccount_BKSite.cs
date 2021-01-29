@@ -22,7 +22,7 @@ namespace ProcessAutomation.Main.PayIn
         private GeckoWebBrowser webLayout;
         private RegisterAccountModel data = new RegisterAccountModel();
         private const string web_name = "banhkeo";
-        private const string url = "https://banhkeo.club/";
+        private const string url = "https://maivang.club/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";
