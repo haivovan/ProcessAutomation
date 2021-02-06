@@ -21,7 +21,7 @@ namespace ProcessAutomation.Main.PayIn
         private GeckoWebBrowser webLayout;
         private List<Message> data = new List<Message>();
         private const string web_name = "diennuoc";
-        private const string url = "https://diennuoc.club/";
+        private const string url = "https://73ss.club/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";
