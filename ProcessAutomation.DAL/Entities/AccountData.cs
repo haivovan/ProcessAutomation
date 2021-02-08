@@ -32,4 +32,7 @@ public class AccountData
     public string NT { get; set; }
     public string LQ { get; set; }
     public string DN { get; set; }
+    public string AZ { get; set; }
+    public string TL { get; set; }
+    public string TC { get; set; }
 }

@@ -247,6 +247,15 @@ namespace ProcessAutomation.Main
                     case Constant.DIENNUOC:
                         registerAccount = new RegisterAccount_DNSite(registerModel);
                         break;
+                    case Constant.NAPAZ:
+                        registerAccount = new RegisterAccount_AZSite(registerModel);
+                        break;
+                    case Constant.TRUMLANG:
+                        registerAccount = new RegisterAccount_TLSite(registerModel);
+                        break;
+                    case Constant.TRACHANH:
+                        registerAccount = new RegisterAccount_TCSite(registerModel);
+                        break;
                 }
 
                 RegisterAccount form = new RegisterAccount(registerAccount);
@@ -284,6 +293,9 @@ namespace ProcessAutomation.Main
                     listMessage.Add(Constant.MH, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.LANQUEPHUONG, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.DIENNUOC, new List<Message>() { new Message { IsKeepSession = true } });
+                    listMessage.Add(Constant.NAPAZ, new List<Message>() { new Message { IsKeepSession = true } });
+                    listMessage.Add(Constant.TRUMLANG, new List<Message>() { new Message { IsKeepSession = true } });
+                    listMessage.Add(Constant.TRACHANH, new List<Message>() { new Message { IsKeepSession = true } });
                 }
                 isCurrentPayInProcessDone = false;
                 if (!timerCheckChildProcess.Enabled)
@@ -427,6 +439,51 @@ namespace ProcessAutomation.Main
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
+                else if (listMessage.ContainsKey(Constant.NAPAZ) && listMessage[Constant.NAPAZ].Count > 0)
+                {
+                    if (iAutomationPayin == null || !(iAutomationPayin is AZSite))
+                    {
+                        iAutomationPayin = new AZSite(new List<Message>(listMessage[Constant.NAPAZ]), webLayout);
+                        iAutomationPayin.startPayIN();
+                    }
+
+                    if (!iAutomationPayin.checkProcessDone())
+                        return;
+
+                    listMessage.Remove(Constant.NAPAZ);
+                    iAutomationPayin = null;
+                    showSearchMessage();
+                }
+                else if (listMessage.ContainsKey(Constant.TRUMLANG) && listMessage[Constant.TRUMLANG].Count > 0)
+                {
+                    if (iAutomationPayin == null || !(iAutomationPayin is TLSite))
+                    {
+                        iAutomationPayin = new TLSite(new List<Message>(listMessage[Constant.TRUMLANG]), webLayout);
+                        iAutomationPayin.startPayIN();
+                    }
+
+                    if (!iAutomationPayin.checkProcessDone())
+                        return;
+
+                    listMessage.Remove(Constant.TRUMLANG);
+                    iAutomationPayin = null;
+                    showSearchMessage();
+                }
+                else if (listMessage.ContainsKey(Constant.TRACHANH) && listMessage[Constant.TRACHANH].Count > 0)
+                {
+                    if (iAutomationPayin == null || !(iAutomationPayin is TCSite))
+                    {
+                        iAutomationPayin = new TCSite(new List<Message>(listMessage[Constant.TRACHANH]), webLayout);
+                        iAutomationPayin.startPayIN();
+                    }
+
+                    if (!iAutomationPayin.checkProcessDone())
+                        return;
+
+                    listMessage.Remove(Constant.TRACHANH);
+                    iAutomationPayin = null;
+                    showSearchMessage();
+                }
             }
             catch (Exception ex)
             {
@@ -469,7 +526,7 @@ namespace ProcessAutomation.Main
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
                     .Where(x =>
                     (web_listBox_filter.SelectedItems.Count == 1 && selectedList[0].Equals("Tất Cả"))
-                        || (web_listBox_filter.SelectedItems.Count == 7) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 10) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -603,6 +660,9 @@ namespace ProcessAutomation.Main
             web_listBox_filter.Items.Add(Constant.MH);
             web_listBox_filter.Items.Add(Constant.LANQUEPHUONG);
             web_listBox_filter.Items.Add(Constant.DIENNUOC);
+            web_listBox_filter.Items.Add(Constant.NAPAZ);
+            web_listBox_filter.Items.Add(Constant.TRUMLANG);
+            web_listBox_filter.Items.Add(Constant.TRACHANH);
 
             //web_listBox_filter.Items.Add(Constant.GIADINHVN);
             //web_listBox_filter.Items.Add(Constant.NT30s);
@@ -613,6 +673,9 @@ namespace ProcessAutomation.Main
             web_listBox_filter.SetSelected(4, true);
             web_listBox_filter.SetSelected(5, true);
             web_listBox_filter.SetSelected(6, true);
+            web_listBox_filter.SetSelected(7, true);
+            web_listBox_filter.SetSelected(8, true);
+            web_listBox_filter.SetSelected(9, true);
 
             messageContition.WebSRun.Add(Constant.BANHKEO);
             messageContition.WebSRun.Add(Constant.CAYBANG);
@@ -621,6 +684,9 @@ namespace ProcessAutomation.Main
             messageContition.WebSRun.Add(Constant.MH);
             messageContition.WebSRun.Add(Constant.LANQUEPHUONG);
             messageContition.WebSRun.Add(Constant.DIENNUOC);
+            messageContition.WebSRun.Add(Constant.NAPAZ);
+            messageContition.WebSRun.Add(Constant.TRUMLANG);
+            messageContition.WebSRun.Add(Constant.TRACHANH);
             cbStopAutoLoadMess.Checked = true;
             showSearchMessage();
         }
