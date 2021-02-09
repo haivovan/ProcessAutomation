@@ -19,6 +19,9 @@ public class AccountData
         NT = string.Empty;
         LQ = string.Empty;
         DN = string.Empty;
+        AZ = string.Empty;
+        TL = string.Empty;
+        TC = string.Empty;
     }
 
     public ObjectId Id { get; set; }
