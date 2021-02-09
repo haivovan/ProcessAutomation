@@ -20,13 +20,13 @@ namespace ProcessAutomation.Main.Ultility
         public const string REG_EXTRACT_MONEY_TEMPLATE1 = @"(tang)+(.*?VND)";
         public const string REG_EXTRACT_MONEY_TEMPLATE2 = @"(\+ )+(.*? )";
         public const string REG_EXTRACT_MONEY_TEMPLATE3 = @"(\+)+(.*?VND)";
-        public const string REG_EXTRACT_ACCOUNT1 = @"(lq|cb|hl|bk|gd|nt|mh|dn|az|tl|tc| l q| c b| h l| g d| b k| n t| m h| d n| a z| t l| t c|lq |cb |hl |gd |nt |mh |dn |az |tl | tc | l q | c b | h l | g d | n t | m h | d n | a z | t l | t c )+(\d\d\d\d)";
-        public const string REG_EXTRACT_ACCOUNT2 = @"(lq|cb|hl|bk|gd|nt|mh|dn|az|tl|tc)+(\d \d\d\d)";
-        public const string REG_EXTRACT_ACCOUNT3 = @"(lq|cb|hl|bk|gd|nt|mh|dn|az|tl|tc| l q| c b| h l| g d| b k| n t| m h| d n| a z| t l| t c|lq |cb |hl |gd |nt |mh |dn |az |tl |tc | l q | c b | h l | g d | n t | m h | d n | a z | t l | t c )+(\d\d \d\d)";
-        public const string REG_EXTRACT_ACCOUNT4 = @"(lq|cb|hl|bk|gd|nt|mh|dn|az|tl|tc)+( \d\d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT1 = @"(lq|hl|bk|gd|nt|mh|dn|az|tl|tc| l q| h l| g d| b k| n t| m h| d n| a z| t l| t c|lq |hl |gd |nt |mh |dn |az |tl |tc | l q | h l | g d | n t | m h | d n | a z | t l | t c )+(\d\d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT2 = @"(lq|hl|bk|gd|nt|mh|dn|az|tl|tc)+(\d \d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT3 = @"(lq|hl|bk|gd|nt|mh|dn|az|tl|tc| l q| h l| g d| b k| n t| m h| d n| a z| t l| t c|lq |hl |gd |nt |mh |dn |az |tl |tc | l q | h l | g d | n t | m h | d n | a z | t l | t c )+(\d\d \d\d)";
+        public const string REG_EXTRACT_ACCOUNT4 = @"(lq|hl|bk|gd|nt|mh|dn|az|tl|tc)+( \d\d\d\d)";
         public const string REG_EXTRACT_SO_DU = @"^(.*?)VNĐ";
        
-        public static List<string> WEBS_NAME = new List<string> { "cb", "hl", "bk", "mh", "lq", "dn", "az", "tl", "tc" };
+        public static List<string> WEBS_NAME = new List<string> { "hl", "bk", "mh", "lq", "dn", "az", "tl", "tc" };
         #endregion
 
         #region Limitation

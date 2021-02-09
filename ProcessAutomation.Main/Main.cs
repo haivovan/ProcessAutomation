@@ -288,7 +288,7 @@ namespace ProcessAutomation.Main
                 if (listMessage.Count == 0)
                 {
                     listMessage.Add(Constant.BANHKEO, new List<Message>() { new Message { IsKeepSession = true } });
-                    listMessage.Add(Constant.CAYBANG, new List<Message>() { new Message { IsKeepSession = true } });
+                    //listMessage.Add(Constant.CAYBANG, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.HANHLANG, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.MH, new List<Message>() { new Message { IsKeepSession = true } });
                     listMessage.Add(Constant.LANQUEPHUONG, new List<Message>() { new Message { IsKeepSession = true } });
@@ -349,22 +349,23 @@ namespace ProcessAutomation.Main
                     return;
                 }
 
-                if (listMessage.ContainsKey(Constant.CAYBANG) && listMessage[Constant.CAYBANG].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is CBSite))
-                    {
-                        iAutomationPayin = new CBSite(new List<Message>(listMessage[Constant.CAYBANG]), webLayoutIE);
-                        iAutomationPayin.startPayIN();
-                    }
+                //if (listMessage.ContainsKey(Constant.CAYBANG) && listMessage[Constant.CAYBANG].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is CBSite))
+                //    {
+                //        iAutomationPayin = new CBSite(new List<Message>(listMessage[Constant.CAYBANG]), webLayoutIE);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.CAYBANG);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.BANHKEO) && listMessage[Constant.BANHKEO].Count > 0)
+                //    listMessage.Remove(Constant.CAYBANG);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else 
+                if (listMessage.ContainsKey(Constant.BANHKEO) && listMessage[Constant.BANHKEO].Count > 0)
                 {
                     if (iAutomationPayin == null || !(iAutomationPayin is BKSite))
                     {
@@ -526,7 +527,7 @@ namespace ProcessAutomation.Main
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
                     .Where(x =>
                     (web_listBox_filter.SelectedItems.Count == 1 && selectedList[0].Equals("Tất Cả"))
-                        || (web_listBox_filter.SelectedItems.Count == 10) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 9) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -655,7 +656,7 @@ namespace ProcessAutomation.Main
 
             web_listBox_filter.Items.Add(Constant.ALL);
             web_listBox_filter.Items.Add(Constant.BANHKEO);
-            web_listBox_filter.Items.Add(Constant.CAYBANG);
+            //web_listBox_filter.Items.Add(Constant.CAYBANG);
             web_listBox_filter.Items.Add(Constant.HANHLANG);
             web_listBox_filter.Items.Add(Constant.MH);
             web_listBox_filter.Items.Add(Constant.LANQUEPHUONG);
@@ -675,10 +676,10 @@ namespace ProcessAutomation.Main
             web_listBox_filter.SetSelected(6, true);
             web_listBox_filter.SetSelected(7, true);
             web_listBox_filter.SetSelected(8, true);
-            web_listBox_filter.SetSelected(9, true);
+            //web_listBox_filter.SetSelected(9, true);
 
             messageContition.WebSRun.Add(Constant.BANHKEO);
-            messageContition.WebSRun.Add(Constant.CAYBANG);
+            //messageContition.WebSRun.Add(Constant.CAYBANG);
             //messageContition.WebSRun.Add(Constant.NT30s);
             messageContition.WebSRun.Add(Constant.HANHLANG);
             messageContition.WebSRun.Add(Constant.MH);

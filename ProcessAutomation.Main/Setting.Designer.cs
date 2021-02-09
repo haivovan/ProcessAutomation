@@ -29,25 +29,38 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbTraChanh = new System.Windows.Forms.CheckBox();
+            this.cbTrumLang = new System.Windows.Forms.CheckBox();
+            this.cbNapaz = new System.Windows.Forms.CheckBox();
             this.cbDienNuoc = new System.Windows.Forms.CheckBox();
             this.cbLanQuePhuong = new System.Windows.Forms.CheckBox();
             this.cb30s = new System.Windows.Forms.CheckBox();
             this.cbGiaDinh = new System.Windows.Forms.CheckBox();
             this.cb12c = new System.Windows.Forms.CheckBox();
             this.cbHanhLang = new System.Windows.Forms.CheckBox();
-            this.cbCayBang = new System.Windows.Forms.CheckBox();
             this.cbBanhKeo = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtBonus_30s = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_TC = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_TL = new System.Windows.Forms.NumericUpDown();
+            this.txtBonus_AZ = new System.Windows.Forms.NumericUpDown();
             this.txtBonus_DN = new System.Windows.Forms.NumericUpDown();
             this.txtBonus_GD = new System.Windows.Forms.NumericUpDown();
             this.txtBonus_LQ = new System.Windows.Forms.NumericUpDown();
             this.txtBonus_MH = new System.Windows.Forms.NumericUpDown();
             this.txtBonus_HL = new System.Windows.Forms.NumericUpDown();
             this.txtBonus_BK = new System.Windows.Forms.NumericUpDown();
-            this.txtBonus_CB = new System.Windows.Forms.NumericUpDown();
+            this.txtMoneyPay_TC = new System.Windows.Forms.TextBox();
+            this.txtMoneyPay_TL = new System.Windows.Forms.TextBox();
+            this.txtMoney_TC = new System.Windows.Forms.TextBox();
+            this.txtMoneyPay_AZ = new System.Windows.Forms.TextBox();
+            this.txtMoney_TL = new System.Windows.Forms.TextBox();
+            this.txtMoney_AZ = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtMoneyPay_DN = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtMoney_DN = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtMoneyPay_LQ = new System.Windows.Forms.TextBox();
             this.DienNuoc = new System.Windows.Forms.Label();
             this.txtMoney_LQ = new System.Windows.Forms.TextBox();
@@ -59,47 +72,28 @@
             this.txtMoney_GD = new System.Windows.Forms.TextBox();
             this.txtMoneyPay_HL = new System.Windows.Forms.TextBox();
             this.txtMoney_HL = new System.Windows.Forms.TextBox();
-            this.txtMoneyPay_CB = new System.Windows.Forms.TextBox();
             this.txtMoneyPay_BK = new System.Windows.Forms.TextBox();
-            this.txtMoney_CB = new System.Windows.Forms.TextBox();
             this.txtMoney_BK = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.okBtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtMoney_AZ = new System.Windows.Forms.TextBox();
-            this.txtMoneyPay_AZ = new System.Windows.Forms.TextBox();
-            this.txtBonus_AZ = new System.Windows.Forms.NumericUpDown();
-            this.cbNapaz = new System.Windows.Forms.CheckBox();
-            this.cbTrumLang = new System.Windows.Forms.CheckBox();
-            this.cbTraChanh = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtMoney_TL = new System.Windows.Forms.TextBox();
-            this.txtMoneyPay_TL = new System.Windows.Forms.TextBox();
-            this.txtBonus_TL = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtMoney_TC = new System.Windows.Forms.TextBox();
-            this.txtMoneyPay_TC = new System.Windows.Forms.TextBox();
-            this.txtBonus_TC = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_30s)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_TC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_TL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_AZ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_DN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_GD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_LQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_MH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_HL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_BK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_CB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_AZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_TL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_TC)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -113,7 +107,6 @@
             this.groupBox1.Controls.Add(this.cbGiaDinh);
             this.groupBox1.Controls.Add(this.cb12c);
             this.groupBox1.Controls.Add(this.cbHanhLang);
-            this.groupBox1.Controls.Add(this.cbCayBang);
             this.groupBox1.Controls.Add(this.cbBanhKeo);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -121,6 +114,39 @@
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cài Đặt Web Chạy";
+            // 
+            // cbTraChanh
+            // 
+            this.cbTraChanh.AutoSize = true;
+            this.cbTraChanh.Location = new System.Drawing.Point(9, 398);
+            this.cbTraChanh.Margin = new System.Windows.Forms.Padding(6);
+            this.cbTraChanh.Name = "cbTraChanh";
+            this.cbTraChanh.Size = new System.Drawing.Size(126, 29);
+            this.cbTraChanh.TabIndex = 29;
+            this.cbTraChanh.Text = "TraChanh";
+            this.cbTraChanh.UseVisualStyleBackColor = true;
+            // 
+            // cbTrumLang
+            // 
+            this.cbTrumLang.AutoSize = true;
+            this.cbTrumLang.Location = new System.Drawing.Point(11, 357);
+            this.cbTrumLang.Margin = new System.Windows.Forms.Padding(6);
+            this.cbTrumLang.Name = "cbTrumLang";
+            this.cbTrumLang.Size = new System.Drawing.Size(128, 29);
+            this.cbTrumLang.TabIndex = 29;
+            this.cbTrumLang.Text = "TrumLang";
+            this.cbTrumLang.UseVisualStyleBackColor = true;
+            // 
+            // cbNapaz
+            // 
+            this.cbNapaz.AutoSize = true;
+            this.cbNapaz.Location = new System.Drawing.Point(11, 316);
+            this.cbNapaz.Margin = new System.Windows.Forms.Padding(6);
+            this.cbNapaz.Name = "cbNapaz";
+            this.cbNapaz.Size = new System.Drawing.Size(93, 29);
+            this.cbNapaz.TabIndex = 29;
+            this.cbNapaz.Text = "Napaz";
+            this.cbNapaz.UseVisualStyleBackColor = true;
             // 
             // cbDienNuoc
             // 
@@ -190,18 +216,6 @@
             this.cbHanhLang.Text = "HanhLang";
             this.cbHanhLang.UseVisualStyleBackColor = true;
             // 
-            // cbCayBang
-            // 
-            this.cbCayBang.AutoSize = true;
-            this.cbCayBang.Enabled = false;
-            this.cbCayBang.Location = new System.Drawing.Point(159, 57);
-            this.cbCayBang.Margin = new System.Windows.Forms.Padding(6);
-            this.cbCayBang.Name = "cbCayBang";
-            this.cbCayBang.Size = new System.Drawing.Size(119, 29);
-            this.cbCayBang.TabIndex = 28;
-            this.cbCayBang.Text = "CayBang";
-            this.cbCayBang.UseVisualStyleBackColor = true;
-            // 
             // cbBanhKeo
             // 
             this.cbBanhKeo.AutoSize = true;
@@ -225,7 +239,6 @@
             this.groupBox2.Controls.Add(this.txtBonus_MH);
             this.groupBox2.Controls.Add(this.txtBonus_HL);
             this.groupBox2.Controls.Add(this.txtBonus_BK);
-            this.groupBox2.Controls.Add(this.txtBonus_CB);
             this.groupBox2.Controls.Add(this.txtMoneyPay_TC);
             this.groupBox2.Controls.Add(this.txtMoneyPay_TL);
             this.groupBox2.Controls.Add(this.txtMoney_TC);
@@ -248,18 +261,15 @@
             this.groupBox2.Controls.Add(this.txtMoney_GD);
             this.groupBox2.Controls.Add(this.txtMoneyPay_HL);
             this.groupBox2.Controls.Add(this.txtMoney_HL);
-            this.groupBox2.Controls.Add(this.txtMoneyPay_CB);
             this.groupBox2.Controls.Add(this.txtMoneyPay_BK);
-            this.groupBox2.Controls.Add(this.txtMoney_CB);
             this.groupBox2.Controls.Add(this.txtMoney_BK);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(365, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(820, 567);
+            this.groupBox2.Size = new System.Drawing.Size(820, 538);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             // 
@@ -271,10 +281,49 @@
             0,
             0,
             65536});
-            this.txtBonus_30s.Location = new System.Drawing.Point(680, 371);
+            this.txtBonus_30s.Location = new System.Drawing.Point(680, 325);
             this.txtBonus_30s.Name = "txtBonus_30s";
             this.txtBonus_30s.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_30s.TabIndex = 7;
+            // 
+            // txtBonus_TC
+            // 
+            this.txtBonus_TC.DecimalPlaces = 1;
+            this.txtBonus_TC.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_TC.Location = new System.Drawing.Point(680, 478);
+            this.txtBonus_TC.Name = "txtBonus_TC";
+            this.txtBonus_TC.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_TC.TabIndex = 7;
+            // 
+            // txtBonus_TL
+            // 
+            this.txtBonus_TL.DecimalPlaces = 1;
+            this.txtBonus_TL.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_TL.Location = new System.Drawing.Point(680, 426);
+            this.txtBonus_TL.Name = "txtBonus_TL";
+            this.txtBonus_TL.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_TL.TabIndex = 7;
+            // 
+            // txtBonus_AZ
+            // 
+            this.txtBonus_AZ.DecimalPlaces = 1;
+            this.txtBonus_AZ.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtBonus_AZ.Location = new System.Drawing.Point(680, 371);
+            this.txtBonus_AZ.Name = "txtBonus_AZ";
+            this.txtBonus_AZ.Size = new System.Drawing.Size(120, 31);
+            this.txtBonus_AZ.TabIndex = 7;
             // 
             // txtBonus_DN
             // 
@@ -284,7 +333,7 @@
             0,
             0,
             65536});
-            this.txtBonus_DN.Location = new System.Drawing.Point(680, 274);
+            this.txtBonus_DN.Location = new System.Drawing.Point(680, 228);
             this.txtBonus_DN.Name = "txtBonus_DN";
             this.txtBonus_DN.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_DN.TabIndex = 7;
@@ -297,7 +346,7 @@
             0,
             0,
             65536});
-            this.txtBonus_GD.Location = new System.Drawing.Point(680, 322);
+            this.txtBonus_GD.Location = new System.Drawing.Point(680, 276);
             this.txtBonus_GD.Name = "txtBonus_GD";
             this.txtBonus_GD.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_GD.TabIndex = 7;
@@ -310,7 +359,7 @@
             0,
             0,
             65536});
-            this.txtBonus_LQ.Location = new System.Drawing.Point(680, 225);
+            this.txtBonus_LQ.Location = new System.Drawing.Point(680, 179);
             this.txtBonus_LQ.Name = "txtBonus_LQ";
             this.txtBonus_LQ.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_LQ.TabIndex = 7;
@@ -323,7 +372,7 @@
             0,
             0,
             65536});
-            this.txtBonus_MH.Location = new System.Drawing.Point(680, 181);
+            this.txtBonus_MH.Location = new System.Drawing.Point(680, 135);
             this.txtBonus_MH.Name = "txtBonus_MH";
             this.txtBonus_MH.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_MH.TabIndex = 7;
@@ -336,7 +385,7 @@
             0,
             0,
             65536});
-            this.txtBonus_HL.Location = new System.Drawing.Point(680, 129);
+            this.txtBonus_HL.Location = new System.Drawing.Point(680, 83);
             this.txtBonus_HL.Name = "txtBonus_HL";
             this.txtBonus_HL.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_HL.TabIndex = 7;
@@ -349,42 +398,101 @@
             0,
             0,
             65536});
-            this.txtBonus_BK.Location = new System.Drawing.Point(680, 76);
+            this.txtBonus_BK.Location = new System.Drawing.Point(680, 30);
             this.txtBonus_BK.Name = "txtBonus_BK";
             this.txtBonus_BK.Size = new System.Drawing.Size(120, 31);
             this.txtBonus_BK.TabIndex = 7;
             // 
-            // txtBonus_CB
+            // txtMoneyPay_TC
             // 
-            this.txtBonus_CB.DecimalPlaces = 1;
-            this.txtBonus_CB.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.txtBonus_CB.Location = new System.Drawing.Point(680, 24);
-            this.txtBonus_CB.Name = "txtBonus_CB";
-            this.txtBonus_CB.Size = new System.Drawing.Size(120, 31);
-            this.txtBonus_CB.TabIndex = 7;
+            this.txtMoneyPay_TC.Location = new System.Drawing.Point(434, 477);
+            this.txtMoneyPay_TC.Name = "txtMoneyPay_TC";
+            this.txtMoneyPay_TC.Size = new System.Drawing.Size(213, 31);
+            this.txtMoneyPay_TC.TabIndex = 6;
+            // 
+            // txtMoneyPay_TL
+            // 
+            this.txtMoneyPay_TL.Location = new System.Drawing.Point(434, 425);
+            this.txtMoneyPay_TL.Name = "txtMoneyPay_TL";
+            this.txtMoneyPay_TL.Size = new System.Drawing.Size(213, 31);
+            this.txtMoneyPay_TL.TabIndex = 6;
+            // 
+            // txtMoney_TC
+            // 
+            this.txtMoney_TC.Location = new System.Drawing.Point(190, 477);
+            this.txtMoney_TC.Name = "txtMoney_TC";
+            this.txtMoney_TC.Size = new System.Drawing.Size(213, 31);
+            this.txtMoney_TC.TabIndex = 6;
+            this.txtMoney_TC.Leave += new System.EventHandler(this.txtMoney_TC_Leave);
+            // 
+            // txtMoneyPay_AZ
+            // 
+            this.txtMoneyPay_AZ.Location = new System.Drawing.Point(434, 370);
+            this.txtMoneyPay_AZ.Name = "txtMoneyPay_AZ";
+            this.txtMoneyPay_AZ.Size = new System.Drawing.Size(213, 31);
+            this.txtMoneyPay_AZ.TabIndex = 6;
+            // 
+            // txtMoney_TL
+            // 
+            this.txtMoney_TL.Location = new System.Drawing.Point(190, 425);
+            this.txtMoney_TL.Name = "txtMoney_TL";
+            this.txtMoney_TL.Size = new System.Drawing.Size(213, 31);
+            this.txtMoney_TL.TabIndex = 6;
+            this.txtMoney_TL.Leave += new System.EventHandler(this.txtMoney_TL_Leave);
+            // 
+            // txtMoney_AZ
+            // 
+            this.txtMoney_AZ.Location = new System.Drawing.Point(190, 370);
+            this.txtMoney_AZ.Name = "txtMoney_AZ";
+            this.txtMoney_AZ.Size = new System.Drawing.Size(213, 31);
+            this.txtMoney_AZ.TabIndex = 6;
+            this.txtMoney_AZ.Leave += new System.EventHandler(this.txtMoney_AZ_Leave);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(24, 483);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(107, 25);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "TraChanh";
             // 
             // txtMoneyPay_DN
             // 
-            this.txtMoneyPay_DN.Location = new System.Drawing.Point(434, 273);
+            this.txtMoneyPay_DN.Location = new System.Drawing.Point(434, 227);
             this.txtMoneyPay_DN.Name = "txtMoneyPay_DN";
             this.txtMoneyPay_DN.Size = new System.Drawing.Size(213, 31);
             this.txtMoneyPay_DN.TabIndex = 6;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(24, 431);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(109, 25);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "TrumLang";
+            // 
             // txtMoney_DN
             // 
-            this.txtMoney_DN.Location = new System.Drawing.Point(190, 273);
+            this.txtMoney_DN.Location = new System.Drawing.Point(190, 227);
             this.txtMoney_DN.Name = "txtMoney_DN";
             this.txtMoney_DN.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_DN.TabIndex = 6;
             this.txtMoney_DN.Leave += new System.EventHandler(this.txtMoney_DN_Leave);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(24, 376);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 25);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Napaz";
+            // 
             // txtMoneyPay_LQ
             // 
-            this.txtMoneyPay_LQ.Location = new System.Drawing.Point(434, 225);
+            this.txtMoneyPay_LQ.Location = new System.Drawing.Point(434, 179);
             this.txtMoneyPay_LQ.Name = "txtMoneyPay_LQ";
             this.txtMoneyPay_LQ.Size = new System.Drawing.Size(213, 31);
             this.txtMoneyPay_LQ.TabIndex = 6;
@@ -393,7 +501,7 @@
             // DienNuoc
             // 
             this.DienNuoc.AutoSize = true;
-            this.DienNuoc.Location = new System.Drawing.Point(24, 279);
+            this.DienNuoc.Location = new System.Drawing.Point(24, 233);
             this.DienNuoc.Name = "DienNuoc";
             this.DienNuoc.Size = new System.Drawing.Size(106, 25);
             this.DienNuoc.TabIndex = 5;
@@ -401,7 +509,7 @@
             // 
             // txtMoney_LQ
             // 
-            this.txtMoney_LQ.Location = new System.Drawing.Point(190, 225);
+            this.txtMoney_LQ.Location = new System.Drawing.Point(190, 179);
             this.txtMoney_LQ.Name = "txtMoney_LQ";
             this.txtMoney_LQ.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_LQ.TabIndex = 6;
@@ -410,7 +518,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 231);
+            this.label7.Location = new System.Drawing.Point(24, 185);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(162, 25);
             this.label7.TabIndex = 5;
@@ -418,14 +526,14 @@
             // 
             // txtMoneyPay_MH
             // 
-            this.txtMoneyPay_MH.Location = new System.Drawing.Point(434, 181);
+            this.txtMoneyPay_MH.Location = new System.Drawing.Point(434, 135);
             this.txtMoneyPay_MH.Name = "txtMoneyPay_MH";
             this.txtMoneyPay_MH.Size = new System.Drawing.Size(213, 31);
             this.txtMoneyPay_MH.TabIndex = 4;
             // 
             // txtMoney_MH
             // 
-            this.txtMoney_MH.Location = new System.Drawing.Point(190, 181);
+            this.txtMoney_MH.Location = new System.Drawing.Point(190, 135);
             this.txtMoney_MH.Name = "txtMoney_MH";
             this.txtMoney_MH.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_MH.TabIndex = 4;
@@ -433,7 +541,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 184);
+            this.label6.Location = new System.Drawing.Point(24, 138);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 25);
             this.label6.TabIndex = 3;
@@ -441,7 +549,7 @@
             // 
             // txtMoney_30s
             // 
-            this.txtMoney_30s.Location = new System.Drawing.Point(190, 371);
+            this.txtMoney_30s.Location = new System.Drawing.Point(190, 325);
             this.txtMoney_30s.Name = "txtMoney_30s";
             this.txtMoney_30s.ReadOnly = true;
             this.txtMoney_30s.Size = new System.Drawing.Size(213, 31);
@@ -450,7 +558,7 @@
             // 
             // txtMoney_GD
             // 
-            this.txtMoney_GD.Location = new System.Drawing.Point(190, 322);
+            this.txtMoney_GD.Location = new System.Drawing.Point(190, 276);
             this.txtMoney_GD.Name = "txtMoney_GD";
             this.txtMoney_GD.ReadOnly = true;
             this.txtMoney_GD.Size = new System.Drawing.Size(213, 31);
@@ -459,7 +567,7 @@
             // 
             // txtMoneyPay_HL
             // 
-            this.txtMoneyPay_HL.Location = new System.Drawing.Point(434, 129);
+            this.txtMoneyPay_HL.Location = new System.Drawing.Point(434, 83);
             this.txtMoneyPay_HL.Name = "txtMoneyPay_HL";
             this.txtMoneyPay_HL.Size = new System.Drawing.Size(213, 31);
             this.txtMoneyPay_HL.TabIndex = 2;
@@ -467,39 +575,23 @@
             // 
             // txtMoney_HL
             // 
-            this.txtMoney_HL.Location = new System.Drawing.Point(190, 129);
+            this.txtMoney_HL.Location = new System.Drawing.Point(190, 83);
             this.txtMoney_HL.Name = "txtMoney_HL";
             this.txtMoney_HL.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_HL.TabIndex = 2;
             this.txtMoney_HL.Leave += new System.EventHandler(this.txtMoney_HL_Leave);
             // 
-            // txtMoneyPay_CB
-            // 
-            this.txtMoneyPay_CB.Location = new System.Drawing.Point(434, 24);
-            this.txtMoneyPay_CB.Name = "txtMoneyPay_CB";
-            this.txtMoneyPay_CB.Size = new System.Drawing.Size(213, 31);
-            this.txtMoneyPay_CB.TabIndex = 2;
-            this.txtMoneyPay_CB.Leave += new System.EventHandler(this.txtMoney_CB_Leave);
-            // 
             // txtMoneyPay_BK
             // 
-            this.txtMoneyPay_BK.Location = new System.Drawing.Point(434, 76);
+            this.txtMoneyPay_BK.Location = new System.Drawing.Point(434, 30);
             this.txtMoneyPay_BK.Name = "txtMoneyPay_BK";
             this.txtMoneyPay_BK.Size = new System.Drawing.Size(213, 31);
             this.txtMoneyPay_BK.TabIndex = 1;
             this.txtMoneyPay_BK.Leave += new System.EventHandler(this.txtMoney_MH_Leave);
             // 
-            // txtMoney_CB
-            // 
-            this.txtMoney_CB.Location = new System.Drawing.Point(190, 24);
-            this.txtMoney_CB.Name = "txtMoney_CB";
-            this.txtMoney_CB.Size = new System.Drawing.Size(213, 31);
-            this.txtMoney_CB.TabIndex = 2;
-            this.txtMoney_CB.Leave += new System.EventHandler(this.txtMoney_CB_Leave);
-            // 
             // txtMoney_BK
             // 
-            this.txtMoney_BK.Location = new System.Drawing.Point(190, 76);
+            this.txtMoney_BK.Location = new System.Drawing.Point(190, 30);
             this.txtMoney_BK.Name = "txtMoney_BK";
             this.txtMoney_BK.Size = new System.Drawing.Size(213, 31);
             this.txtMoney_BK.TabIndex = 1;
@@ -508,7 +600,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 377);
+            this.label4.Location = new System.Drawing.Point(24, 331);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 25);
             this.label4.TabIndex = 1;
@@ -517,7 +609,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 328);
+            this.label3.Location = new System.Drawing.Point(24, 282);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 25);
             this.label3.TabIndex = 1;
@@ -526,25 +618,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 132);
+            this.label2.Location = new System.Drawing.Point(24, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "HanhLang";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "CayBang";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 79);
+            this.label5.Location = new System.Drawing.Point(24, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 25);
             this.label5.TabIndex = 1;
@@ -553,7 +636,7 @@
             // okBtn
             // 
             this.okBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okBtn.Location = new System.Drawing.Point(1050, 615);
+            this.okBtn.Location = new System.Drawing.Point(1050, 583);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(135, 34);
             this.okBtn.TabIndex = 27;
@@ -588,155 +671,11 @@
             this.label10.TabIndex = 28;
             this.label10.Text = "Số Tiền Nạp Tối Thiểu";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(24, 422);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 25);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Napaz";
-            // 
-            // txtMoney_AZ
-            // 
-            this.txtMoney_AZ.Location = new System.Drawing.Point(190, 416);
-            this.txtMoney_AZ.Name = "txtMoney_AZ";
-            this.txtMoney_AZ.Size = new System.Drawing.Size(213, 31);
-            this.txtMoney_AZ.TabIndex = 6;
-            this.txtMoney_AZ.Leave += new System.EventHandler(this.txtMoney_AZ_Leave);
-            // 
-            // txtMoneyPay_AZ
-            // 
-            this.txtMoneyPay_AZ.Location = new System.Drawing.Point(434, 416);
-            this.txtMoneyPay_AZ.Name = "txtMoneyPay_AZ";
-            this.txtMoneyPay_AZ.Size = new System.Drawing.Size(213, 31);
-            this.txtMoneyPay_AZ.TabIndex = 6;
-            // 
-            // txtBonus_AZ
-            // 
-            this.txtBonus_AZ.DecimalPlaces = 1;
-            this.txtBonus_AZ.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.txtBonus_AZ.Location = new System.Drawing.Point(680, 417);
-            this.txtBonus_AZ.Name = "txtBonus_AZ";
-            this.txtBonus_AZ.Size = new System.Drawing.Size(120, 31);
-            this.txtBonus_AZ.TabIndex = 7;
-            // 
-            // cbNapaz
-            // 
-            this.cbNapaz.AutoSize = true;
-            this.cbNapaz.Location = new System.Drawing.Point(11, 316);
-            this.cbNapaz.Margin = new System.Windows.Forms.Padding(6);
-            this.cbNapaz.Name = "cbNapaz";
-            this.cbNapaz.Size = new System.Drawing.Size(93, 29);
-            this.cbNapaz.TabIndex = 29;
-            this.cbNapaz.Text = "Napaz";
-            this.cbNapaz.UseVisualStyleBackColor = true;
-            // 
-            // cbTrumLang
-            // 
-            this.cbTrumLang.AutoSize = true;
-            this.cbTrumLang.Location = new System.Drawing.Point(11, 357);
-            this.cbTrumLang.Margin = new System.Windows.Forms.Padding(6);
-            this.cbTrumLang.Name = "cbTrumLang";
-            this.cbTrumLang.Size = new System.Drawing.Size(128, 29);
-            this.cbTrumLang.TabIndex = 29;
-            this.cbTrumLang.Text = "TrumLang";
-            this.cbTrumLang.UseVisualStyleBackColor = true;
-            // 
-            // cbTraChanh
-            // 
-            this.cbTraChanh.AutoSize = true;
-            this.cbTraChanh.Location = new System.Drawing.Point(9, 398);
-            this.cbTraChanh.Margin = new System.Windows.Forms.Padding(6);
-            this.cbTraChanh.Name = "cbTraChanh";
-            this.cbTraChanh.Size = new System.Drawing.Size(126, 29);
-            this.cbTraChanh.TabIndex = 29;
-            this.cbTraChanh.Text = "TraChanh";
-            this.cbTraChanh.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(24, 477);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(109, 25);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "TrumLang";
-            // 
-            // txtMoney_TL
-            // 
-            this.txtMoney_TL.Location = new System.Drawing.Point(190, 471);
-            this.txtMoney_TL.Name = "txtMoney_TL";
-            this.txtMoney_TL.Size = new System.Drawing.Size(213, 31);
-            this.txtMoney_TL.TabIndex = 6;
-            this.txtMoney_TL.Leave += new System.EventHandler(this.txtMoney_TL_Leave);
-            // 
-            // txtMoneyPay_TL
-            // 
-            this.txtMoneyPay_TL.Location = new System.Drawing.Point(434, 471);
-            this.txtMoneyPay_TL.Name = "txtMoneyPay_TL";
-            this.txtMoneyPay_TL.Size = new System.Drawing.Size(213, 31);
-            this.txtMoneyPay_TL.TabIndex = 6;
-            // 
-            // txtBonus_TL
-            // 
-            this.txtBonus_TL.DecimalPlaces = 1;
-            this.txtBonus_TL.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.txtBonus_TL.Location = new System.Drawing.Point(680, 472);
-            this.txtBonus_TL.Name = "txtBonus_TL";
-            this.txtBonus_TL.Size = new System.Drawing.Size(120, 31);
-            this.txtBonus_TL.TabIndex = 7;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(24, 529);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(107, 25);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "TraChanh";
-            // 
-            // txtMoney_TC
-            // 
-            this.txtMoney_TC.Location = new System.Drawing.Point(190, 523);
-            this.txtMoney_TC.Name = "txtMoney_TC";
-            this.txtMoney_TC.Size = new System.Drawing.Size(213, 31);
-            this.txtMoney_TC.TabIndex = 6;
-            this.txtMoney_TC.Leave += new System.EventHandler(this.txtMoney_TC_Leave);
-            // 
-            // txtMoneyPay_TC
-            // 
-            this.txtMoneyPay_TC.Location = new System.Drawing.Point(434, 523);
-            this.txtMoneyPay_TC.Name = "txtMoneyPay_TC";
-            this.txtMoneyPay_TC.Size = new System.Drawing.Size(213, 31);
-            this.txtMoneyPay_TC.TabIndex = 6;
-            // 
-            // txtBonus_TC
-            // 
-            this.txtBonus_TC.DecimalPlaces = 1;
-            this.txtBonus_TC.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.txtBonus_TC.Location = new System.Drawing.Point(680, 524);
-            this.txtBonus_TC.Name = "txtBonus_TC";
-            this.txtBonus_TC.Size = new System.Drawing.Size(120, 31);
-            this.txtBonus_TC.TabIndex = 7;
-            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1197, 661);
+            this.ClientSize = new System.Drawing.Size(1197, 629);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
@@ -756,16 +695,15 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_30s)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_TC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_TL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_AZ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_DN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_GD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_LQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_MH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_HL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus_BK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_CB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_AZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_TL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBonus_TC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -777,19 +715,16 @@
         private System.Windows.Forms.CheckBox cb30s;
         private System.Windows.Forms.CheckBox cbGiaDinh;
         private System.Windows.Forms.CheckBox cbHanhLang;
-        private System.Windows.Forms.CheckBox cbCayBang;
         private System.Windows.Forms.CheckBox cbBanhKeo;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button okBtn;
         private System.Windows.Forms.TextBox txtMoney_30s;
         private System.Windows.Forms.TextBox txtMoney_GD;
         private System.Windows.Forms.TextBox txtMoney_HL;
-        private System.Windows.Forms.TextBox txtMoney_CB;
         private System.Windows.Forms.TextBox txtMoney_BK;
         private System.Windows.Forms.CheckBox cb12c;
         private System.Windows.Forms.TextBox txtMoney_MH;
@@ -805,11 +740,9 @@
         private System.Windows.Forms.NumericUpDown txtBonus_MH;
         private System.Windows.Forms.NumericUpDown txtBonus_HL;
         private System.Windows.Forms.NumericUpDown txtBonus_BK;
-        private System.Windows.Forms.NumericUpDown txtBonus_CB;
         private System.Windows.Forms.TextBox txtMoneyPay_LQ;
         private System.Windows.Forms.TextBox txtMoneyPay_MH;
         private System.Windows.Forms.TextBox txtMoneyPay_HL;
-        private System.Windows.Forms.TextBox txtMoneyPay_CB;
         private System.Windows.Forms.TextBox txtMoneyPay_BK;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox cbDienNuoc;

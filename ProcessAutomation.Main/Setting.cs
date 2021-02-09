@@ -43,7 +43,7 @@ namespace ProcessAutomation.Main
         private void okBtn_Click(object sender, EventArgs e)
         {
             webToRun = new List<string>();
-            if (cbCayBang.Checked) webToRun.Add(Constant.CAYBANG);
+            //if (cbCayBang.Checked) webToRun.Add(Constant.CAYBANG);
             if (cbBanhKeo.Checked) webToRun.Add(Constant.BANHKEO);
             if (cb12c.Checked) webToRun.Add(Constant.MH);
             if (cbHanhLang.Checked) webToRun.Add(Constant.HANHLANG);
@@ -53,14 +53,15 @@ namespace ProcessAutomation.Main
             if (cbTrumLang.Checked) webToRun.Add(Constant.TRUMLANG);
             if (cbTraChanh.Checked) webToRun.Add(Constant.TRACHANH);
 
-            var text = txtMoney_CB.Text;
+            //var text = txtMoney_CB.Text;
+            //MongoDatabase<AdminSetting> database = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
+            //var updateOption = Builders<AdminSetting>.Update
+            //.Set(p => p.Value, txtMoney_CB.Text.Replace(",", ""));
+            //database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME 
+            //                    && x.Key == Constant.CAYBANG, updateOption);
+
             MongoDatabase<AdminSetting> database = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
             var updateOption = Builders<AdminSetting>.Update
-            .Set(p => p.Value, txtMoney_CB.Text.Replace(",", ""));
-            database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME 
-                                && x.Key == Constant.CAYBANG, updateOption);
-
-            updateOption = Builders<AdminSetting>.Update
             .Set(p => p.Value, txtMoney_BK.Text.Replace(",", ""));
             database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                 && x.Key == Constant.BANHKEO, updateOption);
@@ -106,10 +107,10 @@ namespace ProcessAutomation.Main
         
         private void UpdateBonus(UpdateDefinition<AdminSetting> updateOption, MongoDatabase<AdminSetting> database)
         {
-            updateOption = Builders<AdminSetting>.Update
-           .Set(p => p.Value, txtBonus_CB.Text);
-            database.UpdateOne(x => x.Name == Constant.BONUS
-                                && x.Key == Constant.CAYBANG, updateOption);
+           // updateOption = Builders<AdminSetting>.Update
+           //.Set(p => p.Value, txtBonus_CB.Text);
+           // database.UpdateOne(x => x.Name == Constant.BONUS
+           //                     && x.Key == Constant.CAYBANG, updateOption);
 
             updateOption = Builders<AdminSetting>.Update
             .Set(p => p.Value, txtBonus_BK.Text);
@@ -154,10 +155,10 @@ namespace ProcessAutomation.Main
 
         private void UpdateMinPayMoney(UpdateDefinition<AdminSetting> updateOption, MongoDatabase<AdminSetting> database)
         {
-            updateOption = Builders<AdminSetting>.Update
-            .Set(p => p.Value, txtMoneyPay_CB.Text.Replace(",", ""));
-            database.UpdateOne(x => x.Name == Constant.MINIMUM_PAY_MONEY_NAME
-                                && x.Key == Constant.CAYBANG, updateOption);
+            //updateOption = Builders<AdminSetting>.Update
+            //.Set(p => p.Value, txtMoneyPay_CB.Text.Replace(",", ""));
+            //database.UpdateOne(x => x.Name == Constant.MINIMUM_PAY_MONEY_NAME
+            //                    && x.Key == Constant.CAYBANG, updateOption);
 
             updateOption = Builders<AdminSetting>.Update
             .Set(p => p.Value, txtMoneyPay_BK.Text.Replace(",", ""));
@@ -207,7 +208,7 @@ namespace ProcessAutomation.Main
             var minimumMoney = setting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME).ToList();
             if(minimumMoney.Count > 0)
             {
-                txtMoney_CB.Text = minimumMoney.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
+                //txtMoney_CB.Text = minimumMoney.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
                 txtMoney_BK.Text = minimumMoney.Where(x => x.Key == Constant.BANHKEO).FirstOrDefault().Value;
                 txtMoney_MH.Text = minimumMoney.Where(x => x.Key == Constant.MH).FirstOrDefault().Value;
                 txtMoney_HL.Text = minimumMoney.Where(x => x.Key == Constant.HANHLANG).FirstOrDefault().Value;
@@ -217,11 +218,7 @@ namespace ProcessAutomation.Main
                 txtMoney_TL.Text = minimumMoney.Where(x => x.Key == Constant.TRUMLANG).FirstOrDefault().Value;
                 txtMoney_TC.Text = minimumMoney.Where(x => x.Key == Constant.TRACHANH).FirstOrDefault().Value;
 
-
-                decimal value = decimal.Parse(txtMoney_CB.Text, System.Globalization.NumberStyles.AllowThousands);
-                txtMoney_CB.Text = String.Format(culture, "{0:N0}", value);
-
-                value = decimal.Parse(txtMoney_MH.Text, System.Globalization.NumberStyles.AllowThousands);
+                decimal value = decimal.Parse(txtMoney_MH.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoney_MH.Text = String.Format(culture, "{0:N0}", value);
 
                 value = decimal.Parse(txtMoney_BK.Text, System.Globalization.NumberStyles.AllowThousands);
@@ -257,7 +254,7 @@ namespace ProcessAutomation.Main
             if (bonus.Count > 0)
             {
                 //txtMoney_30s.Text = minimumMoney.Where(x => x.Key == Constant.NT30s).FirstOrDefault().Value;
-                txtBonus_CB.Text = bonus.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
+                //txtBonus_CB.Text = bonus.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
                 txtBonus_BK.Text = bonus.Where(x => x.Key == Constant.BANHKEO).FirstOrDefault().Value;
                 txtBonus_MH.Text = bonus.Where(x => x.Key == Constant.MH).FirstOrDefault().Value;
                 //txtMoney_GD.Text = minimumMoney.Where(x => x.Key == Constant.GIADINHVN).FirstOrDefault().Value;
@@ -268,7 +265,6 @@ namespace ProcessAutomation.Main
                 txtBonus_TL.Text = bonus.Where(x => x.Key == Constant.TRUMLANG).FirstOrDefault().Value;
                 txtBonus_TC.Text = bonus.Where(x => x.Key == Constant.TRACHANH).FirstOrDefault().Value;
 
-                txtBonus_CB.Text = decimal.Parse(txtBonus_CB.Text).ToString();
                 txtBonus_BK.Text = decimal.Parse(txtBonus_BK.Text).ToString();
                 txtBonus_MH.Text = decimal.Parse(txtBonus_MH.Text).ToString();
                 txtBonus_HL.Text = decimal.Parse(txtBonus_HL.Text).ToString();
@@ -286,7 +282,7 @@ namespace ProcessAutomation.Main
             var minPayMoney = setting.Query.Where(x => x.Name == Constant.MINIMUM_PAY_MONEY_NAME).ToList();
             if (minPayMoney.Count > 0)
             {
-                txtMoneyPay_CB.Text = minPayMoney.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
+                //txtMoneyPay_CB.Text = minPayMoney.Where(x => x.Key == Constant.CAYBANG).FirstOrDefault().Value;
                 txtMoneyPay_BK.Text = minPayMoney.Where(x => x.Key == Constant.BANHKEO).FirstOrDefault().Value;
                 txtMoneyPay_MH.Text = minPayMoney.Where(x => x.Key == Constant.MH).FirstOrDefault().Value;
                 txtMoneyPay_HL.Text = minPayMoney.Where(x => x.Key == Constant.HANHLANG).FirstOrDefault().Value;
@@ -296,10 +292,7 @@ namespace ProcessAutomation.Main
                 txtMoneyPay_TL.Text = minPayMoney.Where(x => x.Key == Constant.TRUMLANG).FirstOrDefault().Value;
                 txtMoneyPay_TC.Text = minPayMoney.Where(x => x.Key == Constant.TRACHANH).FirstOrDefault().Value;
 
-                decimal value = decimal.Parse(txtMoneyPay_CB.Text, System.Globalization.NumberStyles.AllowThousands);
-                txtMoneyPay_CB.Text = String.Format(culture, "{0:N0}", value);
-
-                value = decimal.Parse(txtMoneyPay_BK.Text, System.Globalization.NumberStyles.AllowThousands);
+                decimal value = decimal.Parse(txtMoneyPay_BK.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoneyPay_BK.Text = String.Format(culture, "{0:N0}", value);
 
                 value = decimal.Parse(txtMoneyPay_MH.Text, System.Globalization.NumberStyles.AllowThousands);
@@ -322,20 +315,6 @@ namespace ProcessAutomation.Main
 
                 value = decimal.Parse(txtMoneyPay_TC.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoneyPay_TC.Text = String.Format(culture, "{0:N0}", value);
-            }
-        }
-
-        private void txtMoney_CB_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                decimal value = decimal.Parse(txtMoney_CB.Text,
-                System.Globalization.NumberStyles.AllowThousands);
-                txtMoney_CB.Text = String.Format(culture, "{0:N0}", value);
-            }
-            catch
-            {
-                txtMoney_CB.Text = String.Format(culture, "{0:N0}", 0);
             }
         }
 
