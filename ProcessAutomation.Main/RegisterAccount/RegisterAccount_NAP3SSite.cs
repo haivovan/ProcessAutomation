@@ -13,7 +13,7 @@ using System.Xml.Linq;
 
 namespace ProcessAutomation.Main.PayIn
 {
-    public class RegisterAccount_TCSite : IRegisterAccount
+    public class RegisterAccount_NAP3SSite : IRegisterAccount
     {
         private RegisterAccount registerAccountForm;
         MailService mailService = new MailService();
@@ -21,8 +21,8 @@ namespace ProcessAutomation.Main.PayIn
         Helper helper = new Helper();
         private GeckoWebBrowser webLayout;
         private RegisterAccountModel data = new RegisterAccountModel();
-        private const string web_name = "trachanh";
-        private const string url = "https://trachanh.club/";
+        private const string web_name = "nap3s";
+        private const string url = "https://nap3s.net/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";
@@ -35,7 +35,7 @@ namespace ProcessAutomation.Main.PayIn
         EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs> documentComplete;
         MongoDatabase<AdminSetting> adminSetting = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
 
-        public RegisterAccount_TCSite(RegisterAccountModel data)
+        public RegisterAccount_NAP3SSite(RegisterAccountModel data)
         {
             this.data = data;
         }
@@ -175,17 +175,17 @@ namespace ProcessAutomation.Main.PayIn
                                 SendNotificationForError(
                                     "Tạo user không thành công",
                                     (!string.IsNullOrEmpty(errorFromServerPhp) ? $"Có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
-                                    $"{Constant.TRACHANH.ToUpper()} : user { data.WebId + data.IdNumber } lỗi {errorFromCreation}");
+                                    $"{Constant.NAP3S.ToUpper()} : user { data.WebId + data.IdNumber } lỗi {errorFromCreation}");
                             }
                             else
                             {
                                 SendNotificationForError(
-                                    $"Tạo user thành công cho web {Constant.TRACHANH.ToUpper()}",
+                                    $"Tạo user thành công cho web {Constant.NAP3S.ToUpper()}",
                                     (!string.IsNullOrEmpty(errorFromServerPhp) ? $"Tạo thành công nhưng có lỗi update từ server php {errorFromServerPhp}" + Environment.NewLine : string.Empty) +
                                     $"Thông tin:" + Environment.NewLine +
                                     $"Họ tên: {data.Name}" + Environment.NewLine +
                                     $"Sdt: {data.Phone}" + Environment.NewLine +
-                                    $"Tên web: {Constant.TRACHANH.ToUpper()} ({data.WebId})" + Environment.NewLine +
+                                    $"Tên web: {Constant.NAP3S.ToUpper()} ({data.WebId})" + Environment.NewLine +
                                     $"Link web: {url}" + Environment.NewLine +
                                     $"Tk({data.GetLevel()}): {data.WebId + data.IdNumber}" + Environment.NewLine +
                                     $"Mk: {data.Password}" + Environment.NewLine +
@@ -236,7 +236,7 @@ namespace ProcessAutomation.Main.PayIn
             var inputUserName = htmlLogin.GetElementById("Username");
             var inputPassword = htmlLogin.GetElementById("Password");
             var inputOTP = htmlLogin.GetElementById("OTP");
-            var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.TRACHANH).FirstOrDefault();
+            var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.NAP3S).FirstOrDefault();
             var otpValue = otpSetting.Value ?? string.Empty;
             GeckoLinkElement btnLogin = new GeckoLinkElement(htmlLogin.GetElementsByName("login")[0].DomObject);
 

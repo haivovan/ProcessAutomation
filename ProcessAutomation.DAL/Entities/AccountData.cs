@@ -21,7 +21,7 @@ public class AccountData
         DN = string.Empty;
         AZ = string.Empty;
         TL = string.Empty;
-        TC = string.Empty;
+        NAP3S = string.Empty;
     }
 
     public ObjectId Id { get; set; }
@@ -37,5 +37,5 @@ public class AccountData
     public string DN { get; set; }
     public string AZ { get; set; }
     public string TL { get; set; }
-    public string TC { get; set; }
+    public string NAP3S { get; set; }
 }

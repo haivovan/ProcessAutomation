@@ -20,25 +20,16 @@ namespace ProcessAutomation.Main.Ultility
         public const string REG_EXTRACT_MONEY_TEMPLATE1 = @"(tang)+(.*?VND)";
         public const string REG_EXTRACT_MONEY_TEMPLATE2 = @"(\+ )+(.*? )";
         public const string REG_EXTRACT_MONEY_TEMPLATE3 = @"(\+)+(.*?VND)";
-        public const string REG_EXTRACT_ACCOUNT1 = @"(lq|hl|bk|gd|nt|mh|dn|az|tl|tc| l q| h l| g d| b k| n t| m h| d n| a z| t l| t c|lq |hl |gd |nt |mh |dn |az |tl |tc | l q | h l | g d | n t | m h | d n | a z | t l | t c )+(\d\d\d\d)";
-        public const string REG_EXTRACT_ACCOUNT2 = @"(lq|hl|bk|gd|nt|mh|dn|az|tl|tc)+(\d \d\d\d)";
-        public const string REG_EXTRACT_ACCOUNT3 = @"(lq|hl|bk|gd|nt|mh|dn|az|tl|tc| l q| h l| g d| b k| n t| m h| d n| a z| t l| t c|lq |hl |gd |nt |mh |dn |az |tl |tc | l q | h l | g d | n t | m h | d n | a z | t l | t c )+(\d\d \d\d)";
-        public const string REG_EXTRACT_ACCOUNT4 = @"(lq|hl|bk|gd|nt|mh|dn|az|tl|tc)+( \d\d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT1 = @"(hl|bk|dn|az|tl|3s| h l| b k| d n| a z| t l| 3 s|hl |dn |az |tl |3s | h l | d n | a z | t l | 3 s )+(\d\d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT2 = @"(hl|bk|dn|az|tl|3s)+(\d \d\d\d)";                                                                    
+        public const string REG_EXTRACT_ACCOUNT3 = @"(hl|bk|dn|az|tl|3s| h l| b k| d n| a z| t l| 3 s|hl |dn |az |tl |3s | h l | d n | a z | t l | 3 s )+(\d\d \d\d)";
+        public const string REG_EXTRACT_ACCOUNT4 = @"(hl|bk|dn|az|tl|3s)+( \d\d\d\d)";
         public const string REG_EXTRACT_SO_DU = @"^(.*?)VNĐ";
        
-        public static List<string> WEBS_NAME = new List<string> { "hl", "bk", "mh", "lq", "dn", "az", "tl", "tc" };
+        public static List<string> WEBS_NAME = new List<string> { "hl", "bk", "dn", "az", "tl", "3s" };
         #endregion
 
         #region Limitation
-        public const decimal SATISFIED_PAYIN = 500000;
-        public const decimal AMOUNT_ACCOUNT_CB = 1000000; //10000000
-        public const decimal AMOUNT_ACCOUNT_BK = 1000000; //10000000
-        public const decimal AMOUNT_ACCOUNT_HL = 1000000; //5000000
-        public const decimal AMOUNT_ACCOUNT_MH = 1000000; //5000000
-        public const decimal AMOUNT_ACCOUNT_LQ = 1000000; //5000000
-        public const decimal AMOUNT_ACCOUNT_GD = 0; //10000000
-        public const decimal AMOUNT_ACCOUNT_NT = 0; //10000000
-        public const decimal TEST_MONEY = 20000;
         public const string MINIMUM_MONEY_NAME = "MinimumMoney";
         public const string MINIMUM_PAY_MONEY_NAME = "MinimumPayMoney";
         public const string BONUS = "Bonus";
@@ -54,7 +45,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string DIENNUOC = "dn";
         public const string NAPAZ = "az";
         public const string TRUMLANG = "tl";
-        public const string TRACHANH = "tc";
+        public const string NAP3S = "3s";
         #endregion
 
         #region RegisterAccount

@@ -43,17 +43,11 @@ namespace ProcessAutomation.Main
         SoundPlayer audio = new SoundPlayer(Properties.Resources.ring1);
         AccountService accountService = new AccountService();
         OTPService otpService = new OTPService();
-        //bool isQualified = false;
 
         public Main()
         {
             Xpcom.Initialize("Firefox");
             InitializeComponent();
-
-            //timerAutoStart = new System.Windows.Forms.Timer();
-            //timerAutoStart.Interval = (5000);
-            //timerAutoStart.Tick += new EventHandler(AutoStart);
-            //timerAutoStart.Start();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -253,8 +247,8 @@ namespace ProcessAutomation.Main
                     case Constant.TRUMLANG:
                         registerAccount = new RegisterAccount_TLSite(registerModel);
                         break;
-                    case Constant.TRACHANH:
-                        registerAccount = new RegisterAccount_TCSite(registerModel);
+                    case Constant.NAP3S:
+                        registerAccount = new RegisterAccount_NAP3SSite(registerModel);
                         break;
                 }
 
@@ -277,40 +271,7 @@ namespace ProcessAutomation.Main
             {
             }
         }
-        private void StartLoginKeepSeciton(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!isCurrentPayInProcessDone)
-                    return;
-
-                listMessage = GetMessageToRun();
-                if (listMessage.Count == 0)
-                {
-                    listMessage.Add(Constant.BANHKEO, new List<Message>() { new Message { IsKeepSession = true } });
-                    //listMessage.Add(Constant.CAYBANG, new List<Message>() { new Message { IsKeepSession = true } });
-                    listMessage.Add(Constant.HANHLANG, new List<Message>() { new Message { IsKeepSession = true } });
-                    listMessage.Add(Constant.MH, new List<Message>() { new Message { IsKeepSession = true } });
-                    listMessage.Add(Constant.LANQUEPHUONG, new List<Message>() { new Message { IsKeepSession = true } });
-                    listMessage.Add(Constant.DIENNUOC, new List<Message>() { new Message { IsKeepSession = true } });
-                    listMessage.Add(Constant.NAPAZ, new List<Message>() { new Message { IsKeepSession = true } });
-                    listMessage.Add(Constant.TRUMLANG, new List<Message>() { new Message { IsKeepSession = true } });
-                    listMessage.Add(Constant.TRACHANH, new List<Message>() { new Message { IsKeepSession = true } });
-                }
-                isCurrentPayInProcessDone = false;
-                if (!timerCheckChildProcess.Enabled)
-                {
-                    timerCheckChildProcess.Start();
-                }
-            }
-            catch (Exception ex)
-            {
-                btnStopPayIn.Hide();
-                btnStartPayIn.Show();
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+        
         private void StartPayIn(object sender, EventArgs e)
         {
             try
@@ -348,23 +309,6 @@ namespace ProcessAutomation.Main
                     timerCheckChildProcess.Stop();
                     return;
                 }
-
-                //if (listMessage.ContainsKey(Constant.CAYBANG) && listMessage[Constant.CAYBANG].Count > 0)
-                //{
-                //    if (iAutomationPayin == null || !(iAutomationPayin is CBSite))
-                //    {
-                //        iAutomationPayin = new CBSite(new List<Message>(listMessage[Constant.CAYBANG]), webLayoutIE);
-                //        iAutomationPayin.startPayIN();
-                //    }
-
-                //    if (!iAutomationPayin.checkProcessDone())
-                //        return;
-
-                //    listMessage.Remove(Constant.CAYBANG);
-                //    iAutomationPayin = null;
-                //    showSearchMessage();
-                //}
-                //else 
                 if (listMessage.ContainsKey(Constant.BANHKEO) && listMessage[Constant.BANHKEO].Count > 0)
                 {
                     if (iAutomationPayin == null || !(iAutomationPayin is BKSite))
@@ -470,18 +414,18 @@ namespace ProcessAutomation.Main
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
-                else if (listMessage.ContainsKey(Constant.TRACHANH) && listMessage[Constant.TRACHANH].Count > 0)
+                else if (listMessage.ContainsKey(Constant.NAP3S) && listMessage[Constant.NAP3S].Count > 0)
                 {
-                    if (iAutomationPayin == null || !(iAutomationPayin is TCSite))
+                    if (iAutomationPayin == null || !(iAutomationPayin is NAP3SSite))
                     {
-                        iAutomationPayin = new TCSite(new List<Message>(listMessage[Constant.TRACHANH]), webLayout);
+                        iAutomationPayin = new NAP3SSite(new List<Message>(listMessage[Constant.NAP3S]), webLayout);
                         iAutomationPayin.startPayIN();
                     }
 
                     if (!iAutomationPayin.checkProcessDone())
                         return;
 
-                    listMessage.Remove(Constant.TRACHANH);
+                    listMessage.Remove(Constant.NAP3S);
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
@@ -527,7 +471,7 @@ namespace ProcessAutomation.Main
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
                     .Where(x =>
                     (web_listBox_filter.SelectedItems.Count == 1 && selectedList[0].Equals("Tất Cả"))
-                        || (web_listBox_filter.SelectedItems.Count == 9) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 7) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -616,10 +560,6 @@ namespace ProcessAutomation.Main
             timerCheckChildProcess.Interval = (5000);
             timerCheckChildProcess.Tick += new EventHandler(Process);
 
-            timerCheckKeepSection = new System.Windows.Forms.Timer();
-            timerCheckKeepSection.Interval = (32400);
-            timerCheckKeepSection.Tick += new EventHandler(StartLoginKeepSeciton);
-
             timerCheckNewAccount = new System.Windows.Forms.Timer();
             timerCheckNewAccount.Interval = (5000);
             timerCheckNewAccount.Tick += new EventHandler(StartGettingAccountAndCreate);
@@ -656,17 +596,12 @@ namespace ProcessAutomation.Main
 
             web_listBox_filter.Items.Add(Constant.ALL);
             web_listBox_filter.Items.Add(Constant.BANHKEO);
-            //web_listBox_filter.Items.Add(Constant.CAYBANG);
             web_listBox_filter.Items.Add(Constant.HANHLANG);
-            web_listBox_filter.Items.Add(Constant.MH);
-            web_listBox_filter.Items.Add(Constant.LANQUEPHUONG);
             web_listBox_filter.Items.Add(Constant.DIENNUOC);
             web_listBox_filter.Items.Add(Constant.NAPAZ);
             web_listBox_filter.Items.Add(Constant.TRUMLANG);
-            web_listBox_filter.Items.Add(Constant.TRACHANH);
+            web_listBox_filter.Items.Add(Constant.NAP3S);
 
-            //web_listBox_filter.Items.Add(Constant.GIADINHVN);
-            //web_listBox_filter.Items.Add(Constant.NT30s);
             web_listBox_filter.SetSelected(0, true);
             web_listBox_filter.SetSelected(1, true);
             web_listBox_filter.SetSelected(2, true);
@@ -674,20 +609,13 @@ namespace ProcessAutomation.Main
             web_listBox_filter.SetSelected(4, true);
             web_listBox_filter.SetSelected(5, true);
             web_listBox_filter.SetSelected(6, true);
-            web_listBox_filter.SetSelected(7, true);
-            web_listBox_filter.SetSelected(8, true);
-            //web_listBox_filter.SetSelected(9, true);
 
             messageContition.WebSRun.Add(Constant.BANHKEO);
-            //messageContition.WebSRun.Add(Constant.CAYBANG);
-            //messageContition.WebSRun.Add(Constant.NT30s);
             messageContition.WebSRun.Add(Constant.HANHLANG);
-            messageContition.WebSRun.Add(Constant.MH);
-            messageContition.WebSRun.Add(Constant.LANQUEPHUONG);
             messageContition.WebSRun.Add(Constant.DIENNUOC);
             messageContition.WebSRun.Add(Constant.NAPAZ);
             messageContition.WebSRun.Add(Constant.TRUMLANG);
-            messageContition.WebSRun.Add(Constant.TRACHANH);
+            messageContition.WebSRun.Add(Constant.NAP3S);
             cbStopAutoLoadMess.Checked = true;
             showSearchMessage();
         }

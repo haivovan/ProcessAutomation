@@ -14,14 +14,14 @@ using System.Xml.Linq;
 
 namespace ProcessAutomation.Main.PayIn
 {
-    public class TCSite : IAutomationPayIn
+    public class NAP3SSite : IAutomationPayIn
     {
         MailService mailService = new MailService();
         Helper helper = new Helper();
         private GeckoWebBrowser webLayout;
         private List<Message> data = new List<Message>();
-        private const string web_name = "trachanh";
-        private const string url = "https://trachanh.club/";
+        private const string web_name = "nap3s";
+        private const string url = "https://nap3s.net/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";
@@ -32,7 +32,7 @@ namespace ProcessAutomation.Main.PayIn
         EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs> documentComplete;
         MongoDatabase<AdminSetting> adminSetting = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
 
-        public TCSite(List<Message> data, GeckoWebBrowser web)
+        public NAP3SSite(List<Message> data, GeckoWebBrowser web)
         {
             this.data = data;
             this.webLayout = web;
@@ -245,7 +245,7 @@ namespace ProcessAutomation.Main.PayIn
 
                                 SendNotificationForError(
                                      "Cộng tiền không thành công",
-                                     $"{Constant.TRACHANH.ToUpper()} : Lỗi + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account } ({ userName })");
+                                     $"{Constant.NAP3S.ToUpper()} : Lỗi + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account } ({ userName })");
                             }
                             else
                             {
@@ -253,7 +253,7 @@ namespace ProcessAutomation.Main.PayIn
                                 SaveRecord();
                                 SendNotificationForError(
                                      "Cộng tiền thành công",
-                                     $"{Constant.TRACHANH.ToUpper()} : Đã + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account } ({ userName }), SD: { helper.GetMoneyFormat(moneyAfterPay.ToString()) } ");
+                                     $"{Constant.NAP3S.ToUpper()} : Đã + { helper.GetMoneyFormat(currentMessage.Money) } { currentMessage.Web }{ currentMessage.Account } ({ userName }), SD: { helper.GetMoneyFormat(moneyAfterPay.ToString()) } ");
                             }
 
                             data.Remove(currentMessage);
@@ -303,7 +303,7 @@ namespace ProcessAutomation.Main.PayIn
             var inputUserName = htmlLogin.GetElementById("Username");
             var inputPassword = htmlLogin.GetElementById("Password");
             var inputOTP = htmlLogin.GetElementById("OTP");
-            var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.TRACHANH).FirstOrDefault();
+            var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.NAP3S).FirstOrDefault();
             var otpValue = otpSetting?.Value ?? string.Empty;
             GeckoLinkElement btnLogin = new GeckoLinkElement(htmlLogin.GetElementsByName("login")[0].DomObject);
 
@@ -337,7 +337,7 @@ namespace ProcessAutomation.Main.PayIn
             var userAccount = accountData.
                 Query.Where(x => x.IDAccount == currentMessage.Account.Trim()).FirstOrDefault();
 
-            if (userAccount == null || string.IsNullOrEmpty(userAccount.TC))
+            if (userAccount == null || string.IsNullOrEmpty(userAccount.NAP3S))
                 return null;
             return userAccount;
         }
@@ -346,7 +346,7 @@ namespace ProcessAutomation.Main.PayIn
         {
             var html = webLayout.Document;
             var userFilter = html.GetElementById("phone");
-            userFilter.SetAttribute("value", userAccount.TC);
+            userFilter.SetAttribute("value", userAccount.NAP3S);
             var aTag = html.GetElementsByTagName("a");
             foreach (GeckoHtmlElement item in aTag)
             {
@@ -411,7 +411,7 @@ namespace ProcessAutomation.Main.PayIn
         private bool CheckAmoutAccount(decimal currentMoney)
         {
             var minimumMoney = adminSetting.Query.Where(x => x.Name == Constant.MINIMUM_MONEY_NAME
-                                                           && x.Key == Constant.TRACHANH).FirstOrDefault();
+                                                           && x.Key == Constant.NAP3S).FirstOrDefault();
             return currentMoney >= decimal.Parse(minimumMoney.Value);
         }
 
@@ -429,7 +429,7 @@ namespace ProcessAutomation.Main.PayIn
                     try
                     {
                         string value = td.TextContent.Trim();
-                        if (value != null && value.Trim() == accountData.TC.Trim())
+                        if (value != null && value.Trim() == accountData.NAP3S.Trim())
                         {
                             trFound = tr;
                             break;
@@ -468,7 +468,7 @@ namespace ProcessAutomation.Main.PayIn
             var amount = html.GetElementById("Amount");
             var bonus = adminSetting.Query
                     .Where(x => x.Name == Constant.BONUS)
-                    .Where(x => x.Key == Constant.TRACHANH).FirstOrDefault().Value;
+                    .Where(x => x.Key == Constant.NAP3S).FirstOrDefault().Value;
             var money = decimal.Parse(currentMessage.Money);
             var total = money + Math.Round(money * decimal.Parse(bonus) / 100);
 

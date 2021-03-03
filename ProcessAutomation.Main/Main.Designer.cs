@@ -87,7 +87,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timerCheckKeepSection = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewAccount = new System.Windows.Forms.Timer(this.components);
             this.timerCheckNewOTP = new System.Windows.Forms.Timer(this.components);
             this.timerAutoStart = new System.Windows.Forms.Timer(this.components);
@@ -761,7 +760,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox cbStopAutoLoadMess;
         private System.Windows.Forms.ListBox web_listBox_filter;
-        private System.Windows.Forms.Timer timerCheckKeepSection;
         private System.Windows.Forms.DateTimePicker dateExecuteTo;
         private System.Windows.Forms.DateTimePicker dateExecuteFrom;
         private System.Windows.Forms.Label label4;
