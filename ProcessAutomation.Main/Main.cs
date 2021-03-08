@@ -495,7 +495,7 @@ namespace ProcessAutomation.Main
 
                 if (cbStopAutoLoadMess.Checked)
                 {
-                    listMessge = listMessge.OrderByDescending(x => x.Id).Take(200).ToList();
+                    listMessge = listMessge.OrderByDescending(x => x.Id).Take(50).ToList();
                     txtTotal.Text = "... VND";
                 }
                 else
