@@ -152,10 +152,12 @@
   <ItemGroup>
     <Compile Include="Model\OTPModel.cs" />
     <Compile Include="Model\RegisterAccountModel.cs" />
+    <Compile Include="PayIn\SNSite.cs" />
     <Compile Include="PayIn\NAP3SSite.cs" />
     <Compile Include="PayIn\AZSite.cs" />
     <Compile Include="PayIn\TLSite.cs" />
     <Compile Include="PayIn\DNSite.cs" />
+    <Compile Include="RegisterAccount\RegisterAccount_SNSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_NAP3SSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_TLSite .cs" />
     <Compile Include="RegisterAccount\RegisterAccount_AZSite.cs" />
@@ -169,8 +171,6 @@
     <Compile Include="PayIn\MHSite.cs" />
     <Compile Include="PayIn\GlobalCheck.cs" />
     <Compile Include="PayIn\MessageContition.cs" />
-    <Compile Include="PayIn\NT30sSite.cs" />
-    <Compile Include="PayIn\GDSite.cs" />
     <Compile Include="PayIn\HLCSite.cs" />
     <Compile Include="PayIn\CBSite.cs" />
     <Compile Include="RegisterAccount.cs">

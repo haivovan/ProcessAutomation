@@ -32,6 +32,7 @@ namespace ProcessAutomation.Main
             if (webToRun.IndexOf(Constant.NAPAZ) != -1) cbNapaz.Checked = true;
             if (webToRun.IndexOf(Constant.TRUMLANG) != -1) cbTrumLang.Checked = true;
             if (webToRun.IndexOf(Constant.NAP3S) != -1) cbNap3S.Checked = true;
+            if (webToRun.IndexOf(Constant.SIEUNHANH) != -1) cbSN.Checked = true;
 
             GetSettingMinimumMoney();
             GetSettingBonus();
@@ -48,6 +49,7 @@ namespace ProcessAutomation.Main
             if (cbNapaz.Checked) webToRun.Add(Constant.NAPAZ);
             if (cbTrumLang.Checked) webToRun.Add(Constant.TRUMLANG);
             if (cbNap3S.Checked) webToRun.Add(Constant.NAP3S);
+            if (cbSN.Checked) webToRun.Add(Constant.SIEUNHANH);
 
             MongoDatabase<AdminSetting> database = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
             var updateOption = Builders<AdminSetting>.Update
@@ -79,6 +81,11 @@ namespace ProcessAutomation.Main
             .Set(p => p.Value, txtMoney_3S.Text.Replace(",", ""));
             database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
                                 && x.Key == Constant.NAP3S, updateOption);
+
+            updateOption = Builders<AdminSetting>.Update
+            .Set(p => p.Value, txtMoney_SN.Text.Replace(",", ""));
+            database.UpdateOne(x => x.Name == Constant.MINIMUM_MONEY_NAME
+                                && x.Key == Constant.SIEUNHANH, updateOption);
 
             UpdateBonus(updateOption, database);
             UpdateMinPayMoney(updateOption, database);
@@ -116,6 +123,11 @@ namespace ProcessAutomation.Main
             .Set(p => p.Value, txtBonus_3S.Text);
             database.UpdateOne(x => x.Name == Constant.BONUS
                                 && x.Key == Constant.NAP3S, updateOption);
+
+            updateOption = Builders<AdminSetting>.Update
+            .Set(p => p.Value, txtBonus_SN.Text);
+            database.UpdateOne(x => x.Name == Constant.BONUS
+                                && x.Key == Constant.SIEUNHANH, updateOption);
         }
 
         private void UpdateMinPayMoney(UpdateDefinition<AdminSetting> updateOption, MongoDatabase<AdminSetting> database)
@@ -149,6 +161,11 @@ namespace ProcessAutomation.Main
             .Set(p => p.Value, txtMoneyPay_3S.Text.Replace(",", ""));
             database.UpdateOne(x => x.Name == Constant.MINIMUM_PAY_MONEY_NAME
                                 && x.Key == Constant.NAP3S, updateOption);
+
+            updateOption = Builders<AdminSetting>.Update
+            .Set(p => p.Value, txtMoneyPay_SN.Text.Replace(",", ""));
+            database.UpdateOne(x => x.Name == Constant.MINIMUM_PAY_MONEY_NAME
+                                && x.Key == Constant.SIEUNHANH, updateOption);
         }
 
 
@@ -164,6 +181,7 @@ namespace ProcessAutomation.Main
                 txtMoney_AZ.Text = minimumMoney.Where(x => x.Key == Constant.NAPAZ).FirstOrDefault().Value;
                 txtMoney_TL.Text = minimumMoney.Where(x => x.Key == Constant.TRUMLANG).FirstOrDefault().Value;
                 txtMoney_3S.Text = minimumMoney.Where(x => x.Key == Constant.NAP3S).FirstOrDefault().Value;
+                txtMoney_SN.Text = minimumMoney.Where(x => x.Key == Constant.SIEUNHANH).FirstOrDefault().Value;
 
                 var value = decimal.Parse(txtMoney_BK.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoney_BK.Text = String.Format(culture, "{0:N0}", value);
@@ -182,6 +200,9 @@ namespace ProcessAutomation.Main
 
                 value = decimal.Parse(txtMoney_3S.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoney_3S.Text = String.Format(culture, "{0:N0}", value);
+
+                value = decimal.Parse(txtMoney_SN.Text, System.Globalization.NumberStyles.AllowThousands);
+                txtMoney_SN.Text = String.Format(culture, "{0:N0}", value);
             }
         }
 
@@ -197,6 +218,7 @@ namespace ProcessAutomation.Main
                 txtBonus_AZ.Text = bonus.Where(x => x.Key == Constant.NAPAZ).FirstOrDefault().Value;
                 txtBonus_TL.Text = bonus.Where(x => x.Key == Constant.TRUMLANG).FirstOrDefault().Value;
                 txtBonus_3S.Text = bonus.Where(x => x.Key == Constant.NAP3S).FirstOrDefault().Value;
+                txtBonus_SN.Text = bonus.Where(x => x.Key == Constant.SIEUNHANH).FirstOrDefault().Value;
 
                 txtBonus_BK.Text = decimal.Parse(txtBonus_BK.Text).ToString();
                 txtBonus_HL.Text = decimal.Parse(txtBonus_HL.Text).ToString();
@@ -204,6 +226,7 @@ namespace ProcessAutomation.Main
                 txtBonus_AZ.Text = decimal.Parse(txtBonus_AZ.Text).ToString();
                 txtBonus_TL.Text = decimal.Parse(txtBonus_TL.Text).ToString();
                 txtBonus_3S.Text = decimal.Parse(txtBonus_3S.Text).ToString();
+                txtBonus_SN.Text = decimal.Parse(txtBonus_SN.Text).ToString();
             }
         }
 
@@ -219,6 +242,7 @@ namespace ProcessAutomation.Main
                 txtMoneyPay_AZ.Text = minPayMoney.Where(x => x.Key == Constant.NAPAZ).FirstOrDefault().Value;
                 txtMoneyPay_TL.Text = minPayMoney.Where(x => x.Key == Constant.TRUMLANG).FirstOrDefault().Value;
                 txtMoneyPay_3S.Text = minPayMoney.Where(x => x.Key == Constant.NAP3S).FirstOrDefault().Value;
+                txtMoneyPay_SN.Text = minPayMoney.Where(x => x.Key == Constant.SIEUNHANH).FirstOrDefault().Value;
 
                 decimal value = decimal.Parse(txtMoneyPay_BK.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoneyPay_BK.Text = String.Format(culture, "{0:N0}", value);
@@ -237,6 +261,9 @@ namespace ProcessAutomation.Main
 
                 value = decimal.Parse(txtMoneyPay_3S.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoneyPay_3S.Text = String.Format(culture, "{0:N0}", value);
+
+                value = decimal.Parse(txtMoneyPay_3S.Text, System.Globalization.NumberStyles.AllowThousands);
+                txtMoneyPay_SN.Text = String.Format(culture, "{0:N0}", value);
             }
         }
 
@@ -306,6 +333,20 @@ namespace ProcessAutomation.Main
             catch
             {
                 txtMoney_3S.Text = String.Format(culture, "{0:N0}", 0);
+            }
+        }
+
+        private void txtMoney_NapSN_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal value = decimal.Parse(txtMoney_SN.Text,
+                System.Globalization.NumberStyles.AllowThousands);
+                txtMoney_SN.Text = String.Format(culture, "{0:N0}", value);
+            }
+            catch
+            {
+                txtMoney_SN.Text = String.Format(culture, "{0:N0}", 0);
             }
         }
     }
