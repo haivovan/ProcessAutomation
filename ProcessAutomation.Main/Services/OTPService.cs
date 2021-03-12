@@ -6,6 +6,7 @@ using ProcessAutomation.DAL;
 using MongoDB.Driver.Linq;
 using MongoDB.Driver;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace ProcessAutomation.Main.Services
 {
@@ -47,8 +48,9 @@ namespace ProcessAutomation.Main.Services
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
         }
     }
