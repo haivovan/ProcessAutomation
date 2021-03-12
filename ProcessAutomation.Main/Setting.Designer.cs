@@ -501,9 +501,9 @@
             this.cbSN.Location = new System.Drawing.Point(9, 309);
             this.cbSN.Margin = new System.Windows.Forms.Padding(6);
             this.cbSN.Name = "cbSN";
-            this.cbSN.Size = new System.Drawing.Size(96, 29);
+            this.cbSN.Size = new System.Drawing.Size(137, 29);
             this.cbSN.TabIndex = 29;
-            this.cbSN.Text = "Nap3S";
+            this.cbSN.Text = "SieuNhanh";
             this.cbSN.UseVisualStyleBackColor = true;
             // 
             // Setting
