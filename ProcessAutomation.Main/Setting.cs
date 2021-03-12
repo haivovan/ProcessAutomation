@@ -262,7 +262,7 @@ namespace ProcessAutomation.Main
                 value = decimal.Parse(txtMoneyPay_3S.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoneyPay_3S.Text = String.Format(culture, "{0:N0}", value);
 
-                value = decimal.Parse(txtMoneyPay_3S.Text, System.Globalization.NumberStyles.AllowThousands);
+                value = decimal.Parse(txtMoneyPay_SN.Text, System.Globalization.NumberStyles.AllowThousands);
                 txtMoneyPay_SN.Text = String.Format(culture, "{0:N0}", value);
             }
         }
