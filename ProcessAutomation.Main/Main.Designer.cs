@@ -104,66 +104,72 @@
             // 
             // tabPayIn
             // 
+            this.tabPayIn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tabPayIn.Controls.Add(this.webLayoutIE);
             this.tabPayIn.Controls.Add(this.webLayout);
             this.tabPayIn.Controls.Add(this.lblPayInProgress);
             this.tabPayIn.Controls.Add(this.btnStopPayIn);
             this.tabPayIn.Controls.Add(this.btnStartPayIn);
             this.tabPayIn.Controls.Add(this.menuStrip2);
-            this.tabPayIn.Location = new System.Drawing.Point(4, 33);
+            this.tabPayIn.Location = new System.Drawing.Point(4, 30);
             this.tabPayIn.Name = "tabPayIn";
             this.tabPayIn.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPayIn.Size = new System.Drawing.Size(1486, 761);
+            this.tabPayIn.Size = new System.Drawing.Size(1486, 825);
             this.tabPayIn.TabIndex = 1;
             this.tabPayIn.Text = "Nạp Tiền";
-            this.tabPayIn.UseVisualStyleBackColor = true;
+            this.tabPayIn.Click += new System.EventHandler(this.tabPayIn_Click);
             // 
             // webLayoutIE
             // 
             this.webLayoutIE.Location = new System.Drawing.Point(744, 119);
-            this.webLayoutIE.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webLayoutIE.MinimumSize = new System.Drawing.Size(20, 22);
             this.webLayoutIE.Name = "webLayoutIE";
-            this.webLayoutIE.Size = new System.Drawing.Size(742, 633);
+            this.webLayoutIE.Size = new System.Drawing.Size(742, 682);
             this.webLayoutIE.TabIndex = 22;
             // 
             // webLayout
             // 
             this.webLayout.FrameEventsPropagateToMainWindow = false;
-            this.webLayout.Location = new System.Drawing.Point(2, 119);
+            this.webLayout.Location = new System.Drawing.Point(7, 119);
             this.webLayout.Name = "webLayout";
-            this.webLayout.Size = new System.Drawing.Size(736, 633);
+            this.webLayout.Size = new System.Drawing.Size(736, 682);
             this.webLayout.TabIndex = 21;
             this.webLayout.UseHttpActivityObserver = false;
             // 
             // lblPayInProgress
             // 
             this.lblPayInProgress.AutoSize = true;
-            this.lblPayInProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPayInProgress.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPayInProgress.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblPayInProgress.Location = new System.Drawing.Point(219, 54);
+            this.lblPayInProgress.Location = new System.Drawing.Point(198, 57);
             this.lblPayInProgress.Name = "lblPayInProgress";
-            this.lblPayInProgress.Size = new System.Drawing.Size(170, 25);
+            this.lblPayInProgress.Size = new System.Drawing.Size(144, 23);
             this.lblPayInProgress.TabIndex = 19;
             this.lblPayInProgress.Text = "Đang nạp tiền ...";
             // 
             // btnStopPayIn
             // 
-            this.btnStopPayIn.Location = new System.Drawing.Point(22, 42);
+            this.btnStopPayIn.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnStopPayIn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStopPayIn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnStopPayIn.Location = new System.Drawing.Point(7, 45);
             this.btnStopPayIn.Name = "btnStopPayIn";
-            this.btnStopPayIn.Size = new System.Drawing.Size(175, 45);
+            this.btnStopPayIn.Size = new System.Drawing.Size(175, 48);
             this.btnStopPayIn.TabIndex = 11;
             this.btnStopPayIn.Text = "Dừng nạp tiền";
-            this.btnStopPayIn.UseVisualStyleBackColor = true;
+            this.btnStopPayIn.UseVisualStyleBackColor = false;
             this.btnStopPayIn.Click += new System.EventHandler(this.btnStopPayIn_Click);
             // 
             // btnStartPayIn
             // 
-            this.btnStartPayIn.Location = new System.Drawing.Point(22, 42);
+            this.btnStartPayIn.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnStartPayIn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnStartPayIn.Location = new System.Drawing.Point(7, 45);
             this.btnStartPayIn.Name = "btnStartPayIn";
-            this.btnStartPayIn.Size = new System.Drawing.Size(175, 45);
+            this.btnStartPayIn.Size = new System.Drawing.Size(175, 48);
             this.btnStartPayIn.TabIndex = 10;
             this.btnStartPayIn.Text = "Bắt đầu nạp tiền";
-            this.btnStartPayIn.UseVisualStyleBackColor = true;
+            this.btnStartPayIn.UseVisualStyleBackColor = false;
             this.btnStartPayIn.Click += new System.EventHandler(this.btnStartPayIn_Click);
             // 
             // menuStrip2
@@ -172,63 +178,71 @@
             this.SettingToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(3, 3);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1480, 33);
+            this.menuStrip2.Size = new System.Drawing.Size(1480, 29);
             this.menuStrip2.TabIndex = 20;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // SettingToolStripMenuItem1
             // 
-            this.SettingToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.SettingToolStripMenuItem1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.SettingToolStripMenuItem1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.SettingToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Black;
             this.SettingToolStripMenuItem1.Name = "SettingToolStripMenuItem1";
-            this.SettingToolStripMenuItem1.Size = new System.Drawing.Size(85, 29);
+            this.SettingToolStripMenuItem1.Size = new System.Drawing.Size(79, 25);
             this.SettingToolStripMenuItem1.Text = "Cài Đặt";
             this.SettingToolStripMenuItem1.Click += new System.EventHandler(this.SettingToolStripMenuItem_Click);
             // 
             // tabReaMessage
             // 
+            this.tabReaMessage.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tabReaMessage.Controls.Add(this.groupBox4);
             this.tabReaMessage.Controls.Add(this.groupBox3);
             this.tabReaMessage.Controls.Add(this.groupBox2);
             this.tabReaMessage.Controls.Add(this.groupBox1);
             this.tabReaMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabReaMessage.Location = new System.Drawing.Point(4, 33);
+            this.tabReaMessage.Location = new System.Drawing.Point(4, 30);
             this.tabReaMessage.Name = "tabReaMessage";
             this.tabReaMessage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReaMessage.Size = new System.Drawing.Size(1486, 761);
+            this.tabReaMessage.Size = new System.Drawing.Size(1486, 825);
             this.tabReaMessage.TabIndex = 0;
             this.tabReaMessage.Text = "Đọc Tin Nhắn";
-            this.tabReaMessage.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnStopCreateAccount);
             this.groupBox4.Controls.Add(this.btnStartCreateAccount);
+            this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(1100, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(335, 109);
+            this.groupBox4.Size = new System.Drawing.Size(335, 104);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tạo Account";
             // 
             // btnStopCreateAccount
             // 
-            this.btnStopCreateAccount.Location = new System.Drawing.Point(6, 37);
+            this.btnStopCreateAccount.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnStopCreateAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStopCreateAccount.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnStopCreateAccount.Location = new System.Drawing.Point(69, 37);
             this.btnStopCreateAccount.Name = "btnStopCreateAccount";
-            this.btnStopCreateAccount.Size = new System.Drawing.Size(207, 38);
+            this.btnStopCreateAccount.Size = new System.Drawing.Size(207, 36);
             this.btnStopCreateAccount.TabIndex = 15;
             this.btnStopCreateAccount.Text = "Dừng tạo tài khoản";
-            this.btnStopCreateAccount.UseVisualStyleBackColor = true;
+            this.btnStopCreateAccount.UseVisualStyleBackColor = false;
             this.btnStopCreateAccount.Click += new System.EventHandler(this.btnStopCreateAccount_Click);
             // 
             // btnStartCreateAccount
             // 
-            this.btnStartCreateAccount.Location = new System.Drawing.Point(6, 37);
+            this.btnStartCreateAccount.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnStartCreateAccount.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnStartCreateAccount.Location = new System.Drawing.Point(69, 37);
             this.btnStartCreateAccount.Name = "btnStartCreateAccount";
-            this.btnStartCreateAccount.Size = new System.Drawing.Size(207, 38);
+            this.btnStartCreateAccount.Size = new System.Drawing.Size(207, 36);
             this.btnStartCreateAccount.TabIndex = 14;
             this.btnStartCreateAccount.Text = "Bắt đầu tạo tài khoản";
-            this.btnStartCreateAccount.UseVisualStyleBackColor = true;
+            this.btnStartCreateAccount.UseVisualStyleBackColor = false;
             this.btnStartCreateAccount.Click += new System.EventHandler(this.btnStartCreateAccount_Click);
             // 
             // groupBox3
@@ -251,9 +265,10 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Controls.Add(this.btnShowHistory);
-            this.groupBox3.Location = new System.Drawing.Point(3, 121);
+            this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(7, 116);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1480, 755);
+            this.groupBox3.Size = new System.Drawing.Size(1479, 813);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm Kiếm";
@@ -262,9 +277,9 @@
             // 
             this.txtTotal.AutoSize = true;
             this.txtTotal.ForeColor = System.Drawing.Color.Red;
-            this.txtTotal.Location = new System.Drawing.Point(890, 144);
+            this.txtTotal.Location = new System.Drawing.Point(890, 155);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(70, 24);
+            this.txtTotal.Size = new System.Drawing.Size(62, 21);
             this.txtTotal.TabIndex = 32;
             this.txtTotal.Text = "label10";
             // 
@@ -272,27 +287,29 @@
             // 
             this.dateExecuteTo.CustomFormat = "dd/MM/yyyy";
             this.dateExecuteTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateExecuteTo.Location = new System.Drawing.Point(580, 139);
+            this.dateExecuteTo.Location = new System.Drawing.Point(549, 150);
             this.dateExecuteTo.Name = "dateExecuteTo";
-            this.dateExecuteTo.Size = new System.Drawing.Size(150, 29);
+            this.dateExecuteTo.Size = new System.Drawing.Size(181, 29);
             this.dateExecuteTo.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(760, 143);
+            this.label6.Location = new System.Drawing.Point(774, 152);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 25);
+            this.label6.Size = new System.Drawing.Size(100, 23);
             this.label6.TabIndex = 17;
             this.label6.Text = "Tổng tiền :";
             // 
             // dateExecuteFrom
             // 
+            this.dateExecuteFrom.CalendarForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.dateExecuteFrom.CalendarMonthBackground = System.Drawing.Color.DodgerBlue;
             this.dateExecuteFrom.CustomFormat = "dd/MM/yyyy";
             this.dateExecuteFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateExecuteFrom.Location = new System.Drawing.Point(354, 139);
+            this.dateExecuteFrom.Location = new System.Drawing.Point(354, 150);
             this.dateExecuteFrom.Name = "dateExecuteFrom";
             this.dateExecuteFrom.Size = new System.Drawing.Size(189, 29);
             this.dateExecuteFrom.TabIndex = 22;
@@ -301,19 +318,20 @@
             // 
             this.web_listBox_filter.FormattingEnabled = true;
             this.web_listBox_filter.HorizontalExtent = 4;
-            this.web_listBox_filter.ItemHeight = 24;
-            this.web_listBox_filter.Location = new System.Drawing.Point(10, 50);
+            this.web_listBox_filter.ItemHeight = 21;
+            this.web_listBox_filter.Location = new System.Drawing.Point(10, 49);
             this.web_listBox_filter.Name = "web_listBox_filter";
             this.web_listBox_filter.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.web_listBox_filter.Size = new System.Drawing.Size(199, 100);
+            this.web_listBox_filter.Size = new System.Drawing.Size(199, 130);
             this.web_listBox_filter.TabIndex = 31;
             // 
             // cbStopAutoLoadMess
             // 
             this.cbStopAutoLoadMess.AutoSize = true;
-            this.cbStopAutoLoadMess.Location = new System.Drawing.Point(909, 28);
+            this.cbStopAutoLoadMess.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStopAutoLoadMess.Location = new System.Drawing.Point(909, 30);
             this.cbStopAutoLoadMess.Name = "cbStopAutoLoadMess";
-            this.cbStopAutoLoadMess.Size = new System.Drawing.Size(167, 28);
+            this.cbStopAutoLoadMess.Size = new System.Drawing.Size(154, 25);
             this.cbStopAutoLoadMess.TabIndex = 28;
             this.cbStopAutoLoadMess.Text = "Tự động load tin";
             this.cbStopAutoLoadMess.UseVisualStyleBackColor = true;
@@ -321,7 +339,7 @@
             // 
             // txtAccount_filter
             // 
-            this.txtAccount_filter.Location = new System.Drawing.Point(354, 26);
+            this.txtAccount_filter.Location = new System.Drawing.Point(354, 28);
             this.txtAccount_filter.Name = "txtAccount_filter";
             this.txtAccount_filter.Size = new System.Drawing.Size(189, 29);
             this.txtAccount_filter.TabIndex = 24;
@@ -329,81 +347,90 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(230, 139);
+            this.label4.Location = new System.Drawing.Point(254, 154);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 24);
+            this.label4.Size = new System.Drawing.Size(91, 21);
             this.label4.TabIndex = 22;
             this.label4.Text = "Ngày xử lý";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(230, 26);
+            this.label3.Location = new System.Drawing.Point(254, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 24);
+            this.label3.Size = new System.Drawing.Size(84, 21);
             this.label3.TabIndex = 22;
             this.label3.Text = "Tài khoản";
             // 
             // isError_filter
             // 
+            this.isError_filter.BackColor = System.Drawing.Color.DodgerBlue;
             this.isError_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.isError_filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.isError_filter.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.isError_filter.FormattingEnabled = true;
-            this.isError_filter.Location = new System.Drawing.Point(689, 26);
+            this.isError_filter.Location = new System.Drawing.Point(689, 28);
             this.isError_filter.Name = "isError_filter";
-            this.isError_filter.Size = new System.Drawing.Size(185, 32);
+            this.isError_filter.Size = new System.Drawing.Size(185, 29);
             this.isError_filter.TabIndex = 23;
             // 
             // isProcessed_filter
             // 
+            this.isProcessed_filter.BackColor = System.Drawing.Color.DodgerBlue;
             this.isProcessed_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.isProcessed_filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.isProcessed_filter.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.isProcessed_filter.FormattingEnabled = true;
-            this.isProcessed_filter.Location = new System.Drawing.Point(689, 82);
+            this.isProcessed_filter.Location = new System.Drawing.Point(689, 88);
             this.isProcessed_filter.Name = "isProcessed_filter";
-            this.isProcessed_filter.Size = new System.Drawing.Size(185, 32);
+            this.isProcessed_filter.Size = new System.Drawing.Size(185, 29);
             this.isProcessed_filter.TabIndex = 23;
             // 
             // isSatisfied_filter
             // 
+            this.isSatisfied_filter.BackColor = System.Drawing.Color.DodgerBlue;
             this.isSatisfied_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.isSatisfied_filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.isSatisfied_filter.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.isSatisfied_filter.FormattingEnabled = true;
-            this.isSatisfied_filter.Location = new System.Drawing.Point(354, 81);
+            this.isSatisfied_filter.Location = new System.Drawing.Point(354, 87);
             this.isSatisfied_filter.Name = "isSatisfied_filter";
-            this.isSatisfied_filter.Size = new System.Drawing.Size(189, 32);
+            this.isSatisfied_filter.Size = new System.Drawing.Size(189, 29);
             this.isSatisfied_filter.TabIndex = 23;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(576, 28);
+            this.label9.Location = new System.Drawing.Point(593, 31);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 24);
+            this.label9.Size = new System.Drawing.Size(35, 21);
             this.label9.TabIndex = 22;
             this.label9.Text = "Lỗi";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(576, 85);
+            this.label8.Location = new System.Drawing.Point(593, 91);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 24);
+            this.label8.Size = new System.Drawing.Size(74, 21);
             this.label8.TabIndex = 22;
             this.label8.Text = "Đã xử lý";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(238, 84);
+            this.label7.Location = new System.Drawing.Point(254, 91);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 24);
+            this.label7.Size = new System.Drawing.Size(60, 21);
             this.label7.TabIndex = 22;
             this.label7.Text = "Hợp lệ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 25);
+            this.label2.Location = new System.Drawing.Point(6, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 24);
+            this.label2.Size = new System.Drawing.Size(44, 21);
             this.label2.TabIndex = 22;
             this.label2.Text = "Web";
             // 
@@ -411,9 +438,10 @@
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Web,
@@ -427,12 +455,14 @@
             this.Error,
             this.Id,
             this.TimeExecute});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 174);
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.Location = new System.Drawing.Point(4, 187);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 35;
-            this.dataGridView1.Size = new System.Drawing.Size(1476, 460);
+            this.dataGridView1.Size = new System.Drawing.Size(1476, 514);
             this.dataGridView1.TabIndex = 21;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
@@ -560,12 +590,16 @@
             // 
             // btnShowHistory
             // 
-            this.btnShowHistory.Location = new System.Drawing.Point(909, 82);
+            this.btnShowHistory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnShowHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShowHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowHistory.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnShowHistory.Location = new System.Drawing.Point(909, 87);
             this.btnShowHistory.Name = "btnShowHistory";
-            this.btnShowHistory.Size = new System.Drawing.Size(118, 33);
+            this.btnShowHistory.Size = new System.Drawing.Size(118, 32);
             this.btnShowHistory.TabIndex = 20;
             this.btnShowHistory.Text = "Tìm";
-            this.btnShowHistory.UseVisualStyleBackColor = true;
+            this.btnShowHistory.UseVisualStyleBackColor = false;
             this.btnShowHistory.Click += new System.EventHandler(this.btnShowHistory_Click);
             // 
             // groupBox2
@@ -574,9 +608,10 @@
             this.groupBox2.Controls.Add(this.lblErrorReadMessage);
             this.groupBox2.Controls.Add(this.btnStopReadMessage);
             this.groupBox2.Controls.Add(this.btnStartReadMessage);
+            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(600, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(494, 109);
+            this.groupBox2.Size = new System.Drawing.Size(494, 104);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đọc Tin Nhắn";
@@ -584,43 +619,48 @@
             // lblReadMessageProgress
             // 
             this.lblReadMessageProgress.AutoSize = true;
-            this.lblReadMessageProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReadMessageProgress.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReadMessageProgress.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblReadMessageProgress.Location = new System.Drawing.Point(231, 43);
+            this.lblReadMessageProgress.Location = new System.Drawing.Point(231, 46);
             this.lblReadMessageProgress.Name = "lblReadMessageProgress";
-            this.lblReadMessageProgress.Size = new System.Drawing.Size(211, 25);
+            this.lblReadMessageProgress.Size = new System.Drawing.Size(181, 23);
             this.lblReadMessageProgress.TabIndex = 18;
             this.lblReadMessageProgress.Text = "Đang đọc tin nhắn ...";
             // 
             // lblErrorReadMessage
             // 
             this.lblErrorReadMessage.AutoSize = true;
-            this.lblErrorReadMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorReadMessage.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorReadMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorReadMessage.Location = new System.Drawing.Point(6, 75);
+            this.lblErrorReadMessage.Location = new System.Drawing.Point(6, 81);
             this.lblErrorReadMessage.Name = "lblErrorReadMessage";
-            this.lblErrorReadMessage.Size = new System.Drawing.Size(70, 25);
+            this.lblErrorReadMessage.Size = new System.Drawing.Size(61, 23);
             this.lblErrorReadMessage.TabIndex = 17;
             this.lblErrorReadMessage.Text = "label2";
             // 
             // btnStopReadMessage
             // 
-            this.btnStopReadMessage.Location = new System.Drawing.Point(6, 37);
+            this.btnStopReadMessage.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnStopReadMessage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStopReadMessage.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnStopReadMessage.Location = new System.Drawing.Point(6, 40);
             this.btnStopReadMessage.Name = "btnStopReadMessage";
-            this.btnStopReadMessage.Size = new System.Drawing.Size(207, 38);
+            this.btnStopReadMessage.Size = new System.Drawing.Size(207, 34);
             this.btnStopReadMessage.TabIndex = 15;
             this.btnStopReadMessage.Text = "Dừng đọc tin nhắn";
-            this.btnStopReadMessage.UseVisualStyleBackColor = true;
+            this.btnStopReadMessage.UseVisualStyleBackColor = false;
             this.btnStopReadMessage.Click += new System.EventHandler(this.btnStopReadMessage_Click);
             // 
             // btnStartReadMessage
             // 
-            this.btnStartReadMessage.Location = new System.Drawing.Point(6, 37);
+            this.btnStartReadMessage.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnStartReadMessage.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnStartReadMessage.Location = new System.Drawing.Point(6, 38);
             this.btnStartReadMessage.Name = "btnStartReadMessage";
-            this.btnStartReadMessage.Size = new System.Drawing.Size(207, 38);
+            this.btnStartReadMessage.Size = new System.Drawing.Size(207, 36);
             this.btnStartReadMessage.TabIndex = 14;
             this.btnStartReadMessage.Text = "Bắt đầu đọc tin nhắn";
-            this.btnStartReadMessage.UseVisualStyleBackColor = true;
+            this.btnStartReadMessage.UseVisualStyleBackColor = false;
             this.btnStartReadMessage.Click += new System.EventHandler(this.btnStartReadMessage_Click);
             // 
             // groupBox1
@@ -628,51 +668,58 @@
             this.groupBox1.Controls.Add(this.connectPortBtn);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.SerialPortCombobox);
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(7, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(587, 109);
+            this.groupBox1.Size = new System.Drawing.Size(587, 104);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kết Nối Thiết Bị";
             // 
             // connectPortBtn
             // 
-            this.connectPortBtn.Location = new System.Drawing.Point(435, 39);
+            this.connectPortBtn.BackColor = System.Drawing.Color.DodgerBlue;
+            this.connectPortBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.connectPortBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.connectPortBtn.Location = new System.Drawing.Point(436, 38);
             this.connectPortBtn.Name = "connectPortBtn";
-            this.connectPortBtn.Size = new System.Drawing.Size(124, 33);
+            this.connectPortBtn.Size = new System.Drawing.Size(124, 36);
             this.connectPortBtn.TabIndex = 8;
             this.connectPortBtn.Text = "Kết Nối";
-            this.connectPortBtn.UseVisualStyleBackColor = true;
+            this.connectPortBtn.UseVisualStyleBackColor = false;
             this.connectPortBtn.Click += new System.EventHandler(this.connectPortBtn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 41);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 25);
+            this.label1.Size = new System.Drawing.Size(127, 23);
             this.label1.TabIndex = 7;
             this.label1.Text = "Cổng Kết Nối";
             // 
             // SerialPortCombobox
             // 
+            this.SerialPortCombobox.BackColor = System.Drawing.Color.DodgerBlue;
             this.SerialPortCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SerialPortCombobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SerialPortCombobox.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.SerialPortCombobox.FormattingEnabled = true;
-            this.SerialPortCombobox.Location = new System.Drawing.Point(154, 39);
+            this.SerialPortCombobox.Location = new System.Drawing.Point(154, 42);
             this.SerialPortCombobox.Name = "SerialPortCombobox";
-            this.SerialPortCombobox.Size = new System.Drawing.Size(261, 32);
+            this.SerialPortCombobox.Size = new System.Drawing.Size(261, 29);
             this.SerialPortCombobox.TabIndex = 6;
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabReaMessage);
             this.tabControl.Controls.Add(this.tabPayIn);
-            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(1, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1494, 798);
+            this.tabControl.Size = new System.Drawing.Size(1494, 859);
             this.tabControl.TabIndex = 10;
             // 
             // menuStrip1
@@ -692,10 +739,12 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1494, 802);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(1494, 864);
             this.Controls.Add(this.tabControl);
+            this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
