@@ -237,7 +237,7 @@ namespace ProcessAutomation.Main.PayIn
                             CreateSyncTask();
                             PayInSubmit();
                             await tcs.Task;
-                            await Task.Delay(5000);
+                            await Task.Delay(10000);
 
                             if (!webLayout.Url.ToString().Contains(agencies_URL))
                             {
