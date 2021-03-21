@@ -117,7 +117,6 @@
             this.tabPayIn.Size = new System.Drawing.Size(1486, 825);
             this.tabPayIn.TabIndex = 1;
             this.tabPayIn.Text = "Nạp Tiền";
-            this.tabPayIn.Click += new System.EventHandler(this.tabPayIn_Click);
             // 
             // webLayoutIE
             // 
@@ -462,7 +461,6 @@
             this.dataGridView1.RowTemplate.Height = 35;
             this.dataGridView1.Size = new System.Drawing.Size(1476, 514);
             this.dataGridView1.TabIndex = 21;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
