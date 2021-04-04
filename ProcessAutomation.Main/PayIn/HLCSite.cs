@@ -85,7 +85,7 @@ namespace ProcessAutomation.Main.PayIn
                             await Task.Delay(5000);
 
                             process = "Login";
-                            if (webLayout.Url.ToString() == user_URL)
+                            if (webLayout.Url.ToString().Contains(user_URL))
                             {
                                 process = "CheckAmountAccount";
                                 if (data.Count() == 0 && data.Exists(x => x.IsKeepSession))
