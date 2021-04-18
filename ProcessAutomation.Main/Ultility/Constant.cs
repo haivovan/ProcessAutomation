@@ -51,14 +51,14 @@ namespace ProcessAutomation.Main.Ultility
         #endregion
 
         #region RegisterAccount
-        public const string GET_NEW_ACCOUNT_URL = "https://checkcode.sinsudaidu.com/php/adddatactv.php";
-        public const string UPDATE_ACCOUNT_URL = "https://checkcode.sinsudaidu.com/php/updatedatactv.php";
+        public const string GET_NEW_ACCOUNT_URL = "https://api.napthechietkhaugiare.com/toolnaptien/adddatactv.php";
+        public const string UPDATE_ACCOUNT_URL = "https://api.napthechietkhaugiare.com/toolnaptien/updatedatactv.php";
         public const string INTEREST = "1";
         #endregion
 
         #region CheckOTP
         public const string OTP = "otp";
-        public const string GET_OTP_URL = "https://checkcode.sinsudaidu.com/php/getotp.php";
+        public const string GET_OTP_URL = "https://api.napthechietkhaugiare.com/toolnaptien/getotp.php";
         #endregion
 
         #region Telegram
