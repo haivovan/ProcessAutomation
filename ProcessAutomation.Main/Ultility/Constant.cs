@@ -20,13 +20,13 @@ namespace ProcessAutomation.Main.Ultility
         public const string REG_EXTRACT_MONEY_TEMPLATE1 = @"(tang)+(.*?VND)";
         public const string REG_EXTRACT_MONEY_TEMPLATE2 = @"(\+ )+(.*? )";
         public const string REG_EXTRACT_MONEY_TEMPLATE3 = @"(\+)+(.*?VND)";
-        public const string REG_EXTRACT_ACCOUNT1 = @"(hl|bk|dn|az|tl|3s|sn| h l| b k| d n| a z| t l| 3 s| s n|hl |dn |az |tl |3s |sn | h l | d n | a z | t l | 3 s | s n )+(\d\d\d\d)";
-        public const string REG_EXTRACT_ACCOUNT2 = @"(hl|bk|dn|az|tl|3s|sn)+(\d \d\d\d)";                                                                    
-        public const string REG_EXTRACT_ACCOUNT3 = @"(hl|bk|dn|az|tl|3s|sn| h l| b k| d n| a z| t l| 3 s| s n|hl |dn |az |tl |3s |sn | h l | d n | a z | t l | 3 s | s n )+(\d\d \d\d)";
-        public const string REG_EXTRACT_ACCOUNT4 = @"(hl|bk|dn|az|tl|3s|sn)+( \d\d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT1 = @"(hl|bk|dn|az|tl|3s|sn|mm| h l| b k| d n| a z| t l| 3 s| s n| m m|hl |dn |az |tl |3s |sn |mm | h l | d n | a z | t l | 3 s | s n | m m )+(\d\d\d\d)";
+        public const string REG_EXTRACT_ACCOUNT2 = @"(hl|bk|dn|az|tl|3s|sn|mm)+(\d \d\d\d)";                                                                    
+        public const string REG_EXTRACT_ACCOUNT3 = @"(hl|bk|dn|az|tl|3s|sn|mm| h l| b k| d n| a z| t l| 3 s| s n| m m|hl |dn |az |tl |3s |sn |mm | h l | d n | a z | t l | 3 s | s n | m m )+(\d\d \d\d)";
+        public const string REG_EXTRACT_ACCOUNT4 = @"(hl|bk|dn|az|tl|3s|sn|mm)+( \d\d\d\d)";
         public const string REG_EXTRACT_SO_DU = @"^(.*?)VNĐ";
        
-        public static List<string> WEBS_NAME = new List<string> { "hl", "bk", "dn", "az", "tl", "3s", "sn" };
+        public static List<string> WEBS_NAME = new List<string> { "hl", "bk", "dn", "az", "tl", "3s", "sn", "mm" };
         #endregion
 
         #region Limitation
@@ -47,6 +47,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string TRUMLANG = "tl";
         public const string NAP3S = "3s";
         public const string SIEUNHANH= "sn";
+        public const string MEOMUOP = "mm";
         #endregion
 
         #region RegisterAccount

@@ -152,11 +152,13 @@
   <ItemGroup>
     <Compile Include="Model\OTPModel.cs" />
     <Compile Include="Model\RegisterAccountModel.cs" />
+    <Compile Include="PayIn\MMSite.cs" />
     <Compile Include="PayIn\SNSite.cs" />
     <Compile Include="PayIn\NAP3SSite.cs" />
     <Compile Include="PayIn\AZSite.cs" />
     <Compile Include="PayIn\TLSite.cs" />
     <Compile Include="PayIn\DNSite.cs" />
+    <Compile Include="RegisterAccount\RegisterAccount_MMSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_SNSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_NAP3SSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_TLSite .cs" />

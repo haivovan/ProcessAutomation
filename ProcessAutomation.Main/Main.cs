@@ -253,6 +253,9 @@ namespace ProcessAutomation.Main
                     case Constant.SIEUNHANH:
                         registerAccount = new RegisterAccount_SNSite(registerModel);
                         break;
+                    case Constant.MEOMUOP:
+                        registerAccount = new RegisterAccount_MMSite(registerModel);
+                        break;
                 }
 
                 RegisterAccount form = new RegisterAccount(registerAccount);
@@ -447,6 +450,21 @@ namespace ProcessAutomation.Main
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
+                else if (listMessage.ContainsKey(Constant.MEOMUOP) && listMessage[Constant.MEOMUOP].Count > 0)
+                {
+                    if (iAutomationPayin == null || !(iAutomationPayin is MMSite))
+                    {
+                        iAutomationPayin = new MMSite(new List<Message>(listMessage[Constant.MEOMUOP]), webLayout);
+                        iAutomationPayin.startPayIN();
+                    }
+
+                    if (!iAutomationPayin.checkProcessDone())
+                        return;
+
+                    listMessage.Remove(Constant.MEOMUOP);
+                    iAutomationPayin = null;
+                    showSearchMessage();
+                }
             }
             catch (Exception ex)
             {
@@ -489,7 +507,7 @@ namespace ProcessAutomation.Main
                         (x.DateExcute >= dateExecuteFrom.Value.Date && x.DateExcute <= dateExecuteTo.Value.Date))
                     .Where(x =>
                     (web_listBox_filter.SelectedItems.Count == 1 && selectedList[0].Equals("Tất Cả"))
-                        || (web_listBox_filter.SelectedItems.Count == 8) || selectedList.Contains(x.Web))
+                        || (web_listBox_filter.SelectedItems.Count == 9) || selectedList.Contains(x.Web))
                     .Where(x => string.IsNullOrEmpty(account) || x.Account == account)
                     .Where(x => (isSatisfied_filter.SelectedItem.ToString().Equals("Tất Cả"))
                         || (isSatisfied_filter.SelectedItem.ToString().Equals("Hợp Lệ") && x.IsSatisfied)
@@ -620,6 +638,7 @@ namespace ProcessAutomation.Main
             web_listBox_filter.Items.Add(Constant.TRUMLANG);
             web_listBox_filter.Items.Add(Constant.NAP3S);
             web_listBox_filter.Items.Add(Constant.SIEUNHANH);
+            web_listBox_filter.Items.Add(Constant.MEOMUOP);
 
             web_listBox_filter.SetSelected(0, true);
             web_listBox_filter.SetSelected(1, true);
@@ -629,6 +648,7 @@ namespace ProcessAutomation.Main
             web_listBox_filter.SetSelected(5, true);
             web_listBox_filter.SetSelected(6, true);
             web_listBox_filter.SetSelected(7, true);
+            web_listBox_filter.SetSelected(8, true);
 
             messageContition.WebSRun.Add(Constant.BANHKEO);
             messageContition.WebSRun.Add(Constant.HANHLANG);
@@ -637,6 +657,7 @@ namespace ProcessAutomation.Main
             messageContition.WebSRun.Add(Constant.TRUMLANG);
             messageContition.WebSRun.Add(Constant.NAP3S);
             messageContition.WebSRun.Add(Constant.SIEUNHANH);
+            messageContition.WebSRun.Add(Constant.MEOMUOP);
             cbStopAutoLoadMess.Checked = true;
             showSearchMessage();
         }
