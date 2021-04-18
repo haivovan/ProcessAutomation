@@ -21,8 +21,8 @@ namespace ProcessAutomation.Main.PayIn
         Helper helper = new Helper();
         private GeckoWebBrowser webLayout;
         private RegisterAccountModel data = new RegisterAccountModel();
-        private const string web_name = "mm";
-        private const string url = "https://meomuop.club/Login";
+        private const string web_name = "meomuop";
+        private const string url = "https://meomuop.club/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";

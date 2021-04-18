@@ -43,7 +43,6 @@ namespace ProcessAutomation.Main
         private void okBtn_Click(object sender, EventArgs e)
         {
             webToRun = new List<string>();
-            //if (cbCayBang.Checked) webToRun.Add(Constant.CAYBANG);
             if (cbBanhKeo.Checked) webToRun.Add(Constant.BANHKEO);
             if (cbHanhLang.Checked) webToRun.Add(Constant.HANHLANG);
             if (cbDienNuoc.Checked) webToRun.Add(Constant.DIENNUOC);
