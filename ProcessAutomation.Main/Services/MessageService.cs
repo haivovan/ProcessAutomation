@@ -89,7 +89,7 @@ namespace ProcessAutomation.Main.Services
                 if (matches.Count > 0)
                 {
                     List<Message> temp = new List<Message>();
-                    var list5LatestMessage = database.Query.OrderByDescending(x => x.Id).Take(5).ToList();
+                    var list5LatestMessage = new List<Message>();
                     foreach (Match match in matches)
                     {
                         var dataToWrite = new StringBuilder();
@@ -101,7 +101,7 @@ namespace ProcessAutomation.Main.Services
                             .Skip(1));
                         mess.TimeExecute = 0;
 
-                        mess.MessageContent = match.Groups[6].Value.Trim();
+                        mess.MessageContent = helper.DecodeFromHexToString(match.Groups[6].Value.Trim());
                         if (temp.Exists(x =>
                             x.Account.Equals(mess.Account) &&
                             x.Web.Equals(mess.Web) &&
@@ -110,6 +110,10 @@ namespace ProcessAutomation.Main.Services
                         {
                             continue;
                         }
+
+                        list5LatestMessage = database.Query
+                            .Where(x => x.Account.Equals(mess.Account))
+                            .OrderByDescending(x => x.Id).Take(5).ToList();
 
                         if (list5LatestMessage.Any(x =>
                             x.Account.Equals(mess.Account) &&
@@ -120,7 +124,6 @@ namespace ProcessAutomation.Main.Services
                             continue;
                         }
 
-                        mess.MessageContent = helper.DecodeFromHexToString(mess.MessageContent);
                         dataToWrite.AppendFormat(
                             "{0},{1},{2},{3},{4},{5},{6},{7}",
                             mess.Account,
