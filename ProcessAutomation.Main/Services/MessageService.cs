@@ -113,6 +113,7 @@ namespace ProcessAutomation.Main.Services
 
                         list5LatestMessage = database.Query
                             .Where(x => x.Account.Equals(mess.Account))
+                            .Where(x => string.IsNullOrEmpty(mess.Error))
                             .OrderByDescending(x => x.Id).Take(5).ToList();
 
                         if (list5LatestMessage.Any(x =>
