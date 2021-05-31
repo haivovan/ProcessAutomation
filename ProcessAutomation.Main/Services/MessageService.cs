@@ -89,7 +89,7 @@ namespace ProcessAutomation.Main.Services
                 if (matches.Count > 0)
                 {
                     List<Message> temp = new List<Message>();
-                    var list5LatestMessage = database.Query.OrderByDescending(x => x.Id).Take(50).ToList();
+                    var list5LatestMessage = new List<Message>();
                     foreach (Match match in matches)
                     {
                         var dataToWrite = new StringBuilder();
@@ -118,6 +118,11 @@ namespace ProcessAutomation.Main.Services
                         {
                             continue;
                         }
+
+                        list5LatestMessage = database.Query
+                            .Where(x => x.Account.Equals(mess.Account))
+                            .Where(x => string.IsNullOrEmpty(mess.Error))
+                            .OrderByDescending(x => x.Id).Take(5).ToList();
 
                         if (list5LatestMessage.Any(x =>
                             x.Account.Equals(mess.Account) &&
