@@ -89,17 +89,25 @@ namespace ProcessAutomation.Main.Services
                 if (matches.Count > 0)
                 {
                     List<Message> temp = new List<Message>();
-                    var list5LatestMessage = database.Query.OrderByDescending(x => x.Id).Take(5).ToList();
+                    var list5LatestMessage = database.Query.OrderByDescending(x => x.Id).Take(50).ToList();
                     foreach (Match match in matches)
                     {
                         var dataToWrite = new StringBuilder();
-                        var mess = AnalyzeMessage(match.Groups[6].ToString());
+                        if (!string.Join(string.Empty, match.Groups[2].Value.Trim()).Contains("UNREAD"))
+                        {
+                            continue;
+                        }
+
+                        //var mess = AnalyzeMessage(match.Groups[6].ToString());
+                        var mess = AnalyzeMessage(helper.DecodeFromHexToString(match.Groups[6].ToString()));
                         mess.RecievedDate = string.Join(
                             string.Empty, match.Groups[4].Value.Trim()
                             .Replace("+00", "")
                             .Replace("\"", "")
                             .Skip(1));
                         mess.TimeExecute = 0;
+
+                        mess.MessageContent = helper.DecodeFromHexToString(mess.MessageContent);
 
                         mess.MessageContent = match.Groups[6].Value.Trim();
                         if (temp.Exists(x =>
@@ -120,7 +128,6 @@ namespace ProcessAutomation.Main.Services
                             continue;
                         }
 
-                        mess.MessageContent = helper.DecodeFromHexToString(mess.MessageContent);
                         dataToWrite.AppendFormat(
                             "{0},{1},{2},{3},{4},{5},{6},{7}",
                             mess.Account,
@@ -133,6 +140,7 @@ namespace ProcessAutomation.Main.Services
                             mess.MessageContent + Environment.NewLine
                         );
                         //messages.Add(mess);
+                        //var mess = AnalyzeMessage(helper.DecodeFromHexToString(match.Groups[6].ToString()));
                         temp.Add(mess);
                         database.InsertOne(mess);
                         csvHelper.WriteToFile(dataToWrite, $"{DateTime.Now.ToString("dd-MM-yyyy")}.csv");
