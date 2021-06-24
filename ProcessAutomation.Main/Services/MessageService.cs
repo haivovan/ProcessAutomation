@@ -107,9 +107,9 @@ namespace ProcessAutomation.Main.Services
                             .Skip(1));
                         mess.TimeExecute = 0;
 
-                        mess.MessageContent = helper.DecodeFromHexToString(mess.MessageContent);
+                        mess.MessageContent = helper.DecodeFromHexToString(match.Groups[6].Value.Trim());
 
-                        mess.MessageContent = match.Groups[6].Value.Trim();
+                        //mess.MessageContent = match.Groups[6].Value.Trim();
                         if (temp.Exists(x =>
                             x.Account.Equals(mess.Account) &&
                             x.Web.Equals(mess.Web) &&
