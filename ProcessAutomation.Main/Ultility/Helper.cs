@@ -83,7 +83,7 @@ namespace ProcessAutomation.Main.Ultility
 
         //}
 
-        public async void sendMessageTelegram(string message, string chatId = Constant.CHAT_ID_GROUP)
+        public void SendMessageTelegram(string message, string chatId = Constant.CHAT_ID_GROUP)
         {
             try
             {

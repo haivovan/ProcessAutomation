@@ -22,7 +22,7 @@ namespace ProcessAutomation.Main.PayIn
         private GeckoWebBrowser webLayout;
         private RegisterAccountModel data = new RegisterAccountModel();
         private const string web_name = "meomuop";
-        private const string url = "https://meomuop.club/";
+        private const string url = "https://meomuop.net/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";
@@ -297,6 +297,8 @@ namespace ProcessAutomation.Main.PayIn
             var txtRateVina = html.GetElementById("RateVina");
             var txtRateSMS = html.GetElementById("RateSMS");
             var txtRateKPlus = html.GetElementById("RateKPlus");
+            var txtPhysCardRate = html.GetElementById("PhysCardRate");
+            var txtSellCardRate = html.GetElementById("SellCardRate");
 
             var bonus = data.Percent;
             txtUserName.SetAttribute("value", data.WebId + data.IdNumber);
@@ -315,6 +317,8 @@ namespace ProcessAutomation.Main.PayIn
             txtRateVina.SetAttribute("value", bonus);
             txtRateSMS.SetAttribute("value", bonus);
             txtRateKPlus.SetAttribute("value", bonus);
+            txtPhysCardRate.SetAttribute("value", bonus);
+            txtSellCardRate.SetAttribute("value", bonus);
         }
 
         private void AddUser()
@@ -323,8 +327,8 @@ namespace ProcessAutomation.Main.PayIn
             var inputTag = html.GetElementsByTagName("input");
             foreach (GeckoHtmlElement item in inputTag)
             {
-                var name = item.GetAttribute("name");
-                if (name != null && name == "login")
+                var name = item.GetAttribute("value");
+                if (name != null && name == "SAVE")
                 {
                     item.Click();
                     break;
@@ -384,7 +388,7 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                helper.sendMessageTelegram(message, Constant.CHAT_ID_CHAU);
+                helper.SendMessageTelegram(message, Constant.CHAT_ID_CHAU);
             }
             catch (Exception ex)
             {

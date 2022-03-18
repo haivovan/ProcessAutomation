@@ -399,6 +399,7 @@ namespace ProcessAutomation.Main.PayIn
                     var money = matches[1].ToString();
                     decimal outMoney = 0;
                     decimal.TryParse(money.Replace("VNĐ", "").Trim(), out outMoney);
+                    decimal.TryParse(money.Replace("Đ", "").Trim(), out outMoney);
                     return outMoney;
                 }
                 return 0;
@@ -473,6 +474,16 @@ namespace ProcessAutomation.Main.PayIn
             var total = money + Math.Round(money * decimal.Parse(bonus) / 100);
 
             amount.SetAttribute("value", total.ToString());
+
+            var message = html.GetElementById("Message");
+            var messageContent = currentMessage.MessageContent;
+            var matches = new Regex(Constant.REG_EXTRACT_GHI_CHU, RegexOptions.IgnoreCase).Match(messageContent).Groups;
+            if (matches.Count >= 2)
+            {
+                messageContent = matches[1].ToString();
+            }
+
+            message.TextContent=messageContent;
         }
 
         private string GetUserName()
@@ -543,7 +554,8 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                helper.sendMessageTelegram(message);
+                helper.SendMessageTelegram(message);
+                isFinishProcess = true;
             }
             catch (Exception ex)
             {

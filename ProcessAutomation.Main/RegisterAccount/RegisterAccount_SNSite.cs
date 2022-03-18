@@ -298,6 +298,7 @@ namespace ProcessAutomation.Main.PayIn
             var txtRateSMS = html.GetElementById("RateSMS");
             var txtRateKPlus = html.GetElementById("RateKPlus");
             var txtPhysCardRate = html.GetElementById("PhysCardRate");
+            var txtSellCardRate = html.GetElementById("SellCardRate");
 
             var bonus = data.Percent;
             txtUserName.SetAttribute("value", data.WebId + data.IdNumber);
@@ -317,6 +318,7 @@ namespace ProcessAutomation.Main.PayIn
             txtRateSMS.SetAttribute("value", bonus);
             txtRateKPlus.SetAttribute("value", bonus);
             txtPhysCardRate.SetAttribute("value", bonus);
+            txtSellCardRate.SetAttribute("value", bonus);
         }
 
         private void AddUser()
@@ -325,8 +327,8 @@ namespace ProcessAutomation.Main.PayIn
             var inputTag = html.GetElementsByTagName("input");
             foreach (GeckoHtmlElement item in inputTag)
             {
-                var name = item.GetAttribute("name");
-                if (name != null && name == "login")
+                var name = item.GetAttribute("value");
+                if (name != null && name == "SAVE")
                 {
                     item.Click();
                     break;
@@ -386,7 +388,7 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                helper.sendMessageTelegram(message, Constant.CHAT_ID_CHAU);
+                helper.SendMessageTelegram(message, Constant.CHAT_ID_CHAU);
             }
             catch (Exception ex)
             {

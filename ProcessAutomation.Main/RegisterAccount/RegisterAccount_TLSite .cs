@@ -323,8 +323,8 @@ namespace ProcessAutomation.Main.PayIn
             var inputTag = html.GetElementsByTagName("input");
             foreach (GeckoHtmlElement item in inputTag)
             {
-                var name = item.GetAttribute("name");
-                if (name != null && name == "login")
+                var name = item.GetAttribute("value");
+                if (name != null && name == "SAVE")
                 {
                     item.Click();
                     break;
@@ -384,7 +384,7 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                helper.sendMessageTelegram(message, Constant.CHAT_ID_CHAU);
+                helper.SendMessageTelegram(message, Constant.CHAT_ID_CHAU);
             }
             catch (Exception ex)
             {

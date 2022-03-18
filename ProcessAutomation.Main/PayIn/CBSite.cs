@@ -1,10 +1,13 @@
-﻿using MongoDB.Driver;
+﻿using Gecko;
+using Gecko.DOM;
+using MongoDB.Driver;
 using ProcessAutomation.DAL;
 using ProcessAutomation.Main.Services;
 using ProcessAutomation.Main.Ultility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -15,7 +18,7 @@ namespace ProcessAutomation.Main.PayIn
     {
         MailService mailService = new MailService();
         Helper helper = new Helper();
-        private WebBrowser webLayout;
+        private GeckoWebBrowser webLayout;
         private List<Message> data = new List<Message>();
         private const string web_name = "caybang";
         private const string url = "https://caybang.club/";
@@ -27,10 +30,10 @@ namespace ProcessAutomation.Main.PayIn
         Message currentMessage;
         Void v;
         TaskCompletionSource<Void> tcs = null;
-        WebBrowserDocumentCompletedEventHandler documentComplete = null;
+        EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs> documentComplete;
         MongoDatabase<AdminSetting> adminSetting = new MongoDatabase<AdminSetting>(typeof(AdminSetting).Name);
 
-        public CBSite(List<Message> data, WebBrowser web)
+        public CBSite(List<Message> data, GeckoWebBrowser web)
         {
             this.data = data;
             this.webLayout = web;
@@ -52,13 +55,13 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                documentComplete = new WebBrowserDocumentCompletedEventHandler((s, e) =>
+                documentComplete = new EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>((s, e) =>
                 {
-                    if (webLayout.DocumentText.Contains("res://ieframe.dll"))
-                    {
-                        tcs.SetException(new Exception("Lỗi không có kết nối internet"));
-                        return;
-                    }
+                    //if (webLayout.DocumentText.Contains("res://ieframe.dll"))
+                    //{
+                    //    tcs.SetException(new Exception("Lỗi không có kết nối internet"));
+                    //    return;
+                    //}
                     if (!tcs.Task.IsCompleted)
                     {
                         webLayout.DocumentCompleted -= documentComplete;
@@ -280,7 +283,6 @@ namespace ProcessAutomation.Main.PayIn
         private void CreateSyncTask()
         {
             tcs = new TaskCompletionSource<Void>();
-            webLayout.ScriptErrorsSuppressed = true;
             webLayout.DocumentCompleted += documentComplete;
         }
 
@@ -290,16 +292,17 @@ namespace ProcessAutomation.Main.PayIn
             var inputUserName = htmlLogin.GetElementById("Username");
             var inputPassword = htmlLogin.GetElementById("Password");
             var inputOTP = htmlLogin.GetElementById("OTP");
-            var btnLogin = htmlLogin.GetElementById("login");
+            //var btnLogin = htmlLogin.GetElementById("login");
             var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.CAYBANG).FirstOrDefault();
             var otpValue = otpSetting.Value ?? string.Empty;
+            GeckoLinkElement btnLogin = new GeckoLinkElement(htmlLogin.GetElementsByName("login")[0].DomObject);
 
             if (inputUserName != null && inputPassword != null)
             {
                 inputUserName.SetAttribute("value", adminAccount.AccountName);
                 inputPassword.SetAttribute("value", adminAccount.Password);
                 inputOTP.SetAttribute("value", otpValue);
-                btnLogin.InvokeMember("Click");
+                btnLogin.Click();
             }
         }
 
@@ -307,12 +310,12 @@ namespace ProcessAutomation.Main.PayIn
         {
             var htmlIndex = webLayout.Document;
             var aTag = htmlIndex.GetElementsByTagName("a");
-            foreach (HtmlElement item in aTag)
+            foreach (GeckoHtmlElement item in aTag)
             {
                 var href = item.GetAttribute("href");
                 if (href != null && href == agencies_URL)
                 {
-                    item.InvokeMember("Click");
+                    item.Click();
                     break;
                 }
             }
@@ -335,12 +338,12 @@ namespace ProcessAutomation.Main.PayIn
             var userFilter = html.GetElementById("phone");
             userFilter.SetAttribute("value", userAccount.CB);
             var aTag = html.GetElementsByTagName("a");
-            foreach (HtmlElement item in aTag)
+            foreach (GeckoHtmlElement item in aTag)
             {
                 var btnTimKiem = item.InnerHtml;
                 if (btnTimKiem == "TÌM KIẾM")
                 {
-                    item.InvokeMember("onclick");
+                    item.Click();
                     break;
                 }
             }
@@ -350,18 +353,18 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                HtmlElement tdResult = null;
+                GeckoElement tdResult = null;
                 var html = webLayout.Document;
                 var table = html.GetElementsByTagName("table")[0];
                 var trs = table.GetElementsByTagName("tr");
-                foreach (HtmlElement tr in trs)
+                foreach (GeckoHtmlElement tr in trs)
                 {
                     var tds = tr.GetElementsByTagName("td");
-                    foreach (HtmlElement td in tds)
+                    foreach (GeckoHtmlElement td in tds)
                     {
                         try
                         {
-                            string value = td.InnerText;
+                            string value = td.InnerHtml.ToString();
                             if (value != null && value.Contains("SỐ DƯ TÀI KHOẢN"))
                             {
                                 tdResult = tds[1]; //[1] is amount of money
@@ -380,7 +383,7 @@ namespace ProcessAutomation.Main.PayIn
                                                             && x.Key == Constant.CAYBANG).FirstOrDefault();
 
                     decimal outMoney = 0;
-                    return (decimal.TryParse(tdResult.InnerHtml.Replace("VNĐ", "").Trim(), out outMoney)
+                    return (decimal.TryParse(tdResult.TextContent.Replace("VNĐ", "").Trim(), out outMoney)
                         && outMoney >= decimal.Parse(minimumMoney.Value));
                 }
                 return false;
@@ -391,21 +394,21 @@ namespace ProcessAutomation.Main.PayIn
             }
         }
 
-        private HtmlElement FindAccountOnResult(AccountData accountData)
+        private GeckoElement FindAccountOnResult(AccountData accountData)
         {
-            HtmlElement trFound = null;
+            GeckoElement trFound = null;
             var html = webLayout.Document;
             var table = html.GetElementsByTagName("table")[0];
             var trs = table.GetElementsByTagName("tr");
-            foreach (HtmlElement tr in trs)
+            foreach (GeckoHtmlElement tr in trs)
             {
                 var tds = tr.GetElementsByTagName("td");
-                foreach (HtmlElement td in tds)
+                foreach (GeckoHtmlElement td in tds)
                 {
                     try
                     {
-                        string value = td.InnerText;
-                        if (value != null && value.Trim() == accountData.CB.Trim())
+                        string value = td.TextContent.Trim();
+                        if (value != null && value.Trim() == accountData.HLC.Trim())
                         {
                             trFound = tr;
                             break;
@@ -420,17 +423,18 @@ namespace ProcessAutomation.Main.PayIn
             return trFound;
         }
 
-        private void AccessToPayIn(HtmlElement userRow)
+        private void AccessToPayIn(GeckoElement userRow)
         {
             if (userRow != null)
             {
                 var aTag = userRow.GetElementsByTagName("a");
-                foreach (HtmlElement item in aTag)
+                foreach (GeckoElement item in aTag)
                 {
-                    var btnTimKiem = item.InnerHtml;
+                    var btnTimKiem = item.TextContent.Trim();
                     if (btnTimKiem == "CỘNG TIỀN")
                     {
-                        item.InvokeMember("Click");
+                        GeckoLinkElement btnPay = new GeckoLinkElement(item.DomObject);
+                        btnPay.Click();
                         break;
                     }
                 }
@@ -448,13 +452,23 @@ namespace ProcessAutomation.Main.PayIn
             var total = money + Math.Round(money * decimal.Parse(bonus) / 100);
 
             amount.SetAttribute("value", total.ToString());
+
+            var message = html.GetElementById("Message");
+            var messageContent = currentMessage.MessageContent;
+            var matches = new Regex(Constant.REG_EXTRACT_GHI_CHU, RegexOptions.IgnoreCase).Match(messageContent).Groups;
+            if (matches.Count >= 2)
+            {
+                messageContent = matches[1].ToString();
+            }
+
+            message.TextContent=messageContent;
         }
 
         private void PayInSubmit()
         {
             var html = webLayout.Document;
-            var btnAdd = html.GetElementById("add_money_button");
-            btnAdd.InvokeMember("Click");
+            GeckoLinkElement btnPay = new GeckoLinkElement(html.GetElementById("add_money_button").DomObject);
+            btnPay.Click();
         }
 
         private string checkAccountAdmin(ref AdminAccount account)
@@ -478,7 +492,8 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                helper.sendMessageTelegram(message);
+                helper.SendMessageTelegram(message);
+                isFinishProcess = true;
             }
             catch (Exception ex)
             {

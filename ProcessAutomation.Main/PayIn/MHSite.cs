@@ -330,7 +330,8 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                helper.sendMessageTelegram(message);
+                helper.SendMessageTelegram(message);
+                isFinishProcess = true;
             }
             catch (Exception ex)
             {
