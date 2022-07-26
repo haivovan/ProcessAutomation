@@ -21,7 +21,7 @@ namespace ProcessAutomation.Main.PayIn
         private RegisterAccountModel data = new RegisterAccountModel();
         private RegisterAccount registerAccountForm;
         private const string web_name = "hanhlangcu";
-        private const string url = "https://muangau.net/";
+        private const string url = "https://bantim.net/";
         private const string index_URL = url + "Login";
         private const string user_URL = url + "Users";
         private const string agencies_URL = url + "Users/Agencies";
@@ -188,10 +188,19 @@ namespace ProcessAutomation.Main.PayIn
                                     $"Link web: {url}" + Environment.NewLine +
                                     $"Tk({data.GetLevel()}): {data.WebId + data.IdNumber}" + Environment.NewLine +
                                     $"Mk: {data.Password}" + Environment.NewLine +
-                                    $"Nội dung chuyển khoản nạp số dư: {data.WebId + data.IdNumber}" + Environment.NewLine +
-                                    $"STK VPBank: 97229748 - PHAN MINH CHÂU" + Environment.NewLine +
-                                    $"(ACE lưu ý chọn chuyển nhanh 24 / 7 & chuyển khoản đúng nội dung quy định sẽ được tự động cộng vào tài khoản trong 3p.Trường hợp chuyển khoản sai xử lý vào cuối ngày)" + Environment.NewLine +
-                                    $"Cần liên hệ ACE liên hệ Zalo 0981 694 994");
+                                    $"* Hệ thống sẽ tự động xóa tài khoản nếu quá 15 ngày không truy cập!" + Environment.NewLine +
+                                    $"Hướng dẫn nạp số dư: tối thiểu 100k/lần" + Environment.NewLine +
+                                    $"1. ACE đăng nhập vào web" + Environment.NewLine +
+                                    $"2. Ấn vào nút nạp tiền, web sẽ hiện số tài khoản và nội dung chuyển khoản " + Environment.NewLine +
+                                    $"3. ACE chuyển khoản theo thông tin đấy là xong" + Environment.NewLine +
+                                    $"Lưu ý: phần nội dung ace bấm vào chữ copy để có nội dung chính xác, nếu nhập tay phải giống 100% (NAP BMA…. hoặc NAP MVA…. hoặc NAP SNH…. , …)" + Environment.NewLine +
+                                    $"" + Environment.NewLine +
+                                    $"Lưu ý" + Environment.NewLine +
+                                    $"*** VIETCOMBANK: Chuyển khoản từ VCB ace vui lòng thêm 0123456789 vào trước nội dung để được cộng tự động." + Environment.NewLine +
+                                    $"Ví dụ nội dung chuẩn là: NAP SNH18612 thì đổi thành 0123456789 NAP SNH18612" + Environment.NewLine +
+                                    $"** Các bank khác không thay đổi" + Environment.NewLine +
+                                    $"Video hướng dẫn: https://youtu.be/09l7u-QJH6c" + Environment.NewLine +
+                                    $"Zalo: 0981 694 994(Sau khi nạp số dư lần đầu inbox để add nhóm)");
                             }
                             process = "Finish";
                             break;
