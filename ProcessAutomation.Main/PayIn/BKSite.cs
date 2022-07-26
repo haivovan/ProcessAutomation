@@ -305,14 +305,7 @@ namespace ProcessAutomation.Main.PayIn
             var inputOTP = htmlLogin.GetElementById("OTP");
             var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.BANHKEO).FirstOrDefault();
             var otpValue = otpSetting?.Value ?? string.Empty;
-            var btnLogin = (GeckoLinkElement)htmlLogin.GetElementById("loginForm").DOMElement;
-             //GeckoLinkElement next = new GeckoLinkElement(webLayout.Document.GetElementsByClassName("resetPrice").ElementAt(1).DomObject);
-            //GeckoLinkElement btnLogin = new GeckoLinkElement(htmlLogin.GetElementById("loginForm").DOMElement);
-            //(GeckoLinkElement)htmlLogin.GetElementById("loginForm").DOMElement;
-            //var elements = loginForm.GetElementsByTagName("input");
-            //GeckoInputElement inputEle = elements.FirstOrDefault(x => x.LocalName == "nameOfMyElement") as GeckoInputElement;
-
-            //var btnLogin = GeckoLinkElement.CreateDomElementWrapper((mozIDOMWindowProxy)webLayout.Window.DomWindow, htmlLogin.GetElementsByName("login")[0].DOMElement);
+            GeckoHtmlElement btnLogin = (GeckoHtmlElement)htmlLogin.GetElementById("loginForm");
 
             if (inputUserName != null && inputPassword != null)
             {
@@ -462,7 +455,7 @@ namespace ProcessAutomation.Main.PayIn
                     var btnTimKiem = item.TextContent.Trim();
                     if (btnTimKiem == "CỘNG TIỀN")
                     {
-                        GeckoLinkElement btnPay = (GeckoLinkElement)item.DOMElement;
+                        GeckoLinkElement btnPay = (GeckoLinkElement)item;
                         btnPay.Click();
                         break;
                     }
@@ -536,7 +529,7 @@ namespace ProcessAutomation.Main.PayIn
         private void PayInSubmit()
         {
             var html = webLayout.Document;
-            GeckoLinkElement btnPay = (GeckoLinkElement)html.GetElementById("add_money_button").DOMElement;
+            GeckoHtmlElement btnPay = (GeckoHtmlElement)html.GetElementById("add_money_button");
             btnPay.Click();
         }
 
