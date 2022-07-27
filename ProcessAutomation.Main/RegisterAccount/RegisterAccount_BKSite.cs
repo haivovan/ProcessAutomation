@@ -247,7 +247,7 @@ namespace ProcessAutomation.Main.PayIn
             var inputOTP = htmlLogin.GetElementById("OTP");
             var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.BANHKEO).FirstOrDefault();
             var otpValue = otpSetting.Value ?? string.Empty;
-            GeckoLinkElement btnLogin = (GeckoLinkElement)htmlLogin.GetElementsByName("login")[0].DomObject;
+            GeckoLinkElement btnLogin = (GeckoLinkElement)htmlLogin.GetElementsByName("login")[0];
 
             if (inputUserName != null && inputPassword != null)
             {
