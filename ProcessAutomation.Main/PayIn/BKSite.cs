@@ -449,13 +449,12 @@ namespace ProcessAutomation.Main.PayIn
             if (userRow != null)
             {
                 var aTag = userRow.GetElementsByTagName("a");
-                foreach (GeckoElement item in aTag)
+                foreach (GeckoHtmlElement item in aTag)
                 {
                     var btnTimKiem = item.TextContent.Trim();
                     if (btnTimKiem == "CỘNG TIỀN")
                     {
-                        GeckoInputElement btnPay = (GeckoInputElement)item;
-                        btnPay.Click();
+                        item.Click();
                         break;
                     }
                 }
@@ -528,7 +527,7 @@ namespace ProcessAutomation.Main.PayIn
         private void PayInSubmit()
         {
             var html = webLayout.Document;
-            GeckoInputElement btnPay =(GeckoInputElement)html.GetElementById("add_money_button");
+            GeckoInputElement btnPay = (GeckoInputElement)html.GetElementById("add_money_button");
             btnPay.Click();
         }
 

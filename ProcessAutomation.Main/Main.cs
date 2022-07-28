@@ -232,30 +232,30 @@ namespace ProcessAutomation.Main
                     case Constant.BANHKEO:
                         registerAccount = new RegisterAccount_BKSite(registerModel);
                         break;
-                    case Constant.HANHLANG:
-                        registerAccount = new RegisterAccount_HLCSite(registerModel);
-                        break;
-                    case Constant.LANQUEPHUONG:
-                        registerAccount = new RegisterAccount_LQSite(registerModel);
-                        break;
-                    case Constant.DIENNUOC:
-                        registerAccount = new RegisterAccount_DNSite(registerModel);
-                        break;
-                    case Constant.NAPAZ:
-                        registerAccount = new RegisterAccount_AZSite(registerModel);
-                        break;
-                    case Constant.TRUMLANG:
-                        registerAccount = new RegisterAccount_TLSite(registerModel);
-                        break;
-                    case Constant.NAP3S:
-                        registerAccount = new RegisterAccount_NAP3SSite(registerModel);
-                        break;
-                    case Constant.SIEUNHANH:
-                        registerAccount = new RegisterAccount_SNSite(registerModel);
-                        break;
-                    case Constant.MEOMUOP:
-                        registerAccount = new RegisterAccount_MMSite(registerModel);
-                        break;
+                    //case Constant.HANHLANG:
+                    //    registerAccount = new RegisterAccount_HLCSite(registerModel);
+                    //    break;
+                    //case Constant.LANQUEPHUONG:
+                    //    registerAccount = new RegisterAccount_LQSite(registerModel);
+                    //    break;
+                    //case Constant.DIENNUOC:
+                    //    registerAccount = new RegisterAccount_DNSite(registerModel);
+                    //    break;
+                    //case Constant.NAPAZ:
+                    //    registerAccount = new RegisterAccount_AZSite(registerModel);
+                    //    break;
+                    //case Constant.TRUMLANG:
+                    //    registerAccount = new RegisterAccount_TLSite(registerModel);
+                    //    break;
+                    //case Constant.NAP3S:
+                    //    registerAccount = new RegisterAccount_NAP3SSite(registerModel);
+                    //    break;
+                    //case Constant.SIEUNHANH:
+                    //    registerAccount = new RegisterAccount_SNSite(registerModel);
+                    //    break;
+                    //case Constant.MEOMUOP:
+                    //    registerAccount = new RegisterAccount_MMSite(registerModel);
+                    //    break;
                 }
 
                 RegisterAccount form = new RegisterAccount(registerAccount);
@@ -330,141 +330,141 @@ namespace ProcessAutomation.Main
                     iAutomationPayin = null;
                     showSearchMessage();
                 }
-                else if (listMessage.ContainsKey(Constant.HANHLANG) && listMessage[Constant.HANHLANG].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is HLCSite))
-                    {
-                        iAutomationPayin = new HLCSite(new List<Message>(listMessage[Constant.HANHLANG]), webLayout);
-                        iAutomationPayin.startPayIN();
-                    }
+                //else if (listMessage.ContainsKey(Constant.HANHLANG) && listMessage[Constant.HANHLANG].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is HLCSite))
+                //    {
+                //        iAutomationPayin = new HLCSite(new List<Message>(listMessage[Constant.HANHLANG]), webLayout);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.HANHLANG);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.MH) && listMessage[Constant.MH].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is MHSite))
-                    {
-                        iAutomationPayin = new MHSite(new List<Message>(listMessage[Constant.MH]), webLayoutIE);
-                        iAutomationPayin.startPayIN();
-                    }
+                //    listMessage.Remove(Constant.HANHLANG);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else if (listMessage.ContainsKey(Constant.MH) && listMessage[Constant.MH].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is MHSite))
+                //    {
+                //        iAutomationPayin = new MHSite(new List<Message>(listMessage[Constant.MH]), webLayoutIE);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.MH);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.LANQUEPHUONG) && listMessage[Constant.LANQUEPHUONG].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is LQSite))
-                    {
-                        iAutomationPayin = new LQSite(new List<Message>(listMessage[Constant.LANQUEPHUONG]), webLayoutIE);
-                        iAutomationPayin.startPayIN();
-                    }
+                //    listMessage.Remove(Constant.MH);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else if (listMessage.ContainsKey(Constant.LANQUEPHUONG) && listMessage[Constant.LANQUEPHUONG].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is LQSite))
+                //    {
+                //        iAutomationPayin = new LQSite(new List<Message>(listMessage[Constant.LANQUEPHUONG]), webLayoutIE);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.LANQUEPHUONG);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.DIENNUOC) && listMessage[Constant.DIENNUOC].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is DNSite))
-                    {
-                        iAutomationPayin = new DNSite(new List<Message>(listMessage[Constant.DIENNUOC]), webLayout);
-                        iAutomationPayin.startPayIN();
-                    }
+                //    listMessage.Remove(Constant.LANQUEPHUONG);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else if (listMessage.ContainsKey(Constant.DIENNUOC) && listMessage[Constant.DIENNUOC].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is DNSite))
+                //    {
+                //        iAutomationPayin = new DNSite(new List<Message>(listMessage[Constant.DIENNUOC]), webLayout);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.DIENNUOC);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.NAPAZ) && listMessage[Constant.NAPAZ].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is AZSite))
-                    {
-                        iAutomationPayin = new AZSite(new List<Message>(listMessage[Constant.NAPAZ]), webLayout);
-                        iAutomationPayin.startPayIN();
-                    }
+                //    listMessage.Remove(Constant.DIENNUOC);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else if (listMessage.ContainsKey(Constant.NAPAZ) && listMessage[Constant.NAPAZ].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is AZSite))
+                //    {
+                //        iAutomationPayin = new AZSite(new List<Message>(listMessage[Constant.NAPAZ]), webLayout);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.NAPAZ);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.TRUMLANG) && listMessage[Constant.TRUMLANG].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is TLSite))
-                    {
-                        iAutomationPayin = new TLSite(new List<Message>(listMessage[Constant.TRUMLANG]), webLayout);
-                        iAutomationPayin.startPayIN();
-                    }
+                //    listMessage.Remove(Constant.NAPAZ);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else if (listMessage.ContainsKey(Constant.TRUMLANG) && listMessage[Constant.TRUMLANG].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is TLSite))
+                //    {
+                //        iAutomationPayin = new TLSite(new List<Message>(listMessage[Constant.TRUMLANG]), webLayout);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.TRUMLANG);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.NAP3S) && listMessage[Constant.NAP3S].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is NAP3SSite))
-                    {
-                        iAutomationPayin = new NAP3SSite(new List<Message>(listMessage[Constant.NAP3S]), webLayout);
-                        iAutomationPayin.startPayIN();
-                    }
+                //    listMessage.Remove(Constant.TRUMLANG);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else if (listMessage.ContainsKey(Constant.NAP3S) && listMessage[Constant.NAP3S].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is NAP3SSite))
+                //    {
+                //        iAutomationPayin = new NAP3SSite(new List<Message>(listMessage[Constant.NAP3S]), webLayout);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.NAP3S);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.SIEUNHANH) && listMessage[Constant.SIEUNHANH].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is SNSite))
-                    {
-                        iAutomationPayin = new SNSite(new List<Message>(listMessage[Constant.SIEUNHANH]), webLayout);
-                        iAutomationPayin.startPayIN();
-                    }
+                //    listMessage.Remove(Constant.NAP3S);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else if (listMessage.ContainsKey(Constant.SIEUNHANH) && listMessage[Constant.SIEUNHANH].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is SNSite))
+                //    {
+                //        iAutomationPayin = new SNSite(new List<Message>(listMessage[Constant.SIEUNHANH]), webLayout);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.SIEUNHANH);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
-                else if (listMessage.ContainsKey(Constant.MEOMUOP) && listMessage[Constant.MEOMUOP].Count > 0)
-                {
-                    if (iAutomationPayin == null || !(iAutomationPayin is MMSite))
-                    {
-                        iAutomationPayin = new MMSite(new List<Message>(listMessage[Constant.MEOMUOP]), webLayout);
-                        iAutomationPayin.startPayIN();
-                    }
+                //    listMessage.Remove(Constant.SIEUNHANH);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
+                //else if (listMessage.ContainsKey(Constant.MEOMUOP) && listMessage[Constant.MEOMUOP].Count > 0)
+                //{
+                //    if (iAutomationPayin == null || !(iAutomationPayin is MMSite))
+                //    {
+                //        iAutomationPayin = new MMSite(new List<Message>(listMessage[Constant.MEOMUOP]), webLayout);
+                //        iAutomationPayin.startPayIN();
+                //    }
 
-                    if (!iAutomationPayin.checkProcessDone())
-                        return;
+                //    if (!iAutomationPayin.checkProcessDone())
+                //        return;
 
-                    listMessage.Remove(Constant.MEOMUOP);
-                    iAutomationPayin = null;
-                    showSearchMessage();
-                }
+                //    listMessage.Remove(Constant.MEOMUOP);
+                //    iAutomationPayin = null;
+                //    showSearchMessage();
+                //}
             }
             catch (Exception ex)
             {
