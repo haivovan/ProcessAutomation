@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
+using GeckDom = Gecko.DOM;
 
 namespace ProcessAutomation.Main.PayIn
 {
@@ -247,7 +247,7 @@ namespace ProcessAutomation.Main.PayIn
             var inputOTP = htmlLogin.GetElementById("OTP");
             var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.BANHKEO).FirstOrDefault();
             var otpValue = otpSetting.Value ?? string.Empty;
-            GeckoLinkElement btnLogin = (GeckoLinkElement)htmlLogin.GetElementsByName("login")[0];
+            GeckDom.GeckoInputElement btnLogin = (GeckDom.GeckoInputElement)htmlLogin.GetElementsByName("login")[0];
 
             if (inputUserName != null && inputPassword != null)
             {
