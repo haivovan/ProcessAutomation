@@ -305,7 +305,7 @@ namespace ProcessAutomation.Main.PayIn
             var inputOTP = htmlLogin.GetElementById("OTP");
             var otpSetting = adminSetting.Query.Where(x => x.Name == "OTP" && x.Key.ToLower() == Constant.TRUMLANG).FirstOrDefault();
             var otpValue = otpSetting?.Value ?? string.Empty;
-            GeckoLinkElement btnLogin = (GeckoLinkElement)htmlLogin.GetElementsByName("login")[0];
+            GeckoInputElement btnLogin = (GeckoInputElement)htmlLogin.GetElementsByName("login")[0];
 
             if (inputUserName != null && inputPassword != null)
             {
@@ -455,7 +455,7 @@ namespace ProcessAutomation.Main.PayIn
                     var btnTimKiem = item.TextContent.Trim();
                     if (btnTimKiem == "CỘNG TIỀN")
                     {
-                        GeckoLinkElement btnPay = (GeckoLinkElement)item;
+                        GeckoInputElement btnPay = (GeckoInputElement)item;
                         btnPay.Click();
                         break;
                     }
@@ -529,7 +529,7 @@ namespace ProcessAutomation.Main.PayIn
         private void PayInSubmit()
         {
             var html = webLayout.Document;
-            GeckoLinkElement btnPay = (GeckoLinkElement)html.GetElementById("add_money_button");
+            GeckoInputElement btnPay = (GeckoInputElement)html.GetElementById("add_money_button");
             btnPay.Click();
         }
 
