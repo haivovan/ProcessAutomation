@@ -450,13 +450,12 @@ namespace ProcessAutomation.Main.PayIn
             if (userRow != null)
             {
                 var aTag = userRow.GetElementsByTagName("a");
-                foreach (GeckoElement item in aTag)
+                foreach (GeckoHtmlElement item in aTag)
                 {
                     var btnTimKiem = item.TextContent.Trim();
                     if (btnTimKiem == "CỘNG TIỀN")
                     {
-                        GeckoInputElement btnPay = (GeckoInputElement)item;
-                        btnPay.Click();
+                        item.Click();
                         break;
                     }
                 }
