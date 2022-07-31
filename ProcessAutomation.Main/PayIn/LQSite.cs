@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using Gecko;
+using MongoDB.Driver;
 using ProcessAutomation.DAL;
 using ProcessAutomation.Main.Services;
 using ProcessAutomation.Main.Ultility;
@@ -361,40 +362,39 @@ namespace ProcessAutomation.Main.PayIn
         {
             try
             {
-                HtmlElement tdResult = null;
+                GeckoElement spanResult = null;
                 var html = webLayout.Document;
-                var table = html.GetElementsByTagName("table")[0];
-                var trs = table.GetElementsByTagName("tr");
-                foreach (HtmlElement tr in trs)
+                var pTags = html.GetElementsByTagName("p");
+                foreach (GeckoHtmlElement item in pTags)
                 {
-                    var tds = tr.GetElementsByTagName("td");
-                    foreach (HtmlElement td in tds)
+                    try
                     {
-                        try
+                        if (item.InnerHtml.Contains("BẠN ĐANG ĐĂNG NHẬP QUA"))
                         {
-                            string value = td.InnerText;
-                            if (value != null && value.Contains("SỐ DƯ TÀI KHOẢN"))
+                            var spans = item.GetElementsByTagName("span");
+                            if (spans.Any())
                             {
-                                tdResult = tds[1]; //[1] is amount of money
-                                break;
+                                var spanSoDu = spans[0];
+                                string value = spanSoDu.TextContent;
+                                if (value != null && value.Contains("-"))
+                                {
+                                    spanResult = spanSoDu;
+                                    break;
+                                }
                             }
                         }
-                        catch
-                        {
-                            continue;
-                        }
+                    }
+                    catch
+                    {
+                        continue;
                     }
                 }
-                if (tdResult != null)
+                if (spanResult != null)
                 {
-                    var temp = tdResult.InnerText;
-                    var matches = new Regex(Constant.REG_EXTRACT_SO_DU, RegexOptions.IgnoreCase).Match(temp).Groups;
-                    if (matches.Count < 2)
-                    {
-                        return 0;
-                    }
+                    var spanValue = spanResult.TextContent.Trim();
+                    var splittedValue = spanValue.Split('-')[1];
+                    var money = splittedValue.Trim().Trim(']');
 
-                    var money = matches[1].ToString();
                     decimal outMoney = 0;
                     decimal.TryParse(money.Replace("VNĐ", "").Trim(), out outMoney);
                     decimal.TryParse(money.Replace("Đ", "").Trim(), out outMoney);
