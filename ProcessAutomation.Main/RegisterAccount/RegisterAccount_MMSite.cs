@@ -299,6 +299,7 @@ namespace ProcessAutomation.Main.PayIn
             var txtRateVT199 = html.GetElementById("RateVT199");
             var txtRateVTOrder = html.GetElementById("RateVTOrder");
             var txtRateMobiOrder = html.GetElementById("RateMobiOrder");
+            var txtRateVMSGSM = html.GetElementById("RateVMSGSM");
             var txtRateVinaOrder = html.GetElementById("RateVinaOrder");
             var txtRateVNMOrder = html.GetElementById("RateVNMOrder");
             var txtRateVT = html.GetElementById("RateVT");
@@ -319,6 +320,7 @@ namespace ProcessAutomation.Main.PayIn
             txtRateVT199.SetAttribute("value", bonus);
             txtRateVTOrder.SetAttribute("value", bonus);
             txtRateMobiOrder.SetAttribute("value", bonus);
+            txtRateVMSGSM.SetAttribute("value", bonus);
             txtRateVinaOrder.SetAttribute("value", bonus);
             txtRateVNMOrder.SetAttribute("value", bonus);
             txtRateVT.SetAttribute("value", bonus);
