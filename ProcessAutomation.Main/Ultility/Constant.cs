@@ -49,6 +49,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string NAP3S = "3s";
         public const string SIEUNHANH= "sn";
         public const string MEOMUOP = "mm";
+        public const string HOASUA = "hs";
         #endregion
 
         #region RegisterAccount

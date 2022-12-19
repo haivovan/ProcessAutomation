@@ -236,6 +236,7 @@
     <Compile Include="RegisterAccount\RegisterAccount_MMSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_SNSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_NAP3SSite.cs" />
+    <Compile Include="RegisterAccount\RegisterAccount_HSSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_TLSite .cs" />
     <Compile Include="RegisterAccount\RegisterAccount_AZSite.cs" />
     <Compile Include="RegisterAccount\RegisterAccount_DNSite.cs" />

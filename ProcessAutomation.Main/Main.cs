@@ -256,6 +256,9 @@ namespace ProcessAutomation.Main
                     case Constant.MEOMUOP:
                         registerAccount = new RegisterAccount_MMSite(registerModel);
                         break;
+                    case Constant.HOASUA:
+                        registerAccount = new RegisterAccount_HSSite(registerModel);
+                        break;
                 }
 
                 RegisterAccount form = new RegisterAccount(registerAccount);
