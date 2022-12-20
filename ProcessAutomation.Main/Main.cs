@@ -259,6 +259,9 @@ namespace ProcessAutomation.Main
                     case Constant.HOASUA:
                         registerAccount = new RegisterAccount_HSSite(registerModel);
                         break;
+                    case Constant.COMTHIT:
+                        registerAccount = new RegisterAccount_CTSite(registerModel);
+                        break;
                 }
 
                 RegisterAccount form = new RegisterAccount(registerAccount);

@@ -20,5 +20,6 @@ namespace ProcessAutomation.Main.PayIn
         public static bool isSentNotification_TL { get; set; } = false;
         public static bool isSentNotification_TC { get; set; } = false;
         public static bool isSentNotification_HS { get; set; } = false;
+        public static bool isSentNotification_CT { get; set; } = false;
     }
 }

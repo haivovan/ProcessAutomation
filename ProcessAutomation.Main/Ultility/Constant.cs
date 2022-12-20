@@ -50,6 +50,7 @@ namespace ProcessAutomation.Main.Ultility
         public const string SIEUNHANH= "sn";
         public const string MEOMUOP = "mm";
         public const string HOASUA = "hs";
+        public const string COMTHIT = "ct";
         #endregion
 
         #region RegisterAccount
