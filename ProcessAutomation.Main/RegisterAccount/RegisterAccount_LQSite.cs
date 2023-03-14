@@ -300,6 +300,7 @@ namespace ProcessAutomation.Main.PayIn
             var txtRateSMS = html.GetElementById("RateSMS");
             var txtRateKPlus = html.GetElementById("RateKPlus");
             var txtPhysCardRate = html.GetElementById("PhysCardRate");
+            var txtSellCardRate = html.GetElementById("SellCardRate");
 
             var bonus = data.Percent;
             txtUserName.SetAttribute("value", data.WebId + data.IdNumber);
@@ -318,6 +319,7 @@ namespace ProcessAutomation.Main.PayIn
             txtRateSMS.SetAttribute("value", bonus);
             txtRateKPlus.SetAttribute("value", bonus);
             txtPhysCardRate.SetAttribute("value", bonus);
+            txtSellCardRate.SetAttribute("value", bonus);
         }
 
         private void AddUser()
