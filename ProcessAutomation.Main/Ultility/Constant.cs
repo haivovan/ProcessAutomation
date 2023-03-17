@@ -54,14 +54,14 @@ namespace ProcessAutomation.Main.Ultility
         #endregion
 
         #region RegisterAccount
-        public const string GET_NEW_ACCOUNT_URL = "https://api.hcm2099.xyz/toolnaptien/adddatactv.php";
-        public const string UPDATE_ACCOUNT_URL = "https://api.hcm2099.xyz/toolnaptien/updatedatactv.php";
+        public const string GET_NEW_ACCOUNT_URL = "https://api.032023.xyz/toolnaptien/adddatactv.php";
+        public const string UPDATE_ACCOUNT_URL = "https://api.032023.xyz/toolnaptien/updatedatactv.php";
         public const string INTEREST = "1";
         #endregion
 
         #region CheckOTP
         public const string OTP = "otp";
-        public const string GET_OTP_URL = "https://api.hcm2099.xyz/toolnaptien/getotp.php";
+        public const string GET_OTP_URL = "https://api.032023.xyz/toolnaptien/getotp.php";
         #endregion
 
         #region Telegram
